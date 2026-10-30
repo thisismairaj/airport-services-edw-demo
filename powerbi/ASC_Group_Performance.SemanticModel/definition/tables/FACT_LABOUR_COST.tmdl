@@ -1,0 +1,180 @@
+table FACT_LABOUR_COST
+	lineageTag: a324c92c-3507-43b8-90b3-4df12d31bed4
+
+	column labour_cost_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 5cb73ed0-6ad4-4f0a-952d-afaf40aa2d81
+		summarizeBy: none
+		sourceColumn: labour_cost_key
+
+		annotation SummarizationSetBy = User
+
+	column fiscal_period
+		dataType: string
+		lineageTag: 97f4dbec-dce2-497b-8bcc-a9a74cbe78aa
+		summarizeBy: none
+		sourceColumn: fiscal_period
+
+		annotation SummarizationSetBy = User
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: b78290df-3bfe-4f6a-ae12-a6d71d2aa8ab
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = User
+
+	column entity_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: f9d3d869-db98-473f-941e-63302c3ebb5b
+		summarizeBy: none
+		sourceColumn: entity_key
+
+		annotation SummarizationSetBy = User
+
+	column cost_center_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 8327afbf-e858-4358-a0ee-a892cd326d51
+		summarizeBy: none
+		sourceColumn: cost_center_key
+
+		annotation SummarizationSetBy = User
+
+	column deployed_cost_center_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 00831091-335f-441f-b9a5-fea8ecd288f5
+		summarizeBy: none
+		sourceColumn: deployed_cost_center_key
+
+		annotation SummarizationSetBy = User
+
+	column employment_type
+		dataType: string
+		lineageTag: 62f8c7d0-8a72-4ab9-97b5-2aaa24fc63da
+		summarizeBy: none
+		sourceColumn: employment_type
+
+		annotation SummarizationSetBy = User
+
+	column shift_pattern
+		dataType: string
+		lineageTag: 76d81508-7d5c-4834-9054-f49785d768c5
+		summarizeBy: none
+		sourceColumn: shift_pattern
+
+		annotation SummarizationSetBy = User
+
+	column headcount
+		dataType: int64
+		formatString: #,0
+		lineageTag: b8b24f5d-e512-4c79-a2a2-3a774f12791f
+		summarizeBy: none
+		sourceColumn: headcount
+
+		annotation SummarizationSetBy = User
+
+	column regular_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c64ea53c-fa7e-4ece-bbd2-cdf6e2af9c5b
+		summarizeBy: none
+		sourceColumn: regular_hours
+
+		annotation SummarizationSetBy = User
+
+	column overtime_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 327033cd-4949-40c4-bc4c-23b763e3d19b
+		summarizeBy: none
+		sourceColumn: overtime_hours
+
+		annotation SummarizationSetBy = User
+
+	column night_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4b4f35f1-24d5-461c-bfe6-62492432c3f8
+		summarizeBy: none
+		sourceColumn: night_hours
+
+		annotation SummarizationSetBy = User
+
+	column leave_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 0bc84b86-d926-4485-a103-04d271bb91cc
+		summarizeBy: none
+		sourceColumn: leave_hours
+
+		annotation SummarizationSetBy = User
+
+	column regular_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ce6ea603-3a1c-45b0-901e-066b521eb575
+		summarizeBy: none
+		sourceColumn: regular_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column overtime_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 62b96817-241e-4077-bb18-5ececb6c8f0b
+		summarizeBy: none
+		sourceColumn: overtime_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column benefits_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 9c2bde0a-f4db-496d-a5e9-edef44a256a9
+		summarizeBy: none
+		sourceColumn: benefits_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column total_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 1f8b96d9-b683-4ca4-9692-b0cd868aa9d8
+		summarizeBy: none
+		sourceColumn: total_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column src_batch_id
+		dataType: string
+		isHidden
+		lineageTag: 6189264e-ee25-4c59-9da8-f73cc6b08ff4
+		summarizeBy: none
+		sourceColumn: src_batch_id
+
+		annotation SummarizationSetBy = User
+
+	partition FACT_LABOUR_COST = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "FACT_LABOUR_COST"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

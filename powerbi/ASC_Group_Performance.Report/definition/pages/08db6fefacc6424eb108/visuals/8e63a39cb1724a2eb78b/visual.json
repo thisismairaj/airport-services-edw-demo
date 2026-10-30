@@ -1,0 +1,143 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8e63a39cb1724a2eb78b",
+  "position": {
+    "x": 20,
+    "y": 180,
+    "z": 5,
+    "height": 534,
+    "width": 620,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RECON_RESULTS"
+                    }
+                  },
+                  "Property": "check_name"
+                }
+              },
+              "queryRef": "RECON_RESULTS.check_name",
+              "nativeQueryRef": "check_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RECON_RESULTS"
+                    }
+                  },
+                  "Property": "src_system"
+                }
+              },
+              "queryRef": "RECON_RESULTS.src_system",
+              "nativeQueryRef": "src_system"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RECON_RESULTS"
+                    }
+                  },
+                  "Property": "source_value"
+                }
+              },
+              "queryRef": "RECON_RESULTS.source_value",
+              "nativeQueryRef": "source_value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RECON_RESULTS"
+                    }
+                  },
+                  "Property": "target_value"
+                }
+              },
+              "queryRef": "RECON_RESULTS.target_value",
+              "nativeQueryRef": "target_value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RECON_RESULTS"
+                    }
+                  },
+                  "Property": "variance"
+                }
+              },
+              "queryRef": "RECON_RESULTS.variance",
+              "nativeQueryRef": "variance"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RECON_RESULTS"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "RECON_RESULTS.status",
+              "nativeQueryRef": "status"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Reconciliation, latest run'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

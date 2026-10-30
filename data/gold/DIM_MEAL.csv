@@ -1,0 +1,28 @@
+meal_key,menu_spec_code,airline_code,meal_class,meal_class_name,meal_type,spec_version,effective_from,effective_to,std_food_cost_usd,std_labour_cost_usd,std_overhead_cost_usd,spec_change_reason
+1,EK-F-v2,EK,F,First,Hot multi-course,2,2024-01-01,2026-06-30,11.0,5.5,4.0,Baseline contract specification
+2,EK-F-v3,EK,F,First,Hot multi-course,3,2026-07-01,9999-12-31,11.99,5.5,4.0,Premium protein & dessert upgrade requested by airline
+3,EK-J-v2,EK,J,Business,Hot tray service,2,2024-01-01,2026-06-30,6.0,3.0,2.2,Baseline contract specification
+4,EK-J-v3,EK,J,Business,Hot tray service,3,2026-07-01,9999-12-31,6.54,3.0,2.2,Premium protein & dessert upgrade requested by airline
+5,EK-Y-v2,EK,Y,Economy,Hot tray / snack box,2,2024-01-01,2026-06-30,2.2,1.1,0.9,Baseline contract specification
+6,EK-Y-v3,EK,Y,Economy,Hot tray / snack box,3,2026-07-01,9999-12-31,2.398,1.1,0.9,Premium protein & dessert upgrade requested by airline
+7,FZ-J-v2,FZ,J,Business,Hot tray service,2,2024-01-01,2026-06-30,6.0,3.0,2.2,Baseline contract specification
+8,FZ-J-v3,FZ,J,Business,Hot tray service,3,2026-07-01,9999-12-31,6.54,3.0,2.2,Premium protein & dessert upgrade requested by airline
+9,FZ-Y-v2,FZ,Y,Economy,Hot tray / snack box,2,2024-01-01,2026-06-30,2.2,1.1,0.9,Baseline contract specification
+10,FZ-Y-v3,FZ,Y,Economy,Hot tray / snack box,3,2026-07-01,9999-12-31,2.398,1.1,0.9,Premium protein & dessert upgrade requested by airline
+11,CHR-J-v2,CHR,J,Business,Hot tray service,2,2024-01-01,2026-06-30,6.0,3.0,2.2,Baseline contract specification
+12,CHR-J-v3,CHR,J,Business,Hot tray service,3,2026-07-01,9999-12-31,6.54,3.0,2.2,Premium protein & dessert upgrade requested by airline
+13,CHR-Y-v2,CHR,Y,Economy,Hot tray / snack box,2,2024-01-01,2026-06-30,2.2,1.1,0.9,Baseline contract specification
+14,CHR-Y-v3,CHR,Y,Economy,Hot tray / snack box,3,2026-07-01,9999-12-31,2.398,1.1,0.9,Premium protein & dessert upgrade requested by airline
+15,GC-J-v2,GC,J,Business,Hot tray service,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification
+16,GC-Y-v2,GC,Y,Economy,Hot tray / snack box,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification
+17,QR-J-v2,QR,J,Business,Hot tray service,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification
+18,QR-Y-v2,QR,Y,Economy,Hot tray / snack box,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification
+19,EY-J-v2,EY,J,Business,Hot tray service,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification
+20,EY-Y-v2,EY,Y,Economy,Hot tray / snack box,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification
+21,BA-F-v2,BA,F,First,Hot multi-course,2,2024-01-01,9999-12-31,11.0,5.5,4.0,Baseline contract specification
+22,BA-J-v2,BA,J,Business,Hot tray service,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification
+23,BA-Y-v2,BA,Y,Economy,Hot tray / snack box,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification
+24,TK-J-v2,TK,J,Business,Hot tray service,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification
+25,TK-Y-v2,TK,Y,Economy,Hot tray / snack box,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification
+26,SV-J-v2,SV,J,Business,Hot tray service,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification
+27,SV-Y-v2,SV,Y,Economy,Hot tray / snack box,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification

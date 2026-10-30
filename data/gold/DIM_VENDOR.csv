@@ -1,0 +1,81 @@
+vendor_key,golden_vendor_id,golden_vendor_name,category,default_gl,cr_number,iban,country,payment_terms,duplicate_source_ids,match_rule
+1,V100212,Gulf Manpower Services L.L.C.,Manpower,510300,CR-47384,BH26BMAG85960849383238,XB,NET45,V363557,CR_NUMBER+IBAN exact; normalised name
+2,V100377,Eastline Manpower & Recruitment Co. L.L.C.,Manpower,510300,CR-67250,BH67BMAG65795173854027,XB,NET45,,Single source record
+3,V100451,Coastal Manpower Supply S.P.C.,Manpower,510300,CR-35783,BH76BMAG19393950356477,XB,NET60,,Single source record
+4,V100512,Al Fajr Engineering Services Est.,Engineering Services,520300,CR-82531,BH70BMAG92645141616354,XB,NET45,,Single source record
+5,V100516,Atlas Disposables S.P.C.,Disposables,500200,CR-32699,BH44BMAG78886684452708,XB,NET60,V352703,CR_NUMBER+IBAN exact; normalised name
+6,V100520,Meridian IT Solutions Co. L.L.C.,IT Solutions,530300,CR-14974,BH26BMAG99112479870478,XB,NET45,,Single source record
+7,V100521,Summit Pest Control S.P.C.,Pest Control,550100,CR-66763,BH63BMAG87870095959972,XB,NET30,,Single source record
+8,V100528,Crescent GSE Parts S.P.C.,GSE Parts,520200,CR-80991,BH83BMAG28388477271293,XB,NET60,,Single source record
+9,V100534,Premier IT Solutions Co. L.L.C.,IT Solutions,530300,CR-49730,BH48BMAG18581363187957,XB,NET30,,Single source record
+10,V100537,Atlas Engineering Services Co. L.L.C.,Engineering Services,520300,CR-55798,BH79BMAG21830658608546,XB,NET30,,Single source record
+11,V100542,Silverline Fuel Services L.L.C.,Fuel Services,520100,CR-62083,BH78BMAG89847570133543,SA,NET30,V321034,CR_NUMBER+IBAN exact; normalised name
+12,V100548,Summit IT Solutions L.L.C.,IT Solutions,530300,CR-79374,BH31BMAG63153477020915,XB,NET60,,Single source record
+13,V100550,Southport Fresh Produce Co. L.L.C.,Fresh Produce,500100,CR-79802,BH48BMAG21075233670162,XB,NET30,V363743,CR_NUMBER+IBAN exact; normalised name
+14,V100557,Horizon Pest Control Est.,Pest Control,550100,CR-38319,BH32BMAG77242683800664,SA,NET45,,Single source record
+15,V100563,Premier Food Supplies P.J.S.C.,Food Supplies,500100,CR-89635,BH48BMAG13352959607097,XB,NET60,,Single source record
+16,V100565,Southport IT Solutions L.L.C.,IT Solutions,530300,CR-18890,BH10BMAG70981895922451,XB,NET60,,Single source record
+17,V100570,Unity Seafood Est.,Seafood,500100,CR-42559,BH42BMAG87080290495041,XB,NET45,,Single source record
+18,V100578,Horizon Facilities Management P.J.S.C.,Facilities Management,540100,CR-75375,BH89BMAG89815806294962,IN,NET45,,Single source record
+19,V100579,Al Noor Packaging S.P.C.,Packaging,500200,CR-37502,BH36BMAG30683288531111,XB,NET45,V366449,CR_NUMBER+IBAN exact; normalised name
+20,V100582,Seaside Pest Control S.P.C.,Pest Control,550100,CR-78466,BH91BMAG17868987035963,XB,NET60,,Single source record
+21,V100586,Alnoor Printing P.J.S.C.,Printing,530400,CR-17382,BH88BMAG16164298186649,XB,NET60,,Single source record
+22,V100593,Premier Consulting Co. L.L.C.,Consulting,530600,CR-66143,BH74BMAG48307907918862,XB,NET60,,Single source record
+23,V100597,Silverline Tyres & Batteries Est.,Tyres & Batteries,520200,CR-49533,BH96BMAG43014249340720,XB,NET60,V380548,CR_NUMBER+IBAN exact; normalised name
+24,V100604,Al Noor Fuel Services Co. L.L.C.,Fuel Services,520100,CR-43369,BH22BMAG11440977729109,XB,NET45,,Single source record
+25,V100609,Al Jazeera Dairy L.L.C.,Dairy,500100,CR-36474,BH42BMAG80348005074042,XB,NET60,,Single source record
+26,V100610,Al Fajr Telecom L.L.C.,Telecom,530300,CR-99653,BH59BMAG90461882799109,XB,NET60,,Single source record
+27,V100618,Atlas Fresh Produce L.L.C.,Fresh Produce,500100,CR-32202,BH74BMAG50995373587929,XB,NET30,,Single source record
+28,V100622,Al Fajr Cleaning Services L.L.C.,Cleaning Services,550100,CR-85705,BH22BMAG25820463172848,XB,NET60,,Single source record
+29,V100624,Unity Fuel Services L.L.C.,Fuel Services,520100,CR-78792,BH71BMAG74293617771028,XB,NET45,V399922,CR_NUMBER+IBAN exact; normalised name
+30,V100629,Southport Hydraulics Est.,Hydraulics,520200,CR-37629,BH73BMAG95852605899124,XB,NET45,,Single source record
+31,V100632,Unity IT Solutions S.P.C.,IT Solutions,530300,CR-70565,BH76BMAG74633362003822,XB,NET60,V379958,CR_NUMBER+IBAN exact; normalised name
+32,V100639,Al Noor IT Solutions Co. L.L.C.,IT Solutions,530300,CR-67100,BH91BMAG61673266907821,XB,NET30,V371342,CR_NUMBER+IBAN exact; normalised name
+33,V100647,Meridian Uniforms L.L.C.,Uniforms,530500,CR-11607,BH13BMAG13103596471530,XB,NET60,,Single source record
+34,V100652,Eastline Pest Control L.L.C.,Pest Control,550100,CR-35393,BH94BMAG70723002674366,IN,NET30,V372372,CR_NUMBER+IBAN exact; normalised name
+35,V100660,Highland Laundry Services L.L.C.,Laundry Services,550100,CR-12878,BH76BMAG16796770935964,SA,NET60,,Single source record
+36,V100663,Summit Facilities Management P.J.S.C.,Facilities Management,540100,CR-41773,BH83BMAG27081985157968,GB,NET60,V341805,CR_NUMBER+IBAN exact; normalised name
+37,V100671,Premier Seafood S.P.C.,Seafood,500100,CR-43743,BH62BMAG45580975665261,XB,NET30,,Single source record
+38,V100672,Eastline Bakery Supplies Est.,Bakery Supplies,500100,CR-61945,BH76BMAG84709122722084,XB,NET30,,Single source record
+39,V100680,Northgate IT Solutions L.L.C.,IT Solutions,530300,CR-85454,BH32BMAG92062231609573,XB,NET45,,Single source record
+40,V100681,Gulf GSE Parts S.P.C.,GSE Parts,520200,CR-69812,BH11BMAG66170793765241,XB,NET30,,Single source record
+41,V100688,Eastline Disposables S.P.C.,Disposables,500200,CR-13029,BH30BMAG40149241078591,XB,NET60,,Single source record
+42,V100694,Southport Logistics P.J.S.C.,Logistics,550100,CR-22553,BH60BMAG73857889012158,XB,NET30,,Single source record
+43,V100701,Highland Telecom S.P.C.,Telecom,530300,CR-42427,BH37BMAG54262883318694,XB,NET45,,Single source record
+44,V100709,Summit Waste Management S.P.C.,Waste Management,550100,CR-73994,BH35BMAG60931556116531,XB,NET60,,Single source record
+45,V100717,Northgate Manpower S.P.C.,Manpower,510300,CR-58927,BH59BMAG78480948136290,XB,NET60,,Single source record
+46,V100721,Premier Bakery Supplies P.J.S.C.,Bakery Supplies,500100,CR-68667,BH14BMAG56015499963620,XB,NET60,V323373,CR_NUMBER+IBAN exact; normalised name
+47,V100725,Alnoor Bakery Supplies Co. L.L.C.,Bakery Supplies,500100,CR-93551,BH80BMAG31784218664326,XB,NET60,,Single source record
+48,V100730,Eastline Fresh Produce Co. L.L.C.,Fresh Produce,500100,CR-43483,BH83BMAG75762181402682,IN,NET45,,Single source record
+49,V100734,Harbour Food Supplies L.L.C.,Food Supplies,500100,CR-74820,BH41BMAG94407080983555,XB,NET60,,Single source record
+50,V100737,Silverline Engineering Services Est.,Engineering Services,520300,CR-39634,BH77BMAG44918480920222,XB,NET45,V355717,CR_NUMBER+IBAN exact; normalised name
+51,V100744,Arabian Disposables L.L.C.,Disposables,500200,CR-90215,BH89BMAG93293934344157,SA,NET60,,Single source record
+52,V100746,Al Jazeera Printing S.P.C.,Printing,530400,CR-76921,BH12BMAG88545946670138,XB,NET60,,Single source record
+53,V100751,Horizon Manpower P.J.S.C.,Manpower,510300,CR-23252,BH92BMAG57591666574059,XB,NET30,,Single source record
+54,V100753,Alnoor Telecom P.J.S.C.,Telecom,530300,CR-21294,BH98BMAG49835056300612,XB,NET60,,Single source record
+55,V100758,Sandline Cleaning Services L.L.C.,Cleaning Services,550100,CR-54990,BH16BMAG95958608061106,SA,NET45,,Single source record
+56,V100761,Premier Seafood Co. L.L.C.,Seafood,500100,CR-70691,BH42BMAG21256661784077,XB,NET45,,Single source record
+57,V100764,Al Fajr Seafood Co. L.L.C.,Seafood,500100,CR-49216,BH92BMAG94711755022899,XB,NET45,,Single source record
+58,V100770,Harbour Telecom Est.,Telecom,530300,CR-58280,BH43BMAG19765198700067,XB,NET30,,Single source record
+59,V100772,Atlas Facilities Management S.P.C.,Facilities Management,540100,CR-32333,BH64BMAG89869245193830,IN,NET45,,Single source record
+60,V100779,Coastal Fresh Produce S.P.C.,Fresh Produce,500100,CR-36435,BH76BMAG21596974645865,XB,NET45,,Single source record
+61,V100783,Westbay GSE Parts Est.,GSE Parts,520200,CR-80100,BH59BMAG90567218896840,IN,NET45,,Single source record
+62,V100786,Bayport Laundry Services Est.,Laundry Services,550100,CR-74768,BH77BMAG53073656057017,XB,NET60,,Single source record
+63,V100787,Southport Security Services P.J.S.C.,Security Services,550100,CR-44998,BH55BMAG59871407074250,XB,NET60,,Single source record
+64,V100793,Silverline Engineering Services S.P.C.,Engineering Services,520300,CR-44047,BH28BMAG36051653600468,XB,NET45,,Single source record
+65,V100800,Meridian Manpower P.J.S.C.,Manpower,510300,CR-24924,BH81BMAG57117574559300,XB,NET30,,Single source record
+66,V100806,Northgate Printing P.J.S.C.,Printing,530400,CR-69850,BH73BMAG37504812808869,XB,NET45,,Single source record
+67,V100809,Al Jazeera Packaging Co. L.L.C.,Packaging,500200,CR-45848,BH23BMAG85166536764204,XB,NET60,,Single source record
+68,V100817,Northgate Engineering Services Est.,Engineering Services,520300,CR-77021,BH76BMAG25276958564235,XB,NET30,V392543,CR_NUMBER+IBAN exact; normalised name
+69,V100820,Al Noor Dairy Est.,Dairy,500100,CR-92927,BH17BMAG52377084256811,XB,NET30,V347897,CR_NUMBER+IBAN exact; normalised name
+70,V100825,Meridian Laundry Services S.P.C.,Laundry Services,550100,CR-86942,BH44BMAG17749519868057,XB,NET60,,Single source record
+71,V100828,Sandline Insurance Est.,Insurance,530700,CR-10722,BH11BMAG95083459336282,XB,NET30,V385256,CR_NUMBER+IBAN exact; normalised name
+72,V100830,Bluewater Laundry Services Co. L.L.C.,Laundry Services,550100,CR-67497,BH64BMAG53089426679449,XB,NET60,,Single source record
+73,V100831,Silverline Consulting S.P.C.,Consulting,530600,CR-92963,BH26BMAG13135296202168,XB,NET30,,Single source record
+74,V100835,Al Jazeera Food Supplies P.J.S.C.,Food Supplies,500100,CR-87073,BH16BMAG57039986488796,XB,NET30,V353194,CR_NUMBER+IBAN exact; normalised name
+75,V100839,Northgate Engineering Services Co. L.L.C.,Engineering Services,520300,CR-48840,BH28BMAG48235576829713,GB,NET30,,Single source record
+76,V100840,Al Noor Engineering Services L.L.C.,Engineering Services,520300,CR-20387,BH68BMAG19236062381390,XB,NET60,,Single source record
+77,V100844,Pearl Consulting P.J.S.C.,Consulting,530600,CR-32462,BH62BMAG50110802741880,XB,NET45,,Single source record
+78,V100851,Northgate GSE Parts L.L.C.,GSE Parts,520200,CR-22697,BH38BMAG88210119812389,XB,NET60,,Single source record
+79,V100852,Al Jazeera Poultry & Meats P.J.S.C.,Poultry & Meats,500100,CR-66658,BH96BMAG53791913579475,XB,NET30,,Single source record
+80,V100856,Horizon Facilities Management Co. L.L.C.,Facilities Management,540100,CR-98038,BH34BMAG89316908012344,XB,NET45,,Single source record

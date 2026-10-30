@@ -1,0 +1,132 @@
+table DIM_MEAL
+	lineageTag: 0782733a-1cea-492a-b41b-d4c48629ec60
+
+	column meal_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: e2dfbe1e-5140-4bf1-9d88-63abf0237b74
+		summarizeBy: none
+		sourceColumn: meal_key
+
+		annotation SummarizationSetBy = User
+
+	column menu_spec_code
+		dataType: string
+		lineageTag: 6e653c19-d735-45a2-b4d8-d53bffd43292
+		summarizeBy: none
+		sourceColumn: menu_spec_code
+
+		annotation SummarizationSetBy = User
+
+	column airline_code
+		dataType: string
+		lineageTag: f3f26a8a-5504-4cac-ba07-bc33495948e6
+		summarizeBy: none
+		sourceColumn: airline_code
+
+		annotation SummarizationSetBy = User
+
+	column meal_class
+		dataType: string
+		lineageTag: 03cb1957-1898-41d8-98a9-493d550a7a62
+		summarizeBy: none
+		sourceColumn: meal_class
+
+		annotation SummarizationSetBy = User
+
+	column meal_class_name
+		dataType: string
+		lineageTag: 5ea0f462-0413-4abb-83b7-bb9023e459c6
+		summarizeBy: none
+		sourceColumn: meal_class_name
+
+		annotation SummarizationSetBy = User
+
+	column meal_type
+		dataType: string
+		lineageTag: 539303a5-4f63-4ee1-98b4-2123b3099ecf
+		summarizeBy: none
+		sourceColumn: meal_type
+
+		annotation SummarizationSetBy = User
+
+	column spec_version
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8ecb037b-ccff-44d8-bc84-cbd28b7a5af1
+		summarizeBy: none
+		sourceColumn: spec_version
+
+		annotation SummarizationSetBy = User
+
+	column effective_from
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		lineageTag: 7b00f4c7-5086-4d17-bd74-5763fbff1d67
+		summarizeBy: none
+		sourceColumn: effective_from
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column effective_to
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		lineageTag: df66ceab-9d92-4b9a-ba14-a653617f786a
+		summarizeBy: none
+		sourceColumn: effective_to
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column std_food_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bb802888-b8c8-4978-b1fe-4773a9e497bc
+		summarizeBy: none
+		sourceColumn: std_food_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column std_labour_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7b301532-50d4-4fec-a43e-7b83b4bdbd92
+		summarizeBy: none
+		sourceColumn: std_labour_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column std_overhead_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 57cfead7-6608-461e-96a2-3f97de61f297
+		summarizeBy: none
+		sourceColumn: std_overhead_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column spec_change_reason
+		dataType: string
+		lineageTag: 87013d66-f58b-4bc4-99f9-2a12a26e63ef
+		summarizeBy: none
+		sourceColumn: spec_change_reason
+
+		annotation SummarizationSetBy = User
+
+	partition DIM_MEAL = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "DIM_MEAL"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

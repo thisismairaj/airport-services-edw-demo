@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "ASC_Group_Performance"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a3e9c6d2-1f47-4b8e-8c25-7d0e4b9f6a13"
+  }
+}

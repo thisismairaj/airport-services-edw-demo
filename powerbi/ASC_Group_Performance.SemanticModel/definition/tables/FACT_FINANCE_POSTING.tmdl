@@ -1,0 +1,138 @@
+table FACT_FINANCE_POSTING
+	lineageTag: 76f80a71-b6b1-4d36-b66e-47905951fcf8
+
+	column finance_posting_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: c05a439e-e19b-4efc-a15c-81a4e23a92fe
+		summarizeBy: none
+		sourceColumn: finance_posting_key
+
+		annotation SummarizationSetBy = User
+
+	column fiscal_period
+		dataType: string
+		lineageTag: a88e4882-273e-4530-af17-b5ca59c04197
+		summarizeBy: none
+		sourceColumn: fiscal_period
+
+		annotation SummarizationSetBy = User
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: e4b22541-fad9-448f-8e34-0af061f8b0ad
+		summarizeBy: none
+		sourceColumn: fiscal_year
+
+		annotation SummarizationSetBy = User
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: a314f5c9-bfe7-48b0-a4b8-c100e943d13c
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = User
+
+	column entity_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 5f311900-95b9-4e9e-9024-004ebbe2b5bb
+		summarizeBy: none
+		sourceColumn: entity_key
+
+		annotation SummarizationSetBy = User
+
+	column cost_center_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 3dbb2ba7-a89a-4d3f-8321-1c613d8f1e62
+		summarizeBy: none
+		sourceColumn: cost_center_key
+
+		annotation SummarizationSetBy = User
+
+	column gl_account_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 6d472353-0dff-4cea-88d4-42139c001504
+		summarizeBy: none
+		sourceColumn: gl_account_key
+
+		annotation SummarizationSetBy = User
+
+	column airline_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: ec6f1ce0-a6fe-4bf3-9f77-0c530bca3e06
+		summarizeBy: none
+		sourceColumn: airline_key
+
+		annotation SummarizationSetBy = User
+
+	column amount_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4f4bd722-41c1-40c9-855e-2102277bcee7
+		summarizeBy: none
+		sourceColumn: amount_usd
+
+		annotation SummarizationSetBy = User
+
+	column budget_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 881814bf-f66b-466f-ba86-7efe25361e08
+		summarizeBy: none
+		sourceColumn: budget_usd
+
+		annotation SummarizationSetBy = User
+
+	column variance_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 65a3b351-f7df-4a74-8a37-fb1eb9ea8a36
+		summarizeBy: none
+		sourceColumn: variance_usd
+
+		annotation SummarizationSetBy = User
+
+	column posting_count
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9bf08e5f-3043-4a97-9b84-abbaf02b4b80
+		summarizeBy: none
+		sourceColumn: posting_count
+
+		annotation SummarizationSetBy = User
+
+	column src_batch_id
+		dataType: string
+		isHidden
+		lineageTag: 43204539-7a2c-4778-b429-32d5fa74a166
+		summarizeBy: none
+		sourceColumn: src_batch_id
+
+		annotation SummarizationSetBy = User
+
+	partition FACT_FINANCE_POSTING = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "FACT_FINANCE_POSTING"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

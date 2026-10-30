@@ -1,0 +1,129 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "c82265d7e9024a7cb30f",
+  "position": {
+    "x": 20,
+    "y": 390,
+    "z": 3,
+    "height": 324,
+    "width": 620,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ASSET"
+                    }
+                  },
+                  "Property": "asset_id"
+                }
+              },
+              "queryRef": "DIM_ASSET.asset_id",
+              "nativeQueryRef": "asset_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ASSET"
+                    }
+                  },
+                  "Property": "version_no"
+                }
+              },
+              "queryRef": "DIM_ASSET.version_no",
+              "nativeQueryRef": "version_no"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ASSET"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "DIM_ASSET.status",
+              "nativeQueryRef": "status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ASSET"
+                    }
+                  },
+                  "Property": "effective_from"
+                }
+              },
+              "queryRef": "DIM_ASSET.effective_from",
+              "nativeQueryRef": "effective_from"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ASSET"
+                    }
+                  },
+                  "Property": "effective_to"
+                }
+              },
+              "queryRef": "DIM_ASSET.effective_to",
+              "nativeQueryRef": "effective_to"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Asset status history (SCD2 versions)'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

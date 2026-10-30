@@ -1,0 +1,82 @@
+table DIM_STATION
+	lineageTag: 26e60ea4-9623-44be-aeae-028dfde96e8e
+
+	column station_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 6515a32b-128a-47e6-9e6e-e7dfdd93fee0
+		summarizeBy: none
+		sourceColumn: station_key
+
+		annotation SummarizationSetBy = User
+
+	column station_code
+		dataType: string
+		lineageTag: bbc8fd32-3614-4a9c-b976-beb6e07621ac
+		summarizeBy: none
+		sourceColumn: station_code
+
+		annotation SummarizationSetBy = User
+
+	column icao_code
+		dataType: string
+		lineageTag: 6acf1a08-0b77-44bd-9b3f-8f01301aade9
+		summarizeBy: none
+		sourceColumn: icao_code
+
+		annotation SummarizationSetBy = User
+
+	column station_name
+		dataType: string
+		lineageTag: 791a28d4-ee55-4ed8-8d68-2c3dbbf99f01
+		summarizeBy: none
+		sourceColumn: station_name
+
+		annotation SummarizationSetBy = User
+
+	column city
+		dataType: string
+		lineageTag: 44c9e8fa-26d6-4758-b774-157e0e2c0954
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = User
+
+	column country_code
+		dataType: string
+		lineageTag: bc9a3d94-e194-44b1-8480-bb59476f52bf
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = User
+
+	column operating_entity_code
+		dataType: string
+		lineageTag: b357c1b5-1946-4579-b700-f619b1931133
+		summarizeBy: none
+		sourceColumn: operating_entity_code
+
+		annotation SummarizationSetBy = User
+
+	column timezone
+		dataType: string
+		lineageTag: 25daf974-c809-493a-8729-9c751f901550
+		summarizeBy: none
+		sourceColumn: timezone
+
+		annotation SummarizationSetBy = User
+
+	partition DIM_STATION = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "DIM_STATION"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,22 @@
+airline_key,airline_code,icao_code,airline_name,alliance,demo_alias,contract_type,contract_margin_pct,base_load_factor,catering_customer,handling_customer,country_code,account_manager,contract_id,contract_start,contract_end
+1,GC,GCW,Gulfway Airways,None,Carrier A,Per Meal + Turnaround,0.18,0.78,True,True,XB,N. Faris,CTR-GC-2024,2024-01-01,2026-12-31
+2,QR,QTR,Qatar Airways,oneworld,Carrier B,Per Meal,0.2,0.82,True,True,QA,S. Karim,CTR-QR-2024,2024-01-01,2026-12-31
+3,EY,ETD,Etihad Airways,None,Carrier C,Per Meal,0.21,0.8,True,True,AE,S. Karim,CTR-EY-2024,2024-01-01,2026-12-31
+4,BA,BAW,British Airways,oneworld,Carrier D,Per Meal,0.25,0.84,True,True,GB,R. Menon,CTR-BA-2024,2024-01-01,2026-12-31
+5,EK,UAE,Emirates,None,Carrier E,Per Meal,0.22,0.86,True,True,AE,R. Menon,CTR-EK-2024,2024-01-01,2026-12-31
+6,FZ,FDB,flydubai,None,Carrier F,Per Meal,0.15,0.83,True,True,AE,R. Menon,CTR-FZ-2024,2024-01-01,2026-12-31
+7,TK,THY,Turkish Airlines,Star Alliance,Carrier G,Per Meal,0.19,0.85,True,True,TR,N. Faris,CTR-TK-2024,2024-01-01,2026-12-31
+8,SV,SVA,Saudia,SkyTeam,Carrier H,Per Meal,0.2,0.76,True,True,SA,S. Karim,CTR-SV-2024,2024-01-01,2026-12-31
+9,CHR,CHR,Charter Operators (pooled),None,Carrier I,Per Flight (ad hoc),0.3,0.9,True,True,XX,N. Faris,CTR-CHR-2024,2024-01-01,2026-12-31
+10,J9,JZR,Jazeera Airways,None,Handled only,Turnaround,0.0,0.84,False,True,KW,N. Faris,CTR-J9-2024,2024-01-01,2026-12-31
+11,WY,OMA,Oman Air,None,Handled only,Turnaround,0.0,0.78,False,True,OM,N. Faris,CTR-WY-2024,2024-01-01,2026-12-31
+12,KU,KAC,Kuwait Airways,None,Handled only,Turnaround,0.0,0.74,False,True,KW,N. Faris,CTR-KU-2024,2024-01-01,2026-12-31
+13,PK,PIA,Pakistan International Airlines,None,Handled only,Turnaround,0.0,0.8,False,True,PK,R. Menon,CTR-PK-2024,2024-01-01,2026-12-31
+14,IX,AXB,Air India Express,None,Handled only,Turnaround,0.0,0.88,False,True,IN,R. Menon,CTR-IX-2024,2024-01-01,2026-12-31
+15,6E,IGO,IndiGo,None,Handled only,Turnaround,0.0,0.87,False,True,IN,R. Menon,CTR-6E-2024,2024-01-01,2026-12-31
+16,XY,KNE,flynas,None,Handled only,Turnaround,0.0,0.82,False,True,SA,S. Karim,CTR-XY-2024,2024-01-01,2026-12-31
+17,G9,ABY,Air Arabia,None,Handled only,Turnaround,0.0,0.85,False,True,AE,S. Karim,CTR-G9-2024,2024-01-01,2026-12-31
+18,MS,MSR,EgyptAir,Star Alliance,Handled only,Turnaround,0.0,0.79,False,True,EG,N. Faris,CTR-MS-2024,2024-01-01,2026-12-31
+19,RJ,RJA,Royal Jordanian,oneworld,Handled only,Turnaround,0.0,0.77,False,True,JO,N. Faris,CTR-RJ-2024,2024-01-01,2026-12-31
+20,IA,IAW,Iraqi Airways,None,Handled only,Turnaround,0.0,0.81,False,True,IQ,N. Faris,CTR-IA-2024,2024-01-01,2026-12-31
+21,UL,ALK,SriLankan Airlines,oneworld,Handled only,Turnaround,0.0,0.8,False,True,LK,R. Menon,CTR-UL-2024,2024-01-01,2026-12-31

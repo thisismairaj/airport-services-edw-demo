@@ -1,0 +1,239 @@
+table FACT_WORK_ORDER
+	lineageTag: a62120d6-3e3f-45f0-9cda-4a527f95b5fa
+
+	column work_order_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 47f85269-4015-421c-8c19-915170bd3dc0
+		summarizeBy: none
+		sourceColumn: work_order_key
+
+		annotation SummarizationSetBy = User
+
+	column wo_id
+		dataType: string
+		lineageTag: 8275551d-8a70-4997-bc5f-85c30ad88867
+		summarizeBy: none
+		sourceColumn: wo_id
+
+		annotation SummarizationSetBy = User
+
+	column asset_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 8f6d8a9c-9b3e-43a5-b64b-18fd09588624
+		summarizeBy: none
+		sourceColumn: asset_key
+
+		annotation SummarizationSetBy = User
+
+	column asset_id
+		dataType: string
+		lineageTag: 5965e53f-43a0-496a-a35c-506b9f9b821f
+		summarizeBy: none
+		sourceColumn: asset_id
+
+		annotation SummarizationSetBy = User
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 2820ca1f-f1b2-4563-ac4b-1c80846e5726
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = User
+
+	column entity_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 76d30ce3-4cc7-4d1d-9a3e-1ab5ce9218d3
+		summarizeBy: none
+		sourceColumn: entity_key
+
+		annotation SummarizationSetBy = User
+
+	column station_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: d44658b1-5361-45da-9929-49b09fec0bb1
+		summarizeBy: none
+		sourceColumn: station_key
+
+		annotation SummarizationSetBy = User
+
+	column cost_center_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 9ffc2807-8247-4fdd-bfc9-40190c02351d
+		summarizeBy: none
+		sourceColumn: cost_center_key
+
+		annotation SummarizationSetBy = User
+
+	column wo_type
+		dataType: string
+		lineageTag: faf91699-cead-44fe-9f8e-7f4eafb46de7
+		summarizeBy: none
+		sourceColumn: wo_type
+
+		annotation SummarizationSetBy = User
+
+	column fault_code
+		dataType: string
+		lineageTag: 1288a1a0-a9d5-4374-a807-fd8f4f0f6ef3
+		summarizeBy: none
+		sourceColumn: fault_code
+
+		annotation SummarizationSetBy = User
+
+	column fault_description
+		dataType: string
+		lineageTag: d2088a82-72f9-4786-bf74-5772e4084d42
+		summarizeBy: none
+		sourceColumn: fault_description
+
+		annotation SummarizationSetBy = User
+
+	column priority
+		dataType: int64
+		formatString: #,0
+		lineageTag: 89346f7b-1eef-4adb-aef0-46a666d791bc
+		summarizeBy: none
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = User
+
+	column reported_ts
+		dataType: dateTime
+		formatString: dd mmm yyyy hh:nn
+		lineageTag: 5fe7215d-f92b-48fd-944b-d2de2b9d50ae
+		summarizeBy: none
+		sourceColumn: reported_ts
+
+		annotation SummarizationSetBy = User
+
+	column start_ts
+		dataType: dateTime
+		formatString: dd mmm yyyy hh:nn
+		lineageTag: a4c7ba32-872f-47b2-ac01-cb149de1d3c2
+		summarizeBy: none
+		sourceColumn: start_ts
+
+		annotation SummarizationSetBy = User
+
+	column finish_ts
+		dataType: dateTime
+		formatString: dd mmm yyyy hh:nn
+		lineageTag: 0e038add-4873-46ec-bc2b-8bc7f9728ff3
+		summarizeBy: none
+		sourceColumn: finish_ts
+
+		annotation SummarizationSetBy = User
+
+	column downtime_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ad44a7e5-92cd-4f69-906f-cf150df03d34
+		summarizeBy: none
+		sourceColumn: downtime_hours
+
+		annotation SummarizationSetBy = User
+
+	column repair_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5b368cba-ff69-4486-839f-3ffdb892dfdc
+		summarizeBy: none
+		sourceColumn: repair_hours
+
+		annotation SummarizationSetBy = User
+
+	column labour_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 67493bef-bc64-4811-a928-643855f9b085
+		summarizeBy: none
+		sourceColumn: labour_hours
+
+		annotation SummarizationSetBy = User
+
+	column parts_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 884191c1-c0e4-4d83-8957-805b45ee953e
+		summarizeBy: none
+		sourceColumn: parts_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column labour_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: de7f0ef5-2096-4d9d-abc2-0e27f4681d89
+		summarizeBy: none
+		sourceColumn: labour_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column downtime_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 3f0d38d3-d7de-4b35-b706-3fc786eff379
+		summarizeBy: none
+		sourceColumn: downtime_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column is_failure
+		dataType: boolean
+		lineageTag: 1bcc90cd-92eb-4637-91dd-340a37b8632c
+		summarizeBy: none
+		sourceColumn: is_failure
+
+		annotation SummarizationSetBy = User
+
+	column status
+		dataType: string
+		lineageTag: d2bf5a47-93a1-4b9d-8931-78e9cddd5eb0
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = User
+
+	column technician_id
+		dataType: string
+		lineageTag: af037849-d587-4bef-ac52-0333b45fdef7
+		summarizeBy: none
+		sourceColumn: technician_id
+
+		annotation SummarizationSetBy = User
+
+	column src_batch_id
+		dataType: string
+		isHidden
+		lineageTag: 2f45953b-22b0-47ec-bf34-a7a72236c94a
+		summarizeBy: none
+		sourceColumn: src_batch_id
+
+		annotation SummarizationSetBy = User
+
+	partition FACT_WORK_ORDER = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "FACT_WORK_ORDER"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

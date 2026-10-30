@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DIM_DATE
+ref table DIM_ENTITY
+ref table DIM_AIRLINE
+ref table DIM_STATION
+ref table DIM_COST_CENTER
+ref table DIM_GL_ACCOUNT
+ref table DIM_MEAL
+ref table DIM_ASSET
+ref table DIM_EMPLOYEE
+ref table DIM_VENDOR
+ref table FACT_CATERING_UPLIFT
+ref table FACT_FINANCE_POSTING
+ref table FACT_WORK_ORDER
+ref table FACT_LABOUR_COST
+ref table FACT_AIRLINE_ORDER
+ref table FACT_PURCHASE_ORDER
+ref table AGG_DAILY_FLIGHTS
+ref table AGG_MONTHLY_AIRLINE_PNL
+ref table AGG_MONTHLY_ASSET_RELIABILITY
+ref table RECON_RESULTS
+ref table CERTIFICATION_LOG
+ref table MEASURE_CATALOG
+ref table DIM_PERIOD
+ref table _Measures

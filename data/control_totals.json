@@ -1,0 +1,138 @@
+{
+  "FY2025": {
+    "revenue_usd": 84232654.46,
+    "ebitda_usd": 20183760.45,
+    "ebitda_margin_pct": 23.96,
+    "months": 12
+  },
+  "FY2026": {
+    "revenue_usd": 63984780.18,
+    "ebitda_usd": 14583765.51,
+    "ebitda_margin_pct": 22.79,
+    "months": 9
+  },
+  "cost_per_meal_q3_vs_q2_fy26": {
+    "BA": {
+      "q3_fy26": 5.266,
+      "q2_fy26": 5.24,
+      "change_pct": 0.5
+    },
+    "CHR": {
+      "q3_fy26": 5.121,
+      "q2_fy26": 4.555,
+      "change_pct": 12.4
+    },
+    "EK": {
+      "q3_fy26": 6.212,
+      "q2_fy26": 5.486,
+      "change_pct": 13.2
+    },
+    "EY": {
+      "q3_fy26": 4.968,
+      "q2_fy26": 4.948,
+      "change_pct": 0.4
+    },
+    "FZ": {
+      "q3_fy26": 5.417,
+      "q2_fy26": 4.791,
+      "change_pct": 13.1
+    },
+    "GC": {
+      "q3_fy26": 4.989,
+      "q2_fy26": 4.952,
+      "change_pct": 0.7
+    },
+    "QR": {
+      "q3_fy26": 4.928,
+      "q2_fy26": 4.91,
+      "change_pct": 0.4
+    },
+    "SV": {
+      "q3_fy26": 4.914,
+      "q2_fy26": 4.9,
+      "change_pct": 0.3
+    },
+    "TK": {
+      "q3_fy26": 5.068,
+      "q2_fy26": 5.049,
+      "change_pct": 0.4
+    }
+  },
+  "gf_europe_wastage_pct": {
+    "2026-06": 2.24,
+    "2026-07": 2.32,
+    "2026-08": 3.14,
+    "2026-09": 4.58
+  },
+  "t114_recent": {
+    "2026-02": {
+      "failures": 0,
+      "hydraulic_faults": 0,
+      "downtime_hours": 0.0,
+      "downtime_cost_usd": 0.0
+    },
+    "2026-03": {
+      "failures": 1,
+      "hydraulic_faults": 1,
+      "downtime_hours": 4.0,
+      "downtime_cost_usd": 180.0
+    },
+    "2026-04": {
+      "failures": 2,
+      "hydraulic_faults": 1,
+      "downtime_hours": 10.6,
+      "downtime_cost_usd": 477.0
+    },
+    "2026-05": {
+      "failures": 2,
+      "hydraulic_faults": 1,
+      "downtime_hours": 7.7,
+      "downtime_cost_usd": 346.5
+    },
+    "2026-06": {
+      "failures": 2,
+      "hydraulic_faults": 2,
+      "downtime_hours": 30.0,
+      "downtime_cost_usd": 1350.0
+    },
+    "2026-07": {
+      "failures": 3,
+      "hydraulic_faults": 2,
+      "downtime_hours": 29.6,
+      "downtime_cost_usd": 1332.0
+    },
+    "2026-08": {
+      "failures": 4,
+      "hydraulic_faults": 3,
+      "downtime_hours": 56.6,
+      "downtime_cost_usd": 2547.0
+    },
+    "2026-09": {
+      "failures": 5,
+      "hydraulic_faults": 5,
+      "downtime_hours": 103.5,
+      "downtime_cost_usd": 4657.5
+    }
+  },
+  "ascwf_contractor_ot_hours": {
+    "2026-08": 9343,
+    "2026-09": 9661,
+    "delta": 318
+  },
+  "vendor_mdm": {
+    "raw_vendor_records": 97,
+    "golden_records": 80,
+    "duplicates": 17
+  },
+  "bronze_cms_live_rows": 6730,
+  "bronze_cms_live_duplicates": 26,
+  "row_counts": {
+    "flight_days": 93309,
+    "fact_catering_uplift": 17792,
+    "fact_finance_posting": 7056,
+    "fact_work_order": 1135,
+    "fact_labour_cost": 3220,
+    "fact_airline_order": 5721,
+    "employees": 1600
+  }
+}

@@ -1,0 +1,342 @@
+// =============================================================================
+// measures.dax  |  Certified KPI measures for the ASC Group Performance model
+// Paste into a measure table named "_Measures" (Tabular Editor: Model > New Table; or Power BI
+// Desktop: Enter Data with one dummy column, then hide it). Table/column names match
+// powerbi/model_notes.md (Snowflake Gold STAR + AGG tables, imported or DirectQuery).
+// Conventions: currency USD; revenue in FACT_FINANCE_POSTING is negative (SAP credit) and is
+// flipped with DIM_GL_ACCOUNT[natural_sign]; intercompany is excluded from group figures.
+// Every measure carries its MEASURE_CATALOG id in the description.
+// =============================================================================
+
+// ---------------------------------------------------------------- Financial (M-001 .. M-004, M-029)
+Revenue =
+// M-001 External revenue (USD)
+CALCULATE (
+    SUMX ( FACT_FINANCE_POSTING, FACT_FINANCE_POSTING[amount_usd] * RELATED ( DIM_GL_ACCOUNT[natural_sign] ) ),
+    DIM_GL_ACCOUNT[account_class] = "Revenue",
+    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+)
+
+Revenue Budget =
+CALCULATE (
+    SUMX ( FACT_FINANCE_POSTING, FACT_FINANCE_POSTING[budget_usd] * RELATED ( DIM_GL_ACCOUNT[natural_sign] ) ),
+    DIM_GL_ACCOUNT[account_class] = "Revenue",
+    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+)
+
+Revenue vs Budget =
+// M-004
+[Revenue] - [Revenue Budget]
+
+Revenue vs Budget % =
+DIVIDE ( [Revenue vs Budget], [Revenue Budget] )
+
+Operating Cost =
+CALCULATE (
+    SUM ( FACT_FINANCE_POSTING[amount_usd] ),
+    DIM_GL_ACCOUNT[account_class] IN { "COGS", "Opex" },
+    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+)
+
+EBITDA =
+// M-002: sum of -(amount) over EBITDA accounts = revenue minus COGS/Opex
+CALCULATE (
+    - SUM ( FACT_FINANCE_POSTING[amount_usd] ),
+    DIM_GL_ACCOUNT[is_ebitda] = TRUE (),
+    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+)
+
+EBITDA Budget =
+CALCULATE (
+    - SUM ( FACT_FINANCE_POSTING[budget_usd] ),
+    DIM_GL_ACCOUNT[is_ebitda] = TRUE (),
+    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+)
+
+EBITDA Margin % =
+// M-003
+DIVIDE ( [EBITDA], [Revenue] )
+
+EBITDA Margin % PY =
+CALCULATE ( [EBITDA Margin %], SAMEPERIODLASTYEAR ( DIM_DATE[calendar_date] ) )
+
+Contractor Spend =
+// GL 510300/510400 (external) - kpi_group = Contractor Cost
+CALCULATE (
+    SUM ( FACT_FINANCE_POSTING[amount_usd] ),
+    DIM_GL_ACCOUNT[kpi_group] = "Contractor Cost",
+    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+)
+
+Contractor Budget =
+CALCULATE (
+    SUM ( FACT_FINANCE_POSTING[budget_usd] ),
+    DIM_GL_ACCOUNT[kpi_group] = "Contractor Cost",
+    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+)
+
+Contractor Spend vs Budget % =
+// M-029
+DIVIDE ( [Contractor Spend] - [Contractor Budget], [Contractor Budget] )
+
+// ---------------------------------------------------------------- Indicator helpers (presentation only, no catalogue id)
+// Green is good, red is bad. Colour measures return a hex colour that a card uses for its value (field-value formatting).
+EBITDA vs Budget % =
+DIVIDE ( [EBITDA] - [EBITDA Budget], ABS ( [EBITDA Budget] ) )
+
+Wastage Alert Gap =
+// wastage % minus the 4% alert threshold, in percentage points: above zero means above the alert
+[Wastage %] - 0.04
+
+Revenue vs Budget Color =
+IF ( [Revenue vs Budget %] >= 0, "#2E7D32", "#C62828" )
+
+EBITDA vs Budget Color =
+IF ( [EBITDA vs Budget %] >= 0, "#2E7D32", "#C62828" )
+
+Wastage Alert Color =
+IF ( [Wastage %] > 0.04, "#C62828", "#2E7D32" )
+
+Contractor Spend Color =
+// over budget is bad
+IF ( [Contractor Spend vs Budget %] > 0, "#C62828", "#2E7D32" )
+
+// ---------------------------------------------------------------- Catering operations (M-005 .. M-012)
+Meals Uplifted =
+// M-005
+SUM ( FACT_CATERING_UPLIFT[meals_uplifted] )
+
+Meals Wasted =
+SUM ( FACT_CATERING_UPLIFT[meals_wasted] )
+
+Catering Cost =
+SUM ( FACT_CATERING_UPLIFT[total_cost_usd] )
+
+Catering Revenue =
+// M-012
+SUM ( FACT_CATERING_UPLIFT[revenue_usd] )
+
+Catering Gross Margin =
+[Catering Revenue] - [Catering Cost]
+
+Catering Margin % =
+DIVIDE ( [Catering Gross Margin], [Catering Revenue] )
+
+Cost per Meal =
+// M-006: ratio of sums - never average the daily ratio
+DIVIDE ( [Catering Cost], [Meals Uplifted] )
+
+Cost per Meal PQ =
+// previous fiscal quarter, for the "why" decomposition
+CALCULATE ( [Cost per Meal], DATEADD ( DIM_DATE[calendar_date], -1, QUARTER ) )
+
+Cost per Meal Δ vs PQ % =
+DIVIDE ( [Cost per Meal] - [Cost per Meal PQ], [Cost per Meal PQ] )
+
+Food Cost per Meal =
+// M-007
+DIVIDE ( SUM ( FACT_CATERING_UPLIFT[food_cost_usd] ), [Meals Uplifted] )
+
+Labour Cost per Meal =
+// M-008
+DIVIDE ( SUM ( FACT_CATERING_UPLIFT[labour_cost_usd] ), [Meals Uplifted] )
+
+Overhead Cost per Meal =
+DIVIDE ( SUM ( FACT_CATERING_UPLIFT[overhead_cost_usd] ), [Meals Uplifted] )
+
+Wastage % =
+// M-009 (alert threshold 4%)
+DIVIDE ( [Meals Wasted], [Meals Uplifted] )
+
+Wastage Alert =
+IF ( [Wastage %] > 0.04, "Above 4%", "Within tolerance" )
+
+On-time Catering Delivery % =
+// M-010
+DIVIDE ( SUM ( FACT_CATERING_UPLIFT[deliveries_on_time] ), SUM ( FACT_CATERING_UPLIFT[deliveries_total] ) )
+
+Late Downlift Confirmations =
+// M-011
+SUM ( FACT_CATERING_UPLIFT[late_downlift_confirmations] )
+
+Late Downlift Rate % =
+DIVIDE ( [Late Downlift Confirmations], SUM ( FACT_CATERING_UPLIFT[flights_catered] ) )
+
+Menu Spec Version (max) =
+// shows "3" where the Jul-2026 spec change is in force
+MAX ( DIM_MEAL[spec_version] )
+
+// ---------------------------------------------------------------- Airline commercial (M-013 .. M-015)
+Revenue per Airline =
+// M-013 (catering + handling) from the monthly airline P&L aggregate
+SUM ( AGG_MONTHLY_AIRLINE_PNL[total_revenue_usd] )
+
+Margin per Airline =
+// M-014
+SUM ( AGG_MONTHLY_AIRLINE_PNL[contribution_margin_usd] )
+
+Margin % per Airline =
+// M-015
+DIVIDE ( [Margin per Airline], [Revenue per Airline] )
+
+Airline Cost per Meal =
+DIVIDE ( SUM ( AGG_MONTHLY_AIRLINE_PNL[catering_cost_usd] ), SUM ( AGG_MONTHLY_AIRLINE_PNL[meals_uplifted] ) )
+
+Airline Rank by Cost per Meal =
+RANKX ( ALLSELECTED ( DIM_AIRLINE[airline_name] ), [Cost per Meal], , DESC, DENSE )
+
+// ---------------------------------------------------------------- Ground operations (M-016 .. M-018)
+Flights Serviced =
+// M-016
+SUM ( AGG_DAILY_FLIGHTS[flights_handled] )
+
+Handling Revenue =
+SUM ( AGG_DAILY_FLIGHTS[handling_revenue_usd] )
+
+Ground Handling Cost =
+CALCULATE (
+    SUM ( FACT_FINANCE_POSTING[amount_usd] ),
+    DIM_COST_CENTER[business_unit] = "Ground Handling",
+    DIM_GL_ACCOUNT[account_class] IN { "COGS", "Opex" },
+    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+)
+
+Cost per Flight Serviced =
+// M-017: GL cost of the Ground Handling BU / flights handled (both filtered by the same date & entity context)
+DIVIDE ( [Ground Handling Cost], [Flights Serviced] )
+
+On-time Departure % =
+// M-018
+DIVIDE ( SUM ( AGG_DAILY_FLIGHTS[departures_on_time] ), [Flights Serviced] )
+
+Avg Departure Delay (min) =
+DIVIDE ( SUM ( AGG_DAILY_FLIGHTS[total_delay_min] ), [Flights Serviced] )
+
+// ---------------------------------------------------------------- SLA (M-019, M-020)
+SLA Events =
+SUM ( FACT_AIRLINE_ORDER[sla_events] )
+
+SLA Breaches =
+SUM ( FACT_AIRLINE_ORDER[sla_breaches] )
+
+SLA Compliance % =
+// M-019
+DIVIDE ( [SLA Events] - [SLA Breaches], [SLA Events] )
+
+SPML Fulfilment % =
+// M-020
+DIVIDE (
+    SUM ( FACT_AIRLINE_ORDER[special_meal_orders] ) - SUM ( FACT_AIRLINE_ORDER[special_meals_unfulfilled] ),
+    SUM ( FACT_AIRLINE_ORDER[special_meal_orders] )
+)
+
+Orders Amended After Cut-off =
+SUM ( FACT_AIRLINE_ORDER[orders_amended_after_cutoff] )
+
+// ---------------------------------------------------------------- Engineering / assets (M-021 .. M-024)
+Asset Downtime Cost =
+// M-021
+SUM ( FACT_WORK_ORDER[downtime_cost_usd] )
+
+Asset Downtime Hours =
+SUM ( FACT_WORK_ORDER[downtime_hours] )
+
+Failures =
+CALCULATE ( COUNTROWS ( FACT_WORK_ORDER ), FACT_WORK_ORDER[is_failure] = TRUE () )
+
+Hydraulic Faults =
+CALCULATE ( COUNTROWS ( FACT_WORK_ORDER ), FACT_WORK_ORDER[is_failure] = TRUE (), LEFT ( FACT_WORK_ORDER[fault_code], 3 ) = "HYD" )
+
+Hydraulic Faults 3M =
+// M-024 rolling three months
+CALCULATE ( [Hydraulic Faults], DATESINPERIOD ( DIM_DATE[calendar_date], MAX ( DIM_DATE[calendar_date] ), -3, MONTH ) )
+
+Operating Hours =
+SUM ( AGG_MONTHLY_ASSET_RELIABILITY[operating_hours] )
+
+MTBF Hours =
+// M-022: operating hours / failures (uses the monthly reliability aggregate so both terms share the asset-month grain)
+DIVIDE ( [Operating Hours], SUM ( AGG_MONTHLY_ASSET_RELIABILITY[failures] ) )
+
+MTTR Hours =
+// M-023
+DIVIDE ( SUM ( AGG_MONTHLY_ASSET_RELIABILITY[repair_hours] ), SUM ( AGG_MONTHLY_ASSET_RELIABILITY[failures] ) )
+
+Downtime Cost 6M Baseline =
+// average monthly downtime cost over the six months before the selected month (prediction story baseline)
+VAR _end = EOMONTH ( MIN ( DIM_DATE[calendar_date] ), -1 )
+VAR _start = EOMONTH ( _end, -6 ) + 1
+RETURN
+    DIVIDE ( CALCULATE ( [Asset Downtime Cost], DATESBETWEEN ( DIM_DATE[calendar_date], _start, _end ) ), 6 )
+
+Downtime Cost vs Baseline x =
+DIVIDE ( [Asset Downtime Cost], [Downtime Cost 6M Baseline] )
+
+// ---------------------------------------------------------------- People (M-025 .. M-028, M-030)
+Headcount =
+// M-025 (additive only within one cost centre & month; shown at that grain or via DISTINCTCOUNT on DIM_EMPLOYEE)
+SUM ( FACT_LABOUR_COST[headcount] )
+
+Active Employees =
+CALCULATE ( COUNTROWS ( DIM_EMPLOYEE ), DIM_EMPLOYEE[employment_status] = "Active" )
+
+Regular Hours =
+SUM ( FACT_LABOUR_COST[regular_hours] )
+
+Overtime Hours =
+// M-026
+SUM ( FACT_LABOUR_COST[overtime_hours] )
+
+Overtime Ratio % =
+// M-027
+DIVIDE ( [Overtime Hours], [Regular Hours] + [Overtime Hours] )
+
+Contractor OT Hours =
+// M-028
+CALCULATE ( [Overtime Hours], FACT_LABOUR_COST[employment_type] = "Contractor" )
+
+Contractor OT Hours PM =
+CALCULATE ( [Contractor OT Hours], DATEADD ( DIM_DATE[calendar_date], -1, MONTH ) )
+
+Contractor OT Δ vs PM (hrs) =
+// Sep-2026 at ASCWF shows +318
+// blank for the first month, which has no previous month to compare with
+IF ( NOT ISBLANK ( [Contractor OT Hours PM] ), [Contractor OT Hours] - [Contractor OT Hours PM] )
+
+Labour Cost =
+// M-030
+SUM ( FACT_LABOUR_COST[total_cost_usd] )
+
+Overtime Cost =
+SUM ( FACT_LABOUR_COST[overtime_cost_usd] )
+
+Night Shift Hours =
+SUM ( FACT_LABOUR_COST[night_hours] )
+
+// ---------------------------------------------------------------- Procurement / governance (M-031, M-032)
+Vendor Spend =
+// M-031 (golden vendor after MDM)
+SUM ( FACT_PURCHASE_ORDER[amount_usd] )
+
+Golden Vendors =
+DISTINCTCOUNT ( FACT_PURCHASE_ORDER[vendor_key] )
+
+Source Vendor Ids =
+// before MDM: shows 97 vs 80 golden
+DISTINCTCOUNT ( FACT_PURCHASE_ORDER[source_vendor_id] )
+
+Recon Checks Passed % =
+// M-032 style control: share of latest-run recon checks with status PASS (INFO excluded)
+VAR _run = MAX ( RECON_RESULTS[run_id] )
+RETURN
+    DIVIDE (
+        CALCULATE ( COUNTROWS ( RECON_RESULTS ), RECON_RESULTS[run_id] = _run, RECON_RESULTS[status] = "PASS" ),
+        CALCULATE ( COUNTROWS ( RECON_RESULTS ), RECON_RESULTS[run_id] = _run, RECON_RESULTS[status] <> "INFO" )
+    )
+
+Data Certified As Of =
+MAX ( CERTIFICATION_LOG[certified_at] )
+
+// ---------------------------------------------------------------- Formatting helpers
+Last Refresh Label =
+"Certified " & FORMAT ( [Data Certified As Of], "dd MMM yyyy HH:mm" ) & " | Recon " & FORMAT ( [Recon Checks Passed %], "0%" ) & " passed"

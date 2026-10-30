@@ -1,0 +1,11 @@
+__pycache__/
+.venv/
+*.pyc
+.claude-brain/
+
+# Power BI Desktop local settings and data cache
+.pbi/
+
+# drafts and notes, never published
+content/
+.scaffold.md

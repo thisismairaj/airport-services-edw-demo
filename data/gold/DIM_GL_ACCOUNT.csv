@@ -1,0 +1,41 @@
+gl_account_key,gl_account,gl_description,account_class,kpi_group,is_ebitda,is_intercompany,natural_sign,statement_line
+1,400100,Ground Handling Revenue,Revenue,Revenue,True,False,-1,Revenue
+2,400200,Catering Revenue - Airline Contracts,Revenue,Revenue,True,False,-1,Revenue
+3,400210,Catering Revenue - Charter & VIP,Revenue,Revenue,True,False,-1,Revenue
+4,400300,Cargo Handling Revenue,Revenue,Revenue,True,False,-1,Revenue
+5,400400,Engineering Services Revenue,Revenue,Revenue,True,False,-1,Revenue
+6,400500,Manpower Services Revenue (Intercompany),Revenue,Revenue,True,True,-1,Revenue
+7,400600,Training & Consulting Revenue,Revenue,Revenue,True,False,-1,Revenue
+8,400700,Lounge Revenue,Revenue,Revenue,True,False,-1,Revenue
+9,400900,Other Operating Income,Revenue,Revenue,True,False,-1,Revenue
+10,500100,Food & Beverage Raw Materials,COGS,Food Cost,True,False,1,Cost of Sales
+11,500200,Packaging & Disposables,COGS,Food Cost,True,False,1,Cost of Sales
+12,500300,Bonded Stores,COGS,Food Cost,True,False,1,Cost of Sales
+13,510100,Salaries & Wages - Permanent,Opex,Direct Labour,True,False,1,Operating Expenses
+14,510200,Overtime - Permanent,Opex,Direct Labour,True,False,1,Operating Expenses
+15,510300,Contractor Labour - Regular,Opex,Contractor Cost,True,False,1,Operating Expenses
+16,510400,Contractor Labour - Overtime,Opex,Contractor Cost,True,False,1,Operating Expenses
+17,510500,Employee Benefits & GOSI,Opex,Direct Labour,True,False,1,Operating Expenses
+18,510600,Training & Development,Opex,Admin,True,False,1,Operating Expenses
+19,510700,Outsourced Manpower (Intercompany),Opex,Contractor Cost,True,True,1,Operating Expenses
+20,520100,GSE Fuel & Lubricants,Opex,Fuel,True,False,1,Operating Expenses
+21,520200,GSE Maintenance - Parts,Opex,Maintenance,True,False,1,Operating Expenses
+22,520300,GSE Maintenance - External Services,Opex,Maintenance,True,False,1,Operating Expenses
+23,520400,Vehicle Licensing & Insurance,Opex,Maintenance,True,False,1,Operating Expenses
+24,530100,Utilities,Opex,Facilities,True,False,1,Operating Expenses
+25,530200,Rent & Concession Fees,Opex,Facilities,True,False,1,Operating Expenses
+26,530300,IT & Telecom,Opex,Admin,True,False,1,Operating Expenses
+27,530400,Consumables,Opex,Operations,True,False,1,Operating Expenses
+28,530500,Uniforms & PPE,Opex,Operations,True,False,1,Operating Expenses
+29,530600,Professional Fees,Opex,Admin,True,False,1,Operating Expenses
+30,530700,Insurance,Opex,Admin,True,False,1,Operating Expenses
+31,530800,Travel & Accommodation,Opex,Admin,True,False,1,Operating Expenses
+32,530900,Marketing & Events,Opex,Admin,True,False,1,Operating Expenses
+33,540100,Repairs & Maintenance - Buildings,Opex,Facilities,True,False,1,Operating Expenses
+34,550100,Other Operating Expenses,Opex,Operations,True,False,1,Operating Expenses
+35,600100,Depreciation - GSE,Below EBITDA,Depreciation,False,False,1,Below EBITDA
+36,600200,Depreciation - Buildings & Equipment,Below EBITDA,Depreciation,False,False,1,Below EBITDA
+37,600300,Amortisation - Intangibles,Below EBITDA,Depreciation,False,False,1,Below EBITDA
+38,700100,Finance Costs,Below EBITDA,Finance,False,False,1,Below EBITDA
+39,700200,FX Gain / Loss,Below EBITDA,Finance,False,False,1,Below EBITDA
+40,800100,Zakat & Taxes,Below EBITDA,Tax,False,False,1,Below EBITDA

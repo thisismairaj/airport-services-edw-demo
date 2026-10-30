@@ -1,0 +1,148 @@
+relationship d2c59597-c874-4789-afe5-76b900980797
+	fromColumn: FACT_CATERING_UPLIFT.date_key
+	toColumn: DIM_DATE.date_key
+
+relationship cc49d014-51c2-41d1-a872-d236edc2ce54
+	fromColumn: FACT_CATERING_UPLIFT.entity_key
+	toColumn: DIM_ENTITY.entity_key
+
+relationship ff918dfb-c540-438c-8648-c1dff5130acb
+	fromColumn: FACT_CATERING_UPLIFT.station_key
+	toColumn: DIM_STATION.station_key
+
+relationship 0430f329-2de5-465e-aad7-056ed582a883
+	fromColumn: FACT_CATERING_UPLIFT.airline_key
+	toColumn: DIM_AIRLINE.airline_key
+
+relationship a7b16923-4b98-458f-9fa0-436edd582af5
+	fromColumn: FACT_CATERING_UPLIFT.meal_key
+	toColumn: DIM_MEAL.meal_key
+
+relationship a5c95837-c1bf-46e2-bc0c-0d1347cce461
+	fromColumn: FACT_FINANCE_POSTING.date_key
+	toColumn: DIM_DATE.date_key
+
+relationship 7616eeae-fbaf-4d4c-b5b2-e79242f8a923
+	fromColumn: FACT_FINANCE_POSTING.entity_key
+	toColumn: DIM_ENTITY.entity_key
+
+relationship 628431c8-01d5-4ac5-978c-1705cd9e3b57
+	fromColumn: FACT_FINANCE_POSTING.cost_center_key
+	toColumn: DIM_COST_CENTER.cost_center_key
+
+relationship 3e15550b-24c1-4b78-b51f-51fc94c6f777
+	fromColumn: FACT_FINANCE_POSTING.gl_account_key
+	toColumn: DIM_GL_ACCOUNT.gl_account_key
+
+relationship 97dba80c-3b71-44b4-9b6e-a184844957e1
+	fromColumn: FACT_FINANCE_POSTING.airline_key
+	toColumn: DIM_AIRLINE.airline_key
+
+relationship 36ed57f3-85b3-491e-9ce7-7f23a382e0a3
+	fromColumn: FACT_WORK_ORDER.date_key
+	toColumn: DIM_DATE.date_key
+
+relationship dd8e4014-1141-4055-8a46-6614fbcb021b
+	fromColumn: FACT_WORK_ORDER.asset_key
+	toColumn: DIM_ASSET.asset_key
+
+relationship 5f344aff-5748-4640-a9ce-5cb98cc857db
+	fromColumn: FACT_WORK_ORDER.entity_key
+	toColumn: DIM_ENTITY.entity_key
+
+relationship 93be8c28-62b9-484f-8c62-d34fa98c1281
+	fromColumn: FACT_WORK_ORDER.station_key
+	toColumn: DIM_STATION.station_key
+
+relationship 9178f110-1116-4534-beb9-7f9a6ba3e36b
+	fromColumn: FACT_WORK_ORDER.cost_center_key
+	toColumn: DIM_COST_CENTER.cost_center_key
+
+relationship cd230e51-eb2f-498b-9645-a7fd7ba7f2c0
+	fromColumn: FACT_LABOUR_COST.date_key
+	toColumn: DIM_DATE.date_key
+
+relationship 95762af3-2153-4f05-8001-be174d6c828f
+	fromColumn: FACT_LABOUR_COST.entity_key
+	toColumn: DIM_ENTITY.entity_key
+
+relationship 5659c77d-17b1-4d1e-b66f-d830f849620b
+	fromColumn: FACT_LABOUR_COST.cost_center_key
+	toColumn: DIM_COST_CENTER.cost_center_key
+
+relationship 3bb56d3a-7800-42a2-96ec-f162380ffd1a
+	isActive: false
+	fromColumn: FACT_LABOUR_COST.deployed_cost_center_key
+	toColumn: DIM_COST_CENTER.cost_center_key
+
+relationship abd88957-8de3-4752-bfba-3d839b38de42
+	fromColumn: FACT_AIRLINE_ORDER.date_key
+	toColumn: DIM_DATE.date_key
+
+relationship 07ce9df2-3989-442e-a750-56431c54750b
+	fromColumn: FACT_AIRLINE_ORDER.airline_key
+	toColumn: DIM_AIRLINE.airline_key
+
+relationship c0c2e039-aebd-441b-b46a-ce4995a951c0
+	fromColumn: FACT_AIRLINE_ORDER.entity_key
+	toColumn: DIM_ENTITY.entity_key
+
+relationship 3b6eaf51-b510-4027-a48e-fbf2768768d9
+	fromColumn: FACT_AIRLINE_ORDER.station_key
+	toColumn: DIM_STATION.station_key
+
+relationship f989322c-6007-4e03-a8f8-2ceeeaec4957
+	fromColumn: FACT_PURCHASE_ORDER.date_key
+	toColumn: DIM_DATE.date_key
+
+relationship bb102b07-d1d1-41c6-91a0-4d123579c0e5
+	fromColumn: FACT_PURCHASE_ORDER.entity_key
+	toColumn: DIM_ENTITY.entity_key
+
+relationship 9489fc15-d089-4b2a-9c85-e04e8162351a
+	fromColumn: FACT_PURCHASE_ORDER.cost_center_key
+	toColumn: DIM_COST_CENTER.cost_center_key
+
+relationship 50d10826-acd5-458a-a025-f95040a4708d
+	fromColumn: FACT_PURCHASE_ORDER.gl_account_key
+	toColumn: DIM_GL_ACCOUNT.gl_account_key
+
+relationship 3f882755-004a-44e8-a795-34f1a87d6a55
+	fromColumn: FACT_PURCHASE_ORDER.vendor_key
+	toColumn: DIM_VENDOR.vendor_key
+
+relationship faf6d1c9-f9a9-4634-af2b-2920f6567b29
+	fromColumn: AGG_DAILY_FLIGHTS.date_key
+	toColumn: DIM_DATE.date_key
+
+relationship 70c9d94f-6643-4641-ad11-e5491712293b
+	fromColumn: AGG_DAILY_FLIGHTS.entity_key
+	toColumn: DIM_ENTITY.entity_key
+
+relationship f1627d10-72ac-41c0-a464-cbd28a09030c
+	fromColumn: AGG_DAILY_FLIGHTS.station_key
+	toColumn: DIM_STATION.station_key
+
+relationship e71d705b-ccc2-4d24-8237-1fbcee301f08
+	fromColumn: AGG_DAILY_FLIGHTS.airline_key
+	toColumn: DIM_AIRLINE.airline_key
+
+relationship 1177477e-b105-4b43-9026-20662010342b
+	fromColumn: AGG_MONTHLY_AIRLINE_PNL.airline_key
+	toColumn: DIM_AIRLINE.airline_key
+
+relationship 761b39cb-09ec-4d9e-9c3b-dbaeb74f00d3
+	fromColumn: AGG_MONTHLY_AIRLINE_PNL.fiscal_period
+	toColumn: DIM_PERIOD.fiscal_period
+
+relationship 58f14bbf-528e-422b-86e8-e6cd6f008e3d
+	fromColumn: AGG_MONTHLY_ASSET_RELIABILITY.asset_key
+	toColumn: DIM_ASSET.asset_key
+
+relationship 12ef269f-7ae9-4cc9-833c-19d75696aa47
+	fromColumn: AGG_MONTHLY_ASSET_RELIABILITY.fiscal_period
+	toColumn: DIM_PERIOD.fiscal_period
+
+relationship 84acad75-685d-46e8-a135-f6ba2bd5f96e
+	fromColumn: DIM_DATE.fiscal_period
+	toColumn: DIM_PERIOD.fiscal_period

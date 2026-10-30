@@ -1,0 +1,152 @@
+table RECON_RESULTS
+	lineageTag: dda88545-de32-43b3-aff8-e1f97e2a8973
+
+	column recon_id
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9f903a4f-ef98-43fb-8c96-93c06bb4ad05
+		summarizeBy: none
+		sourceColumn: recon_id
+
+		annotation SummarizationSetBy = User
+
+	column run_id
+		dataType: int64
+		formatString: #,0
+		lineageTag: e8f30ebe-79dd-4954-99d9-6ca95c7ef195
+		summarizeBy: none
+		sourceColumn: run_id
+
+		annotation SummarizationSetBy = User
+
+	column run_ts
+		dataType: dateTime
+		formatString: dd mmm yyyy hh:nn
+		lineageTag: fa8894d1-b705-494d-824b-614ba4659464
+		summarizeBy: none
+		sourceColumn: run_ts
+
+		annotation SummarizationSetBy = User
+
+	column check_name
+		dataType: string
+		lineageTag: a4cdfb7c-1f32-4385-b39b-9e6be28e6634
+		summarizeBy: none
+		sourceColumn: check_name
+
+		annotation SummarizationSetBy = User
+
+	column check_type
+		dataType: string
+		lineageTag: f3efee6d-78c5-40eb-99da-46b5bc3590af
+		summarizeBy: none
+		sourceColumn: check_type
+
+		annotation SummarizationSetBy = User
+
+	column src_system
+		dataType: string
+		lineageTag: 1e9fd3d4-7254-45fa-ab0e-d36bd1ac55a3
+		summarizeBy: none
+		sourceColumn: src_system
+
+		annotation SummarizationSetBy = User
+
+	column source_object
+		dataType: string
+		lineageTag: f83a58fa-491d-4a8d-a4a9-104714272281
+		summarizeBy: none
+		sourceColumn: source_object
+
+		annotation SummarizationSetBy = User
+
+	column target_object
+		dataType: string
+		lineageTag: 764ac602-3954-47ed-8332-0f03dd2a89b6
+		summarizeBy: none
+		sourceColumn: target_object
+
+		annotation SummarizationSetBy = User
+
+	column grain
+		dataType: string
+		lineageTag: 24d04829-8f63-4e0e-abb4-5ac807587f92
+		summarizeBy: none
+		sourceColumn: grain
+
+		annotation SummarizationSetBy = User
+
+	column source_value
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 15792ec0-0803-4845-919b-f3fd4248f94b
+		summarizeBy: none
+		sourceColumn: source_value
+
+		annotation SummarizationSetBy = User
+
+	column target_value
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 20bb1b04-a976-44df-8c03-07c00cd1c5ac
+		summarizeBy: none
+		sourceColumn: target_value
+
+		annotation SummarizationSetBy = User
+
+	column variance
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c2f33bad-bf48-4348-9859-e814aa37cd4e
+		summarizeBy: none
+		sourceColumn: variance
+
+		annotation SummarizationSetBy = User
+
+	column variance_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: cb2704e4-c249-4015-be51-1965bc5fbc7e
+		summarizeBy: none
+		sourceColumn: variance_pct
+
+		annotation SummarizationSetBy = User
+
+	column tolerance_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 0a68f98d-441e-42ec-ae6d-8d06abdb088f
+		summarizeBy: none
+		sourceColumn: tolerance_pct
+
+		annotation SummarizationSetBy = User
+
+	column status
+		dataType: string
+		lineageTag: 9b094402-ef62-4959-964e-a1dd18379e82
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = User
+
+	column note
+		dataType: string
+		lineageTag: a45f976b-2aad-49d7-9ccf-cda5b496f2d0
+		summarizeBy: none
+		sourceColumn: note
+
+		annotation SummarizationSetBy = User
+
+	partition RECON_RESULTS = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "CONTROL", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "RECON_RESULTS"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,138 @@
+table FACT_AIRLINE_ORDER
+	lineageTag: c75b51c8-db50-410c-b327-06611bdda46f
+
+	column airline_order_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: a2aea50e-fa87-4a9d-bcb1-8a905f4e76cd
+		summarizeBy: none
+		sourceColumn: airline_order_key
+
+		annotation SummarizationSetBy = User
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 97e0ab8a-9673-483d-a4ce-ed3f5f1ed617
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = User
+
+	column airline_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: a8833dc8-2025-4b7b-b70e-8abea311c823
+		summarizeBy: none
+		sourceColumn: airline_key
+
+		annotation SummarizationSetBy = User
+
+	column entity_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 0d01641a-a7d7-45c1-98d8-787a7b4b9944
+		summarizeBy: none
+		sourceColumn: entity_key
+
+		annotation SummarizationSetBy = User
+
+	column station_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 7f01414d-87e9-437e-a1f5-d03ec2452313
+		summarizeBy: none
+		sourceColumn: station_key
+
+		annotation SummarizationSetBy = User
+
+	column orders_submitted
+		dataType: int64
+		formatString: #,0
+		lineageTag: 00d6a9ea-811f-4bd5-bdff-2db2368dc6c7
+		summarizeBy: none
+		sourceColumn: orders_submitted
+
+		annotation SummarizationSetBy = User
+
+	column orders_amended_after_cutoff
+		dataType: int64
+		formatString: #,0
+		lineageTag: a83b786d-ea25-4e32-9550-551de22544c7
+		summarizeBy: none
+		sourceColumn: orders_amended_after_cutoff
+
+		annotation SummarizationSetBy = User
+
+	column special_meal_orders
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9c4aa53d-0a88-4f59-9afe-ff48dec35730
+		summarizeBy: none
+		sourceColumn: special_meal_orders
+
+		annotation SummarizationSetBy = User
+
+	column special_meals_unfulfilled
+		dataType: int64
+		formatString: #,0
+		lineageTag: ebbf6fc5-dd2e-4d2e-9681-8c0b9fe3fa4a
+		summarizeBy: none
+		sourceColumn: special_meals_unfulfilled
+
+		annotation SummarizationSetBy = User
+
+	column sla_events
+		dataType: int64
+		formatString: #,0
+		lineageTag: f52bdba0-5e07-49e3-8ed5-46244fad6b1c
+		summarizeBy: none
+		sourceColumn: sla_events
+
+		annotation SummarizationSetBy = User
+
+	column sla_breaches
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0e7bf262-eb86-4569-a3bb-2dccc7f3bccf
+		summarizeBy: none
+		sourceColumn: sla_breaches
+
+		annotation SummarizationSetBy = User
+
+	column avg_order_lead_hours
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f2aa3927-01c8-4f35-800a-c45e41778e50
+		summarizeBy: none
+		sourceColumn: avg_order_lead_hours
+
+		annotation SummarizationSetBy = User
+
+	column src_batch_id
+		dataType: string
+		isHidden
+		lineageTag: c30931e0-1569-4143-a849-f9ed7dc41a57
+		summarizeBy: none
+		sourceColumn: src_batch_id
+
+		annotation SummarizationSetBy = User
+
+	partition FACT_AIRLINE_ORDER = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "FACT_AIRLINE_ORDER"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,109 @@
+table AGG_DAILY_FLIGHTS
+	lineageTag: 3bd89790-4f96-4f01-b0e6-3a8537bd28f1
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 645d7da9-0eb7-4351-9d11-08e96856b101
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = User
+
+	column entity_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 71a7b22b-e62a-44f3-8244-c6a8cc8ec69c
+		summarizeBy: none
+		sourceColumn: entity_key
+
+		annotation SummarizationSetBy = User
+
+	column station_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 442f0025-df8d-46f3-be1c-2d68b35e8d73
+		summarizeBy: none
+		sourceColumn: station_key
+
+		annotation SummarizationSetBy = User
+
+	column airline_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 54768b0e-e069-41aa-a582-512b5276e6f3
+		summarizeBy: none
+		sourceColumn: airline_key
+
+		annotation SummarizationSetBy = User
+
+	column route_group
+		dataType: string
+		lineageTag: bb57d204-d3f4-4bd0-9da2-c9b712851b96
+		summarizeBy: none
+		sourceColumn: route_group
+
+		annotation SummarizationSetBy = User
+
+	column flights_handled
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0bce3456-15c3-4a87-ab4f-9f1bdb16db74
+		summarizeBy: none
+		sourceColumn: flights_handled
+
+		annotation SummarizationSetBy = User
+
+	column flights_catered
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9003640c-c8db-45fd-98dd-8a4ef5c299fe
+		summarizeBy: none
+		sourceColumn: flights_catered
+
+		annotation SummarizationSetBy = User
+
+	column departures_on_time
+		dataType: int64
+		formatString: #,0
+		lineageTag: 529a5ba2-4959-4c09-b181-f31062f25ff1
+		summarizeBy: none
+		sourceColumn: departures_on_time
+
+		annotation SummarizationSetBy = User
+
+	column total_delay_min
+		dataType: int64
+		formatString: #,0
+		lineageTag: c5d1c45c-69a0-45f3-859f-4d2f0c67c027
+		summarizeBy: none
+		sourceColumn: total_delay_min
+
+		annotation SummarizationSetBy = User
+
+	column handling_revenue_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5df3cc5f-55bb-4012-8a21-827de74fceee
+		summarizeBy: none
+		sourceColumn: handling_revenue_usd
+
+		annotation SummarizationSetBy = User
+
+	partition AGG_DAILY_FLIGHTS = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "AGG", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "AGG_DAILY_FLIGHTS"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

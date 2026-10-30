@@ -1,0 +1,17 @@
+# Paths the pre-commit token check (.githooks/pre-commit) skips, on top of its built-in list
+# (lockfiles, generated/minified code, csv/jsonl data, vendored dirs, binary files).
+# One glob per line. No "/" = match the file name anywhere; a "/" = match the path; trailing "/" = a directory.
+# Use this only for files nobody authors by hand or by agent (generated, dumps). Split everything else.
+
+# Inherited from the original demo, over the limit at the first commit (grandfathered; split before growing them):
+generate_data.py
+sql/02_bronze_load.sql
+sql/03_silver_transform.sql
+sql/04_gold_model.sql
+sql/07_semantic_measures.sql
+sql/08_cortex_analyst_semantic_model.yaml
+sql/08b_semantic_view.sql
+README.md
+# Large Power BI project files:
+_Measures.tmdl
+BaseThemes/

@@ -1,0 +1,106 @@
+table DIM_VENDOR
+	lineageTag: 7cafbd85-fc7b-456e-9a41-9583dd5c0207
+
+	column vendor_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 781afcdf-95ca-4b9c-b486-fd7f3c59bb90
+		summarizeBy: none
+		sourceColumn: vendor_key
+
+		annotation SummarizationSetBy = User
+
+	column golden_vendor_id
+		dataType: string
+		lineageTag: d1b1a420-c3d3-4d81-829e-5d7832469b60
+		summarizeBy: none
+		sourceColumn: golden_vendor_id
+
+		annotation SummarizationSetBy = User
+
+	column golden_vendor_name
+		dataType: string
+		lineageTag: c3d6814e-cd6f-4113-8d9a-0f95ba0906ea
+		summarizeBy: none
+		sourceColumn: golden_vendor_name
+
+		annotation SummarizationSetBy = User
+
+	column category
+		dataType: string
+		lineageTag: bbf4c97c-ab58-4a2c-8332-9370e911ebc8
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = User
+
+	column default_gl
+		dataType: string
+		lineageTag: 7768c1a8-68c1-487c-bb98-5b44e7dbc055
+		summarizeBy: none
+		sourceColumn: default_gl
+
+		annotation SummarizationSetBy = User
+
+	column cr_number
+		dataType: string
+		lineageTag: 2db275f1-b012-4395-a53e-eec3d0273013
+		summarizeBy: none
+		sourceColumn: cr_number
+
+		annotation SummarizationSetBy = User
+
+	column iban
+		dataType: string
+		lineageTag: 7da529e4-2f19-47dc-8c40-509cf8d152ae
+		summarizeBy: none
+		sourceColumn: iban
+
+		annotation SummarizationSetBy = User
+
+	column country
+		dataType: string
+		lineageTag: 56aca5ce-3dd2-4ca4-a07b-4f77b9540945
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = User
+
+	column payment_terms
+		dataType: string
+		lineageTag: b463e8e1-fcc3-4eb2-b029-ac170d737e66
+		summarizeBy: none
+		sourceColumn: payment_terms
+
+		annotation SummarizationSetBy = User
+
+	column duplicate_source_ids
+		dataType: string
+		lineageTag: 5c765c66-1854-40b2-b9bb-567a15c44506
+		summarizeBy: none
+		sourceColumn: duplicate_source_ids
+
+		annotation SummarizationSetBy = User
+
+	column match_rule
+		dataType: string
+		lineageTag: bdb8de1b-8f74-4b94-a4d5-5dbb1bdc9cd9
+		summarizeBy: none
+		sourceColumn: match_rule
+
+		annotation SummarizationSetBy = User
+
+	partition DIM_VENDOR = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "DIM_VENDOR"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

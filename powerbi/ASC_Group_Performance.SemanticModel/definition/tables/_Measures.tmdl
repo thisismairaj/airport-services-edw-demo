@@ -1,0 +1,647 @@
+table _Measures
+	lineageTag: e92d0646-6ec2-48c6-b6a5-12674ee67d7f
+
+	/// M-001 External revenue (USD)
+	measure Revenue = ```
+			CALCULATE (
+			    SUMX ( FACT_FINANCE_POSTING, FACT_FINANCE_POSTING[amount_usd] * RELATED ( DIM_GL_ACCOUNT[natural_sign] ) ),
+			    DIM_GL_ACCOUNT[account_class] = "Revenue",
+			    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+			)
+			```
+		formatString: #,0
+		displayFolder: Financial
+		lineageTag: 0802ee9c-a67b-422a-9afe-a3003d15c826
+
+	measure 'Revenue Budget' = ```
+			CALCULATE (
+			    SUMX ( FACT_FINANCE_POSTING, FACT_FINANCE_POSTING[budget_usd] * RELATED ( DIM_GL_ACCOUNT[natural_sign] ) ),
+			    DIM_GL_ACCOUNT[account_class] = "Revenue",
+			    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+			)
+			```
+		formatString: #,0
+		displayFolder: Financial
+		lineageTag: 37b4846c-b50a-415e-83f8-1dafdfa0381c
+
+	/// M-004
+	measure 'Revenue vs Budget' = ```
+			[Revenue] - [Revenue Budget]
+			```
+		formatString: #,0
+		displayFolder: Financial
+		lineageTag: 0f859956-1ac9-4b44-ac22-95fe79977b73
+
+	measure 'Revenue vs Budget %' = ```
+			DIVIDE ( [Revenue vs Budget], [Revenue Budget] )
+			```
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Financial
+		lineageTag: 3c264255-11a7-42c0-a5b2-9104116fbd7b
+
+	measure 'Operating Cost' = ```
+			CALCULATE (
+			    SUM ( FACT_FINANCE_POSTING[amount_usd] ),
+			    DIM_GL_ACCOUNT[account_class] IN { "COGS", "Opex" },
+			    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+			)
+			```
+		formatString: #,0
+		displayFolder: Financial
+		lineageTag: 8eec2b15-cb36-49a2-92ca-c2f37d50a468
+
+	/// M-002: sum of -(amount) over EBITDA accounts = revenue minus COGS/Opex
+	measure EBITDA = ```
+			CALCULATE (
+			    - SUM ( FACT_FINANCE_POSTING[amount_usd] ),
+			    DIM_GL_ACCOUNT[is_ebitda] = TRUE (),
+			    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+			)
+			```
+		formatString: #,0
+		displayFolder: Financial
+		lineageTag: 212a1970-bb94-4cb9-a511-f7cc6bb73a92
+
+	measure 'EBITDA Budget' = ```
+			CALCULATE (
+			    - SUM ( FACT_FINANCE_POSTING[budget_usd] ),
+			    DIM_GL_ACCOUNT[is_ebitda] = TRUE (),
+			    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+			)
+			```
+		formatString: #,0
+		displayFolder: Financial
+		lineageTag: bd0c3494-adc9-413b-8f28-5e779fcab36b
+
+	/// M-003
+	measure 'EBITDA Margin %' = ```
+			DIVIDE ( [EBITDA], [Revenue] )
+			```
+		formatString: 0.0%
+		displayFolder: Financial
+		lineageTag: dea169a9-6114-4329-9f0b-03a03107ea1b
+
+	measure 'EBITDA Margin % PY' = ```
+			CALCULATE ( [EBITDA Margin %], SAMEPERIODLASTYEAR ( DIM_DATE[calendar_date] ) )
+			```
+		formatString: 0.0%
+		displayFolder: Financial
+		lineageTag: 8ad49e82-663b-41d8-9542-55732ab5eb3f
+
+	/// GL 510300/510400 (external) - kpi_group = Contractor Cost
+	measure 'Contractor Spend' = ```
+			CALCULATE (
+			    SUM ( FACT_FINANCE_POSTING[amount_usd] ),
+			    DIM_GL_ACCOUNT[kpi_group] = "Contractor Cost",
+			    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+			)
+			```
+		formatString: #,0
+		displayFolder: Financial
+		lineageTag: 1c8805bf-7eb2-477e-9582-5d2e982d172f
+
+	measure 'Contractor Budget' = ```
+			CALCULATE (
+			    SUM ( FACT_FINANCE_POSTING[budget_usd] ),
+			    DIM_GL_ACCOUNT[kpi_group] = "Contractor Cost",
+			    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+			)
+			```
+		formatString: #,0
+		displayFolder: Financial
+		lineageTag: 423e9e7d-8cb8-409b-adda-f4690cbe70ff
+
+	/// M-029
+	measure 'Contractor Spend vs Budget %' = ```
+			DIVIDE ( [Contractor Spend] - [Contractor Budget], [Contractor Budget] )
+			```
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Financial
+		lineageTag: 1a0acc86-8bbb-4354-a496-1bfcb9d2c24c
+
+	measure 'EBITDA vs Budget %' = ```
+			DIVIDE ( [EBITDA] - [EBITDA Budget], ABS ( [EBITDA Budget] ) )
+			```
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Indicator helpers
+		lineageTag: 71695619-b858-4fe5-a340-4888f44bbd4e
+
+	/// wastage % minus the 4% alert threshold, in percentage points: above zero means above the alert
+	measure 'Wastage Alert Gap' = ```
+			[Wastage %] - 0.04
+			```
+		formatString: +0.00%;-0.00%;0.00%
+		displayFolder: Indicator helpers
+		lineageTag: 7a2910ce-cb39-452a-bca6-37ff837753aa
+
+	measure 'Revenue vs Budget Color' = ```
+			IF ( [Revenue vs Budget %] >= 0, "#2E7D32", "#C62828" )
+			```
+		displayFolder: Indicator helpers
+		lineageTag: ddc16d49-9980-4ddf-89d1-0df5f4630dcd
+
+	measure 'EBITDA vs Budget Color' = ```
+			IF ( [EBITDA vs Budget %] >= 0, "#2E7D32", "#C62828" )
+			```
+		displayFolder: Indicator helpers
+		lineageTag: 3ff10845-1901-4767-a8bc-4dc78d4018a7
+
+	measure 'Wastage Alert Color' = ```
+			IF ( [Wastage %] > 0.04, "#C62828", "#2E7D32" )
+			```
+		displayFolder: Indicator helpers
+		lineageTag: 97a4a4b0-8467-4b3b-bcb7-2f0a3258222a
+
+	/// over budget is bad
+	measure 'Contractor Spend Color' = ```
+			IF ( [Contractor Spend vs Budget %] > 0, "#C62828", "#2E7D32" )
+			```
+		displayFolder: Indicator helpers
+		lineageTag: abfec4d1-814d-48dd-8270-a4344441b9af
+
+	/// M-005
+	measure 'Meals Uplifted' = ```
+			SUM ( FACT_CATERING_UPLIFT[meals_uplifted] )
+			```
+		formatString: #,0
+		displayFolder: Catering operations
+		lineageTag: 845ca5f4-20b7-45b5-8035-3e460a8114d9
+
+	measure 'Meals Wasted' = ```
+			SUM ( FACT_CATERING_UPLIFT[meals_wasted] )
+			```
+		formatString: #,0
+		displayFolder: Catering operations
+		lineageTag: eb9ce15c-12e5-446a-8306-5ac4c463bba2
+
+	measure 'Catering Cost' = ```
+			SUM ( FACT_CATERING_UPLIFT[total_cost_usd] )
+			```
+		formatString: #,0
+		displayFolder: Catering operations
+		lineageTag: 2463bc27-4182-4d7f-885d-15ae7a5f82ec
+
+	/// M-012
+	measure 'Catering Revenue' = ```
+			SUM ( FACT_CATERING_UPLIFT[revenue_usd] )
+			```
+		formatString: #,0
+		displayFolder: Catering operations
+		lineageTag: e6074407-04e9-4964-be96-2a040c7c3979
+
+	measure 'Catering Gross Margin' = ```
+			[Catering Revenue] - [Catering Cost]
+			```
+		formatString: #,0
+		displayFolder: Catering operations
+		lineageTag: f43d2b29-c0fc-4775-b502-bdd0d3e8db2f
+
+	measure 'Catering Margin %' = ```
+			DIVIDE ( [Catering Gross Margin], [Catering Revenue] )
+			```
+		formatString: 0.0%
+		displayFolder: Catering operations
+		lineageTag: e0d73b8e-256d-476a-9e65-6895771c52c9
+
+	/// M-006: ratio of sums - never average the daily ratio
+	measure 'Cost per Meal' = ```
+			DIVIDE ( [Catering Cost], [Meals Uplifted] )
+			```
+		formatString: #,0.000
+		displayFolder: Catering operations
+		lineageTag: 91b89c98-006e-4630-a1f3-0b6875ada922
+
+	/// previous fiscal quarter, for the "why" decomposition
+	measure 'Cost per Meal PQ' = ```
+			CALCULATE ( [Cost per Meal], DATEADD ( DIM_DATE[calendar_date], -1, QUARTER ) )
+			```
+		formatString: #,0.000
+		displayFolder: Catering operations
+		lineageTag: a819d67b-5ef9-45c9-914c-b91d03b48287
+
+	measure 'Cost per Meal Δ vs PQ %' = ```
+			DIVIDE ( [Cost per Meal] - [Cost per Meal PQ], [Cost per Meal PQ] )
+			```
+		formatString: 0.0%
+		displayFolder: Catering operations
+		lineageTag: bd275871-98b7-4d76-8a9d-553d5ebcd218
+
+	/// M-007
+	measure 'Food Cost per Meal' = ```
+			DIVIDE ( SUM ( FACT_CATERING_UPLIFT[food_cost_usd] ), [Meals Uplifted] )
+			```
+		formatString: #,0.000
+		displayFolder: Catering operations
+		lineageTag: 8941eb67-3998-4854-a67d-0060c250109a
+
+	/// M-008
+	measure 'Labour Cost per Meal' = ```
+			DIVIDE ( SUM ( FACT_CATERING_UPLIFT[labour_cost_usd] ), [Meals Uplifted] )
+			```
+		formatString: #,0.000
+		displayFolder: Catering operations
+		lineageTag: 231d2778-fa67-48ea-a140-c5dec687d95f
+
+	measure 'Overhead Cost per Meal' = ```
+			DIVIDE ( SUM ( FACT_CATERING_UPLIFT[overhead_cost_usd] ), [Meals Uplifted] )
+			```
+		formatString: #,0.000
+		displayFolder: Catering operations
+		lineageTag: d5a9cfbb-0a11-4c09-af30-4bceb7682cf0
+
+	/// M-009 (alert threshold 4%)
+	measure 'Wastage %' = ```
+			DIVIDE ( [Meals Wasted], [Meals Uplifted] )
+			```
+		formatString: 0.0%
+		displayFolder: Catering operations
+		lineageTag: 91ca6b5d-316b-4295-ba8f-f817c96bc387
+
+	measure 'Wastage Alert' = ```
+			IF ( [Wastage %] > 0.04, "Above 4%", "Within tolerance" )
+			```
+		displayFolder: Catering operations
+		lineageTag: dd32a0db-6a8e-43dd-84f7-f979a4f26cf6
+
+	/// M-010
+	measure 'On-time Catering Delivery %' = ```
+			DIVIDE ( SUM ( FACT_CATERING_UPLIFT[deliveries_on_time] ), SUM ( FACT_CATERING_UPLIFT[deliveries_total] ) )
+			```
+		formatString: 0.0%
+		displayFolder: Catering operations
+		lineageTag: ae0c3667-8a6d-4d60-9269-ed60bdb0954a
+
+	/// M-011
+	measure 'Late Downlift Confirmations' = ```
+			SUM ( FACT_CATERING_UPLIFT[late_downlift_confirmations] )
+			```
+		formatString: #,0
+		displayFolder: Catering operations
+		lineageTag: b36c21e5-189c-478c-bb63-54b444a44171
+
+	measure 'Late Downlift Rate %' = ```
+			DIVIDE ( [Late Downlift Confirmations], SUM ( FACT_CATERING_UPLIFT[flights_catered] ) )
+			```
+		formatString: 0.0%
+		displayFolder: Catering operations
+		lineageTag: 39228fa2-4233-4706-b9de-e579d206afa8
+
+	/// shows "3" where the Jul-2026 spec change is in force
+	measure 'Menu Spec Version (max)' = ```
+			MAX ( DIM_MEAL[spec_version] )
+			```
+		formatString: 0
+		displayFolder: Catering operations
+		lineageTag: 4e8da1b2-6c10-4011-808e-b364cad32fed
+
+	/// M-013 (catering + handling) from the monthly airline P&L aggregate
+	measure 'Revenue per Airline' = ```
+			SUM ( AGG_MONTHLY_AIRLINE_PNL[total_revenue_usd] )
+			```
+		formatString: #,0
+		displayFolder: Airline commercial
+		lineageTag: 4965f051-29e6-4816-bc04-e374969255ac
+
+	/// M-014
+	measure 'Margin per Airline' = ```
+			SUM ( AGG_MONTHLY_AIRLINE_PNL[contribution_margin_usd] )
+			```
+		formatString: #,0
+		displayFolder: Airline commercial
+		lineageTag: c453f1f6-b338-432a-bb89-5ec34773d536
+
+	/// M-015
+	measure 'Margin % per Airline' = ```
+			DIVIDE ( [Margin per Airline], [Revenue per Airline] )
+			```
+		formatString: 0.0%
+		displayFolder: Airline commercial
+		lineageTag: ff7f6ba6-f002-4e69-ae56-cc2d63703b9e
+
+	measure 'Airline Cost per Meal' = ```
+			DIVIDE ( SUM ( AGG_MONTHLY_AIRLINE_PNL[catering_cost_usd] ), SUM ( AGG_MONTHLY_AIRLINE_PNL[meals_uplifted] ) )
+			```
+		formatString: #,0.000
+		displayFolder: Airline commercial
+		lineageTag: 60e40347-990e-4a0f-b5bc-e26fc79149e5
+
+	measure 'Airline Rank by Cost per Meal' = ```
+			RANKX ( ALLSELECTED ( DIM_AIRLINE[airline_name] ), [Cost per Meal], , DESC, DENSE )
+			```
+		formatString: #,0.000
+		displayFolder: Airline commercial
+		lineageTag: a8f1287c-a294-43fb-bf6c-649f039ebdf4
+
+	/// M-016
+	measure 'Flights Serviced' = ```
+			SUM ( AGG_DAILY_FLIGHTS[flights_handled] )
+			```
+		formatString: #,0
+		displayFolder: Ground operations
+		lineageTag: e01ac8c8-8fa0-415d-bf08-509ba5b1e2f0
+
+	measure 'Handling Revenue' = ```
+			SUM ( AGG_DAILY_FLIGHTS[handling_revenue_usd] )
+			```
+		formatString: #,0
+		displayFolder: Ground operations
+		lineageTag: f42a9eaa-82a9-426f-94fb-c9c6a96c91cf
+
+	measure 'Ground Handling Cost' = ```
+			CALCULATE (
+			    SUM ( FACT_FINANCE_POSTING[amount_usd] ),
+			    DIM_COST_CENTER[business_unit] = "Ground Handling",
+			    DIM_GL_ACCOUNT[account_class] IN { "COGS", "Opex" },
+			    DIM_GL_ACCOUNT[is_intercompany] = FALSE ()
+			)
+			```
+		formatString: #,0
+		displayFolder: Ground operations
+		lineageTag: f558d102-92dd-452f-a522-003c10d1513a
+
+	/// M-017: GL cost of the Ground Handling BU / flights handled (both filtered by the same date & entity context)
+	measure 'Cost per Flight Serviced' = ```
+			DIVIDE ( [Ground Handling Cost], [Flights Serviced] )
+			```
+		formatString: #,0.00
+		displayFolder: Ground operations
+		lineageTag: 18e77984-52ef-458e-9cf0-02e6b1ce9e8f
+
+	/// M-018
+	measure 'On-time Departure %' = ```
+			DIVIDE ( SUM ( AGG_DAILY_FLIGHTS[departures_on_time] ), [Flights Serviced] )
+			```
+		formatString: 0.0%
+		displayFolder: Ground operations
+		lineageTag: 935fb7f6-43b2-4312-add4-809b9fdf8922
+
+	measure 'Avg Departure Delay (min)' = ```
+			DIVIDE ( SUM ( AGG_DAILY_FLIGHTS[total_delay_min] ), [Flights Serviced] )
+			```
+		formatString: #,0.0
+		displayFolder: Ground operations
+		lineageTag: c1006805-a89d-46bb-97f5-12f395c42295
+
+	measure 'SLA Events' = ```
+			SUM ( FACT_AIRLINE_ORDER[sla_events] )
+			```
+		formatString: #,0
+		displayFolder: SLA
+		lineageTag: dccaf5d9-d886-4b44-971b-774a2c3a7ff3
+
+	measure 'SLA Breaches' = ```
+			SUM ( FACT_AIRLINE_ORDER[sla_breaches] )
+			```
+		formatString: #,0
+		displayFolder: SLA
+		lineageTag: 52a481b4-f89a-4eb7-9a21-1d1be3c23908
+
+	/// M-019
+	measure 'SLA Compliance %' = ```
+			DIVIDE ( [SLA Events] - [SLA Breaches], [SLA Events] )
+			```
+		formatString: 0.0%
+		displayFolder: SLA
+		lineageTag: cc8e42a1-3697-4fd1-8fc6-a57192f84a45
+
+	/// M-020
+	measure 'SPML Fulfilment %' = ```
+			DIVIDE (
+			    SUM ( FACT_AIRLINE_ORDER[special_meal_orders] ) - SUM ( FACT_AIRLINE_ORDER[special_meals_unfulfilled] ),
+			    SUM ( FACT_AIRLINE_ORDER[special_meal_orders] )
+			)
+			```
+		formatString: 0.0%
+		displayFolder: SLA
+		lineageTag: d0bd009e-05ac-4942-951b-98e274f8cca3
+
+	measure 'Orders Amended After Cut-off' = ```
+			SUM ( FACT_AIRLINE_ORDER[orders_amended_after_cutoff] )
+			```
+		formatString: #,0
+		displayFolder: SLA
+		lineageTag: 84779e03-4064-42c2-a62c-d504b51cef1c
+
+	/// M-021
+	measure 'Asset Downtime Cost' = ```
+			SUM ( FACT_WORK_ORDER[downtime_cost_usd] )
+			```
+		formatString: #,0
+		displayFolder: Engineering / assets
+		lineageTag: 0b8b7845-4de9-4be8-9950-ab6bb8aca705
+
+	measure 'Asset Downtime Hours' = ```
+			SUM ( FACT_WORK_ORDER[downtime_hours] )
+			```
+		formatString: #,0.0
+		displayFolder: Engineering / assets
+		lineageTag: 1dd7d3aa-b75c-4fc2-81b8-0bf014f71ee0
+
+	measure Failures = ```
+			CALCULATE ( COUNTROWS ( FACT_WORK_ORDER ), FACT_WORK_ORDER[is_failure] = TRUE () )
+			```
+		formatString: #,0
+		displayFolder: Engineering / assets
+		lineageTag: 5f553130-05b1-449a-b6b5-06db0cea7f10
+
+	measure 'Hydraulic Faults' = ```
+			CALCULATE ( COUNTROWS ( FACT_WORK_ORDER ), FACT_WORK_ORDER[is_failure] = TRUE (), LEFT ( FACT_WORK_ORDER[fault_code], 3 ) = "HYD" )
+			```
+		formatString: #,0
+		displayFolder: Engineering / assets
+		lineageTag: c93a3fa1-914b-4caf-9f3f-79c7067aee74
+
+	/// M-024 rolling three months
+	measure 'Hydraulic Faults 3M' = ```
+			CALCULATE ( [Hydraulic Faults], DATESINPERIOD ( DIM_DATE[calendar_date], MAX ( DIM_DATE[calendar_date] ), -3, MONTH ) )
+			```
+		formatString: #,0
+		displayFolder: Engineering / assets
+		lineageTag: ecf2da16-e708-4005-abeb-700ed5985a44
+
+	measure 'Operating Hours' = ```
+			SUM ( AGG_MONTHLY_ASSET_RELIABILITY[operating_hours] )
+			```
+		formatString: #,0.0
+		displayFolder: Engineering / assets
+		lineageTag: fccc9bf7-0873-48ae-bcef-a5172e02ff8e
+
+	/// M-022: operating hours / failures (uses the monthly reliability aggregate so both terms share the asset-month grain)
+	measure 'MTBF Hours' = ```
+			DIVIDE ( [Operating Hours], SUM ( AGG_MONTHLY_ASSET_RELIABILITY[failures] ) )
+			```
+		formatString: #,0.0
+		displayFolder: Engineering / assets
+		lineageTag: 9ff72df5-f0a0-4877-a70f-22d15bc78dab
+
+	/// M-023
+	measure 'MTTR Hours' = ```
+			DIVIDE ( SUM ( AGG_MONTHLY_ASSET_RELIABILITY[repair_hours] ), SUM ( AGG_MONTHLY_ASSET_RELIABILITY[failures] ) )
+			```
+		formatString: #,0.0
+		displayFolder: Engineering / assets
+		lineageTag: 45a26125-a12e-4b64-adf6-234bc151bfe1
+
+	/// average monthly downtime cost over the six months before the selected month (prediction story baseline)
+	measure 'Downtime Cost 6M Baseline' = ```
+			VAR _end = EOMONTH ( MIN ( DIM_DATE[calendar_date] ), -1 )
+			VAR _start = EOMONTH ( _end, -6 ) + 1
+			RETURN
+			    DIVIDE ( CALCULATE ( [Asset Downtime Cost], DATESBETWEEN ( DIM_DATE[calendar_date], _start, _end ) ), 6 )
+			```
+		formatString: #,0
+		displayFolder: Engineering / assets
+		lineageTag: 8467ab3a-eaed-44f4-bb8c-c063208aa2ef
+
+	measure 'Downtime Cost vs Baseline x' = ```
+			DIVIDE ( [Asset Downtime Cost], [Downtime Cost 6M Baseline] )
+			```
+		formatString: 0.00"x"
+		displayFolder: Engineering / assets
+		lineageTag: 5d0d59dc-8ced-48a6-ba1e-c3d7e6148c6d
+
+	/// M-025 (additive only within one cost centre & month; shown at that grain or via DISTINCTCOUNT on DIM_EMPLOYEE)
+	measure Headcount = ```
+			SUM ( FACT_LABOUR_COST[headcount] )
+			```
+		formatString: #,0
+		displayFolder: People
+		lineageTag: 4cb5c266-2429-4e23-94b2-696e4eb49113
+
+	measure 'Active Employees' = ```
+			CALCULATE ( COUNTROWS ( DIM_EMPLOYEE ), DIM_EMPLOYEE[employment_status] = "Active" )
+			```
+		formatString: #,0
+		displayFolder: People
+		lineageTag: ae0da0d5-3c91-4adf-9821-4929ae921506
+
+	measure 'Regular Hours' = ```
+			SUM ( FACT_LABOUR_COST[regular_hours] )
+			```
+		formatString: #,0.0
+		displayFolder: People
+		lineageTag: 8b031b6d-10a6-43b0-a7d4-7159b4b6718a
+
+	/// M-026
+	measure 'Overtime Hours' = ```
+			SUM ( FACT_LABOUR_COST[overtime_hours] )
+			```
+		formatString: #,0.0
+		displayFolder: People
+		lineageTag: 84478364-18f8-4c71-a01c-66822ff979f2
+
+	/// M-027
+	measure 'Overtime Ratio %' = ```
+			DIVIDE ( [Overtime Hours], [Regular Hours] + [Overtime Hours] )
+			```
+		formatString: 0.0%
+		displayFolder: People
+		lineageTag: 1a4f4ae0-a65e-4725-80d5-379126bbefd8
+
+	/// M-028
+	measure 'Contractor OT Hours' = ```
+			CALCULATE ( [Overtime Hours], FACT_LABOUR_COST[employment_type] = "Contractor" )
+			```
+		formatString: #,0.0
+		displayFolder: People
+		lineageTag: d08b1fed-0ed9-4091-ac2d-3d7c02427587
+
+	measure 'Contractor OT Hours PM' = ```
+			CALCULATE ( [Contractor OT Hours], DATEADD ( DIM_DATE[calendar_date], -1, MONTH ) )
+			```
+		formatString: #,0.0
+		displayFolder: People
+		lineageTag: 06b5ae50-456b-42ae-935f-41ff6eecb789
+
+	/// Sep-2026 at ASCWF shows +318
+	measure 'Contractor OT Δ vs PM (hrs)' = ```
+			// blank for the first month, which has no previous month to compare with
+			IF ( NOT ISBLANK ( [Contractor OT Hours PM] ), [Contractor OT Hours] - [Contractor OT Hours PM] )
+			```
+		formatString: +#,0;-#,0;0
+		displayFolder: People
+		lineageTag: b210747b-ac57-4e9a-beb9-b6243fd0fff5
+
+	/// M-030
+	measure 'Labour Cost' = ```
+			SUM ( FACT_LABOUR_COST[total_cost_usd] )
+			```
+		formatString: #,0
+		displayFolder: People
+		lineageTag: b6f4dd64-d828-457c-8151-0bd518879654
+
+	measure 'Overtime Cost' = ```
+			SUM ( FACT_LABOUR_COST[overtime_cost_usd] )
+			```
+		formatString: #,0
+		displayFolder: People
+		lineageTag: d7835f1f-8f2b-44f5-bebc-ea420d4d8638
+
+	measure 'Night Shift Hours' = ```
+			SUM ( FACT_LABOUR_COST[night_hours] )
+			```
+		formatString: #,0.0
+		displayFolder: People
+		lineageTag: 65b69c08-1685-4f46-8433-d931c3072031
+
+	/// M-031 (golden vendor after MDM)
+	measure 'Vendor Spend' = ```
+			SUM ( FACT_PURCHASE_ORDER[amount_usd] )
+			```
+		formatString: #,0
+		displayFolder: Procurement / governance
+		lineageTag: f2b63879-2a45-4dbc-bd9e-3c176cc90b3e
+
+	measure 'Golden Vendors' = ```
+			DISTINCTCOUNT ( FACT_PURCHASE_ORDER[vendor_key] )
+			```
+		formatString: #,0
+		displayFolder: Procurement / governance
+		lineageTag: d21cd0f0-f75b-4a7d-803e-20730ef407ec
+
+	/// before MDM: shows 97 vs 80 golden
+	measure 'Source Vendor Ids' = ```
+			DISTINCTCOUNT ( FACT_PURCHASE_ORDER[source_vendor_id] )
+			```
+		formatString: #,0
+		displayFolder: Procurement / governance
+		lineageTag: b8505ecc-e5fa-4d65-a68c-6040106930f7
+
+	/// M-032 style control: share of latest-run recon checks with status PASS (INFO excluded)
+	measure 'Recon Checks Passed %' = ```
+			VAR _run = MAX ( RECON_RESULTS[run_id] )
+			RETURN
+			    DIVIDE (
+			        CALCULATE ( COUNTROWS ( RECON_RESULTS ), RECON_RESULTS[run_id] = _run, RECON_RESULTS[status] = "PASS" ),
+			        CALCULATE ( COUNTROWS ( RECON_RESULTS ), RECON_RESULTS[run_id] = _run, RECON_RESULTS[status] <> "INFO" )
+			    )
+			```
+		formatString: 0.0%
+		displayFolder: Procurement / governance
+		lineageTag: 3c7e9f50-48e4-4ac2-bb4c-6fda381c26e4
+
+	measure 'Data Certified As Of' = ```
+			MAX ( CERTIFICATION_LOG[certified_at] )
+			```
+		formatString: dd mmm yyyy hh:nn
+		displayFolder: Procurement / governance
+		lineageTag: 28e56623-fe9b-4100-87ba-fc1d4d1edcd3
+
+	measure 'Last Refresh Label' = ```
+			"Certified " & FORMAT ( [Data Certified As Of], "dd MMM yyyy HH:mm" ) & " | Recon " & FORMAT ( [Recon Checks Passed %], "0%" ) & " passed"
+			```
+		displayFolder: Formatting helpers
+		lineageTag: cbbbc7cd-acde-4f38-aecf-1fc8baa9049d
+
+	column Dummy
+		dataType: int64
+		isHidden
+		lineageTag: bf880394-b568-46f2-8b4d-2269229d8a94
+		summarizeBy: none
+		sourceColumn: Dummy
+
+	partition _Measures = m
+		mode: import
+		source = #table(type table [Dummy = Int64.Type], {})
+
+	annotation PBI_ResultType = Table

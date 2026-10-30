@@ -1,0 +1,52 @@
+asset_key,asset_id,asset_type,asset_class,make,model,year_of_manufacture,acquisition_cost_usd,downtime_rate_usd_per_hr,cost_center_code,station_code,entity_code,status,criticality,effective_from,effective_to,is_current,version_no,entity_key,station_key,cost_center_key
+1,T-101,Aircraft Tug (Pushback),T,TLD,TPX-200,2014,92828.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+2,T-102,Aircraft Tug (Pushback),T,TLD,TPX-200,2015,112026.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+3,T-103,Aircraft Tug (Pushback),T,TLD,TPX-200,2015,44838.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+4,T-104,Aircraft Tug (Pushback),T,TLD,TPX-200,2015,34611.0,45,1109,BYP,ASC,Active,High,2024-01-01,2025-09-15,False,1,1,1,9
+5,T-104,Aircraft Tug (Pushback),T,TLD,TPX-200,2015,34611.0,45,1109,BYP,ASC,Under Major Overhaul,High,2025-09-15,2025-11-10,False,2,1,1,9
+6,T-104,Aircraft Tug (Pushback),T,TLD,TPX-200,2015,34611.0,45,1109,BYP,ASC,Active,High,2025-11-10,9999-12-31,True,3,1,1,9
+7,T-105,Aircraft Tug (Pushback),T,TLD,TPX-200,2020,108821.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+8,T-106,Aircraft Tug (Pushback),T,TLD,TPX-200,2020,141395.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+9,T-107,Aircraft Tug (Pushback),T,TLD,TPX-200,2015,98684.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+10,T-108,Aircraft Tug (Pushback),T,TLD,TPX-200,2023,157180.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+11,T-109,Aircraft Tug (Pushback),T,TLD,TPX-200,2015,79672.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+12,T-110,Aircraft Tug (Pushback),T,TLD,TPX-200,2021,35783.0,45,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+13,T-111,Aircraft Tug (Pushback),T,TLD,TPX-200,2016,92782.0,45,4101,DMM,ASCSA,Active,High,2024-01-01,2026-03-01,False,1,4,2,54
+14,T-111,Aircraft Tug (Pushback),T,TLD,TPX-200,2016,92782.0,45,4103,RUH,ASCSA,Active,High,2026-03-01,9999-12-31,True,2,4,3,56
+15,T-112,Aircraft Tug (Pushback),T,TLD,TPX-200,2014,54070.0,45,4101,DMM,ASCSA,Active,High,2024-01-01,9999-12-31,True,1,4,2,54
+16,T-114,Aircraft Tug (Pushback),T,TLD,TPX-200,2017,98842.0,45,1109,BYP,ASC,Active,High,2024-01-01,2026-05-01,False,1,1,1,9
+17,T-114,Aircraft Tug (Pushback),T,TLD,TPX-200,2017,98842.0,45,1102,BYP,ASC,Active,High,2026-05-01,2026-08-20,False,2,1,1,2
+18,T-114,Aircraft Tug (Pushback),T,TLD,TPX-200,2017,98842.0,45,1102,BYP,ASC,Watch List - Hydraulic,High,2026-08-20,9999-12-31,True,3,1,1,2
+19,BL-201,Belt Loader,BL,TLD,NBL-S,2022,103390.0,35,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+20,BL-202,Belt Loader,BL,TLD,NBL-S,2023,153420.0,35,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+21,BL-203,Belt Loader,BL,TLD,NBL-S,2016,57407.0,35,1109,BYP,ASC,Active,Medium,2024-01-01,2025-09-15,False,1,1,1,9
+22,BL-203,Belt Loader,BL,TLD,NBL-S,2016,57407.0,35,1109,BYP,ASC,Under Major Overhaul,Medium,2025-09-15,2025-11-10,False,2,1,1,9
+23,BL-203,Belt Loader,BL,TLD,NBL-S,2016,57407.0,35,1109,BYP,ASC,Active,Medium,2025-11-10,9999-12-31,True,3,1,1,9
+24,BL-204,Belt Loader,BL,TLD,NBL-S,2020,48833.0,35,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+25,BL-205,Belt Loader,BL,TLD,NBL-S,2015,62296.0,35,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+26,BL-206,Belt Loader,BL,TLD,NBL-S,2023,113034.0,35,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+27,BL-207,Belt Loader,BL,TLD,NBL-S,2022,81900.0,35,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+28,BL-208,Belt Loader,BL,TLD,NBL-S,2015,128437.0,35,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+29,BL-209,Belt Loader,BL,TLD,NBL-S,2021,147474.0,35,4101,DMM,ASCSA,Active,Medium,2024-01-01,9999-12-31,True,1,4,2,54
+30,HL-301,High Loader,HL,Trepel,Champ 350,2023,130006.0,60,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+31,HL-302,High Loader,HL,Trepel,Champ 350,2023,127125.0,60,1109,BYP,ASC,Active,High,2024-01-01,2025-09-15,False,1,1,1,9
+32,HL-302,High Loader,HL,Trepel,Champ 350,2023,127125.0,60,1109,BYP,ASC,Under Major Overhaul,High,2025-09-15,2025-11-10,False,2,1,1,9
+33,HL-302,High Loader,HL,Trepel,Champ 350,2023,127125.0,60,1109,BYP,ASC,Active,High,2025-11-10,9999-12-31,True,3,1,1,9
+34,HL-303,High Loader,HL,Trepel,Champ 350,2017,137768.0,60,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+35,HL-304,High Loader,HL,Trepel,Champ 350,2021,112719.0,60,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+36,HL-305,High Loader,HL,Trepel,Champ 350,2018,60731.0,60,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+37,HL-306,High Loader,HL,Trepel,Champ 350,2018,64170.0,60,1109,BYP,ASC,Active,High,2024-01-01,9999-12-31,True,1,1,1,9
+38,GPU-401,Ground Power Unit,GPU,ITW GSE,2400 Power Coil,2017,70900.0,30,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+39,GPU-402,Ground Power Unit,GPU,ITW GSE,2400 Power Coil,2014,104523.0,30,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+40,GPU-403,Ground Power Unit,GPU,ITW GSE,2400 Power Coil,2022,49822.0,30,1109,BYP,ASC,Active,Medium,2024-01-01,2026-02-01,False,1,1,1,9
+41,GPU-403,Ground Power Unit,GPU,ITW GSE,2400 Power Coil,2022,49822.0,30,1107,BYP,ASC,Active,Medium,2026-02-01,9999-12-31,True,2,1,1,7
+42,GPU-404,Ground Power Unit,GPU,ITW GSE,2400 Power Coil,2018,131149.0,30,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+43,GPU-405,Ground Power Unit,GPU,ITW GSE,2400 Power Coil,2020,84607.0,30,1109,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,9
+44,GPU-406,Ground Power Unit,GPU,ITW GSE,2400 Power Coil,2019,56719.0,30,4101,DMM,ASCSA,Active,Medium,2024-01-01,9999-12-31,True,1,4,2,54
+45,CT-501,Catering Hi-Lift Truck,CT,Mallaghan,CT6000,2022,109171.0,55,1204,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,17
+46,CT-502,Catering Hi-Lift Truck,CT,Mallaghan,CT6000,2018,148410.0,55,1204,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,17
+47,CT-503,Catering Hi-Lift Truck,CT,Mallaghan,CT6000,2018,54035.0,55,1204,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,17
+48,CT-504,Catering Hi-Lift Truck,CT,Mallaghan,CT6000,2016,98198.0,55,1204,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,17
+49,CT-505,Catering Hi-Lift Truck,CT,Mallaghan,CT6000,2021,117033.0,55,1204,BYP,ASC,Active,Medium,2024-01-01,2026-02-01,False,1,1,1,17
+50,CT-505,Catering Hi-Lift Truck,CT,Mallaghan,CT6000,2021,117033.0,55,1211,BYP,ASC,Active,Medium,2026-02-01,9999-12-31,True,2,1,1,24
+51,CT-506,Catering Hi-Lift Truck,CT,Mallaghan,CT6000,2020,153024.0,55,1204,BYP,ASC,Active,Medium,2024-01-01,9999-12-31,True,1,1,1,17

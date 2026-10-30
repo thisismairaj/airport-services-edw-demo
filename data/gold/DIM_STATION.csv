@@ -1,0 +1,4 @@
+station_key,station_code,icao_code,station_name,city,country_code,operating_entity_code,timezone
+1,BYP,OXBP,Bayport International Airport,Bayport,XB,ASC,Etc/GMT-3
+2,DMM,OEDF,King Fahd International Airport,Dammam,SA,ASCSA,Asia/Riyadh
+3,RUH,OERK,King Khalid International Airport,Riyadh,SA,ASCSA,Asia/Riyadh

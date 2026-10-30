@@ -1,0 +1,28 @@
+MENU_SPEC,CARRIER,CLASS,VERSION,VALID_FROM,VALID_TO,STD_FOOD_COST,STD_LABOUR_COST,STD_OVERHEAD_COST,CHANGE_REASON,src_system,extracted_at,batch_id,row_hash
+EK-F-v2,EK,F,2,2024-01-01,2026-06-30,11.0,5.5,4.0,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,a8c3d0e4c7e9
+EK-F-v3,EK,F,3,2026-07-01,9999-12-31,11.99,5.5,4.0,Premium protein & dessert upgrade requested by airline,CMS,2026-10-01 02:00:00,CMS_202609_001,b87ba08235e2
+EK-J-v2,EK,J,2,2024-01-01,2026-06-30,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,d1131bbf7c38
+EK-J-v3,EK,J,3,2026-07-01,9999-12-31,6.54,3.0,2.2,Premium protein & dessert upgrade requested by airline,CMS,2026-10-01 02:00:00,CMS_202609_001,21f124e4dfa2
+EK-Y-v2,EK,Y,2,2024-01-01,2026-06-30,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,f182b0ebb5f5
+EK-Y-v3,EK,Y,3,2026-07-01,9999-12-31,2.398,1.1,0.9,Premium protein & dessert upgrade requested by airline,CMS,2026-10-01 02:00:00,CMS_202609_001,d71c4936cad7
+FZ-J-v2,FZ,J,2,2024-01-01,2026-06-30,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,b47a8e50defe
+FZ-J-v3,FZ,J,3,2026-07-01,9999-12-31,6.54,3.0,2.2,Premium protein & dessert upgrade requested by airline,CMS,2026-10-01 02:00:00,CMS_202609_001,f79b8f6d27f8
+FZ-Y-v2,FZ,Y,2,2024-01-01,2026-06-30,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,36848b1d13ea
+FZ-Y-v3,FZ,Y,3,2026-07-01,9999-12-31,2.398,1.1,0.9,Premium protein & dessert upgrade requested by airline,CMS,2026-10-01 02:00:00,CMS_202609_001,67ce6da1764e
+CHR-J-v2,CHR,J,2,2024-01-01,2026-06-30,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,37d359a8c313
+CHR-J-v3,CHR,J,3,2026-07-01,9999-12-31,6.54,3.0,2.2,Premium protein & dessert upgrade requested by airline,CMS,2026-10-01 02:00:00,CMS_202609_001,846868c23b78
+CHR-Y-v2,CHR,Y,2,2024-01-01,2026-06-30,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,d569ba06425d
+CHR-Y-v3,CHR,Y,3,2026-07-01,9999-12-31,2.398,1.1,0.9,Premium protein & dessert upgrade requested by airline,CMS,2026-10-01 02:00:00,CMS_202609_001,7177b3e4280d
+GC-J-v2,GC,J,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,5cb63b4615cc
+GC-Y-v2,GC,Y,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,4c83077d6985
+QR-J-v2,QR,J,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,5c0e9a0fcd1e
+QR-Y-v2,QR,Y,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,41f77421fd57
+EY-J-v2,EY,J,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,57c30f9063b5
+EY-Y-v2,EY,Y,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,69551c8f7ed0
+BA-F-v2,BA,F,2,2024-01-01,9999-12-31,11.0,5.5,4.0,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,4b71c915c039
+BA-J-v2,BA,J,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,4b481a8d58a5
+BA-Y-v2,BA,Y,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,6ac4f95ad5ae
+TK-J-v2,TK,J,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,9a03d91c3070
+TK-Y-v2,TK,Y,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,7ed700c3cec1
+SV-J-v2,SV,J,2,2024-01-01,9999-12-31,6.0,3.0,2.2,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,3607ed67d980
+SV-Y-v2,SV,Y,2,2024-01-01,9999-12-31,2.2,1.1,0.9,Baseline contract specification,CMS,2026-10-01 02:00:00,CMS_202609_001,08fc03338f27

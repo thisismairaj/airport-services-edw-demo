@@ -1,0 +1,75 @@
+table CERTIFICATION_LOG
+	lineageTag: 1fff6d99-fdd2-4a98-a651-c288b4ec150b
+
+	column certified_at
+		dataType: dateTime
+		formatString: dd mmm yyyy hh:nn
+		lineageTag: be14f0de-f8bc-4917-a306-1b3012121b9d
+		summarizeBy: none
+		sourceColumn: certified_at
+
+		annotation SummarizationSetBy = User
+
+	column object_name
+		dataType: string
+		lineageTag: a36abc16-34ce-48f6-b919-c10d106df626
+		summarizeBy: none
+		sourceColumn: object_name
+
+		annotation SummarizationSetBy = User
+
+	column row_count
+		dataType: int64
+		formatString: #,0
+		lineageTag: b1fdd433-f0e1-440d-90b3-b7eadce0f745
+		summarizeBy: none
+		sourceColumn: row_count
+
+		annotation SummarizationSetBy = User
+
+	column content_hash
+		dataType: string
+		lineageTag: 70f8b86c-094e-433e-a5f9-a9ae3fab40ec
+		summarizeBy: none
+		sourceColumn: content_hash
+
+		annotation SummarizationSetBy = User
+
+	column certified_by
+		dataType: string
+		lineageTag: 2c8f8c51-fcd7-4c3c-a72a-95d874dadef5
+		summarizeBy: none
+		sourceColumn: certified_by
+
+		annotation SummarizationSetBy = User
+
+	column recon_run_id
+		dataType: int64
+		formatString: #,0
+		lineageTag: c7f4ce4c-e910-4759-b83d-9531798de2da
+		summarizeBy: none
+		sourceColumn: recon_run_id
+
+		annotation SummarizationSetBy = User
+
+	column status
+		dataType: string
+		lineageTag: 18a396a3-8d05-4e57-b297-5cad674360f9
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = User
+
+	partition CERTIFICATION_LOG = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "CONTROL", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "CERTIFICATION_LOG"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,202 @@
+table DIM_ASSET
+	lineageTag: 93f4fe07-97d1-4bc5-9d94-12d5f7c6909c
+
+	column asset_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 67fa064b-ebdf-4c2c-af2f-446ba04b999a
+		summarizeBy: none
+		sourceColumn: asset_key
+
+		annotation SummarizationSetBy = User
+
+	column asset_id
+		dataType: string
+		lineageTag: baf28474-ac23-48a7-b262-415b57a38eec
+		summarizeBy: none
+		sourceColumn: asset_id
+
+		annotation SummarizationSetBy = User
+
+	column asset_type
+		dataType: string
+		lineageTag: c82d5dbc-07b6-417b-82a6-5de433d85ccc
+		summarizeBy: none
+		sourceColumn: asset_type
+
+		annotation SummarizationSetBy = User
+
+	column asset_class
+		dataType: string
+		lineageTag: 327ec38e-bf65-41a7-b09f-bb4ce4ee52e8
+		summarizeBy: none
+		sourceColumn: asset_class
+
+		annotation SummarizationSetBy = User
+
+	column make
+		dataType: string
+		lineageTag: ba119b5b-ff9d-4f23-9b43-3e8377ffd4b0
+		summarizeBy: none
+		sourceColumn: make
+
+		annotation SummarizationSetBy = User
+
+	column model
+		dataType: string
+		lineageTag: eaf90d34-1890-4d3c-ba18-ba01f25b6129
+		summarizeBy: none
+		sourceColumn: model
+
+		annotation SummarizationSetBy = User
+
+	column year_of_manufacture
+		dataType: int64
+		formatString: 0
+		lineageTag: 820990be-8ddd-4f0b-af3c-1557f2db5525
+		summarizeBy: none
+		sourceColumn: year_of_manufacture
+
+		annotation SummarizationSetBy = User
+
+	column acquisition_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 351ea4b9-bbae-42be-9389-3f8ea4bb5d78
+		summarizeBy: none
+		sourceColumn: acquisition_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column downtime_rate_usd_per_hr
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 62a7d59a-1ab9-4598-adfe-3dfc72c171d6
+		summarizeBy: none
+		sourceColumn: downtime_rate_usd_per_hr
+
+		annotation SummarizationSetBy = User
+
+	column cost_center_code
+		dataType: string
+		lineageTag: 2eb0c534-65ea-4489-bdfb-f81ac81a4df6
+		summarizeBy: none
+		sourceColumn: cost_center_code
+
+		annotation SummarizationSetBy = User
+
+	column station_code
+		dataType: string
+		lineageTag: 59e5e743-c9ea-4452-a22c-fad97d0fbee3
+		summarizeBy: none
+		sourceColumn: station_code
+
+		annotation SummarizationSetBy = User
+
+	column entity_code
+		dataType: string
+		lineageTag: 3dccc8f9-9ca1-4411-9bc2-55435eca39c4
+		summarizeBy: none
+		sourceColumn: entity_code
+
+		annotation SummarizationSetBy = User
+
+	column status
+		dataType: string
+		lineageTag: e60a8b18-7983-4c28-b4fd-c4e5ba7bf907
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = User
+
+	column criticality
+		dataType: string
+		lineageTag: 38dc9949-b7e7-4908-9f2a-c95057d869d6
+		summarizeBy: none
+		sourceColumn: criticality
+
+		annotation SummarizationSetBy = User
+
+	column effective_from
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		lineageTag: 799778ed-7e29-4cbc-a72e-178c8910c998
+		summarizeBy: none
+		sourceColumn: effective_from
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column effective_to
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		lineageTag: 1215f302-d940-4379-8e21-cc430b70acdd
+		summarizeBy: none
+		sourceColumn: effective_to
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_current
+		dataType: boolean
+		lineageTag: 3ecf03d2-55ab-4928-892d-f20e886ba3f9
+		summarizeBy: none
+		sourceColumn: is_current
+
+		annotation SummarizationSetBy = User
+
+	column version_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 89ffe0ed-45fc-4a59-9bf3-9f20ee67d31c
+		summarizeBy: none
+		sourceColumn: version_no
+
+		annotation SummarizationSetBy = User
+
+	column entity_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: b1776308-d44d-492d-816a-34327bdc8b38
+		summarizeBy: none
+		sourceColumn: entity_key
+
+		annotation SummarizationSetBy = User
+
+	column station_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 85a0f731-7a00-4172-823c-f69561dff9a0
+		summarizeBy: none
+		sourceColumn: station_key
+
+		annotation SummarizationSetBy = User
+
+	column cost_center_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 5391ffa8-4749-43ab-853b-49e6d137dced
+		summarizeBy: none
+		sourceColumn: cost_center_key
+
+		annotation SummarizationSetBy = User
+
+	partition DIM_ASSET = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "DIM_ASSET"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

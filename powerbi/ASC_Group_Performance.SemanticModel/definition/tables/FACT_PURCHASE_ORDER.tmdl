@@ -1,0 +1,159 @@
+table FACT_PURCHASE_ORDER
+	lineageTag: d506ebf6-262c-4929-8970-09155c5f0ae5
+
+	column purchase_order_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: f64ccc3a-c54d-489b-b2db-ab3f63312cbf
+		summarizeBy: none
+		sourceColumn: purchase_order_key
+
+		annotation SummarizationSetBy = User
+
+	column po_number
+		dataType: string
+		lineageTag: 084168b8-6af6-45be-8a22-dbe4c0fcab95
+		summarizeBy: none
+		sourceColumn: po_number
+
+		annotation SummarizationSetBy = User
+
+	column po_line
+		dataType: string
+		lineageTag: 60fd48b9-f7d4-41cb-89eb-544f26e19a9e
+		summarizeBy: none
+		sourceColumn: po_line
+
+		annotation SummarizationSetBy = User
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 5b820b5f-9008-4024-b003-a1ffe9f33d2f
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = User
+
+	column entity_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 8a434b6f-2168-4aa2-8434-4658e9bb7f94
+		summarizeBy: none
+		sourceColumn: entity_key
+
+		annotation SummarizationSetBy = User
+
+	column cost_center_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 66d7ce41-5c9b-4930-8506-77c3c7c5a6fe
+		summarizeBy: none
+		sourceColumn: cost_center_key
+
+		annotation SummarizationSetBy = User
+
+	column gl_account_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 43dd51c6-b17e-4adb-b179-7983066a4e08
+		summarizeBy: none
+		sourceColumn: gl_account_key
+
+		annotation SummarizationSetBy = User
+
+	column vendor_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: b1464cf9-20c7-4410-bb50-f1c949816db2
+		summarizeBy: none
+		sourceColumn: vendor_key
+
+		annotation SummarizationSetBy = User
+
+	column source_vendor_id
+		dataType: string
+		lineageTag: bceba890-2330-4d88-98f9-2997fea1334e
+		summarizeBy: none
+		sourceColumn: source_vendor_id
+
+		annotation SummarizationSetBy = User
+
+	column category
+		dataType: string
+		lineageTag: 1642dc7a-0d4c-4811-88c9-90d92296279e
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = User
+
+	column document_currency
+		dataType: string
+		lineageTag: 8eb6c4d4-3471-4547-8cc4-612cb5076054
+		summarizeBy: none
+		sourceColumn: document_currency
+
+		annotation SummarizationSetBy = User
+
+	column amount_doc_currency
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 9fce47a5-9e56-47db-bd17-9ae163986bfb
+		summarizeBy: none
+		sourceColumn: amount_doc_currency
+
+		annotation SummarizationSetBy = User
+
+	column amount_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: dd7cf114-197e-4016-a74b-3c47c139b03c
+		summarizeBy: none
+		sourceColumn: amount_usd
+
+		annotation SummarizationSetBy = User
+
+	column has_ariba_requisition
+		dataType: boolean
+		lineageTag: f09b39a2-19ba-4b4a-bf95-1191fb67ade7
+		summarizeBy: none
+		sourceColumn: has_ariba_requisition
+
+		annotation SummarizationSetBy = User
+
+	column status
+		dataType: string
+		lineageTag: a36c5b67-0d99-4ab4-b1ad-9f3667f42d47
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = User
+
+	column src_batch_id
+		dataType: string
+		isHidden
+		lineageTag: f6aaf8ce-722b-4841-a557-c20eded91820
+		summarizeBy: none
+		sourceColumn: src_batch_id
+
+		annotation SummarizationSetBy = User
+
+	partition FACT_PURCHASE_ORDER = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "FACT_PURCHASE_ORDER"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

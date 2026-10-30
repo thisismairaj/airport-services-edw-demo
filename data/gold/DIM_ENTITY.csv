@@ -1,0 +1,5 @@
+entity_key,entity_code,entity_name,legal_name,country_code,local_currency,sap_company_code,sf_legal_entity_name,home_station
+1,ASC,Airport Services Co.,Airport Services Co. P.J.S.C.,XB,USD,1000,Airport Services Co PJSC,BYP
+2,ASCD,ASC Development L.L.C.,ASC Development L.L.C.,XB,USD,1100,ASC Dev LLC,BYP
+3,ASCWF,ASC Workforce Services L.L.C.,ASC Workforce Services L.L.C.,XB,USD,1200,ASC Workforce,BYP
+4,ASCSA,ASC SAUDI ARABIA,ASC Saudi Arabia LLC,SA,SAR,2000,ASC Saudi Arabia,DMM

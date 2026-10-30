@@ -1,0 +1,7 @@
+name: app_environment
+channels:
+  - snowflake
+dependencies:
+  - streamlit=1.50.0
+  - pandas
+  - altair=5.5.0

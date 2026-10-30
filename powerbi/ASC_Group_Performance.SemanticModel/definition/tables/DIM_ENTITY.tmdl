@@ -1,0 +1,90 @@
+table DIM_ENTITY
+	lineageTag: 16522ddc-7b8c-4778-83ca-6f14822b4975
+
+	column entity_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: ca0f6faa-8758-490a-96eb-94dbcaf45f2b
+		summarizeBy: none
+		sourceColumn: entity_key
+
+		annotation SummarizationSetBy = User
+
+	column entity_code
+		dataType: string
+		lineageTag: eded4514-5269-46b7-a651-0662594d8d7c
+		summarizeBy: none
+		sourceColumn: entity_code
+
+		annotation SummarizationSetBy = User
+
+	column entity_name
+		dataType: string
+		lineageTag: 19b52c0c-8f36-4316-9678-50ad06c49479
+		summarizeBy: none
+		sourceColumn: entity_name
+
+		annotation SummarizationSetBy = User
+
+	column legal_name
+		dataType: string
+		lineageTag: 6e493f49-b856-4dd3-9cdb-452617bce582
+		summarizeBy: none
+		sourceColumn: legal_name
+
+		annotation SummarizationSetBy = User
+
+	column country_code
+		dataType: string
+		lineageTag: 88cf81b5-2b83-48db-9124-5dab1c4317a3
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = User
+
+	column local_currency
+		dataType: string
+		lineageTag: e53b7de7-203c-4dcf-b248-d1e0be96c0fe
+		summarizeBy: none
+		sourceColumn: local_currency
+
+		annotation SummarizationSetBy = User
+
+	column sap_company_code
+		dataType: string
+		lineageTag: 44a164d4-7209-492a-a78b-b81b9e50aed7
+		summarizeBy: none
+		sourceColumn: sap_company_code
+
+		annotation SummarizationSetBy = User
+
+	column sf_legal_entity_name
+		dataType: string
+		lineageTag: ed4a2d71-4757-4f1f-ab62-4e7c7c5324d4
+		summarizeBy: none
+		sourceColumn: sf_legal_entity_name
+
+		annotation SummarizationSetBy = User
+
+	column home_station
+		dataType: string
+		lineageTag: 2dd60b2b-1779-417f-81b9-2d7ec84b2af5
+		summarizeBy: none
+		sourceColumn: home_station
+
+		annotation SummarizationSetBy = User
+
+	partition DIM_ENTITY = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "STAR", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "DIM_ENTITY"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

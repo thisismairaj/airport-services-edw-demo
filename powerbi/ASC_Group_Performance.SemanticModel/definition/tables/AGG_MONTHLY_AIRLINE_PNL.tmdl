@@ -1,0 +1,178 @@
+table AGG_MONTHLY_AIRLINE_PNL
+	lineageTag: fc3a273e-d834-46db-a076-b74a3d9ce3ff
+
+	column fiscal_period
+		dataType: string
+		lineageTag: be0b6b39-93cf-4ee2-acea-38d06916e147
+		summarizeBy: none
+		sourceColumn: fiscal_period
+
+		annotation SummarizationSetBy = User
+
+	column airline_key
+		dataType: int64
+		formatString: 0
+		isHidden
+		lineageTag: 8f5163c7-fae5-4737-a820-ca26a381d2c0
+		summarizeBy: none
+		sourceColumn: airline_key
+
+		annotation SummarizationSetBy = User
+
+	column flights_handled
+		dataType: int64
+		formatString: #,0
+		lineageTag: ddf35679-b587-4d82-b3f0-0e89ab5cd6f4
+		summarizeBy: none
+		sourceColumn: flights_handled
+
+		annotation SummarizationSetBy = User
+
+	column meals_uplifted
+		dataType: int64
+		formatString: #,0
+		lineageTag: f733b63a-3430-4703-bce4-ed511ee86534
+		summarizeBy: none
+		sourceColumn: meals_uplifted
+
+		annotation SummarizationSetBy = User
+
+	column meals_wasted
+		dataType: int64
+		formatString: #,0
+		lineageTag: 780bfb04-4215-4640-acc0-f1ba0f65f3f5
+		summarizeBy: none
+		sourceColumn: meals_wasted
+
+		annotation SummarizationSetBy = User
+
+	column catering_revenue_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8b38424a-b772-403c-85eb-8621375b16f3
+		summarizeBy: none
+		sourceColumn: catering_revenue_usd
+
+		annotation SummarizationSetBy = User
+
+	column catering_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4a3ab231-7093-4e0f-ad0f-41f8c12685d4
+		summarizeBy: none
+		sourceColumn: catering_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column catering_food_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e4759e01-c0a2-40cb-8ecc-54715eef414a
+		summarizeBy: none
+		sourceColumn: catering_food_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column catering_labour_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 1fd4694b-e9e3-4aad-81ae-b242e526b249
+		summarizeBy: none
+		sourceColumn: catering_labour_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column handling_revenue_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 72b00ebd-7e1e-4c19-979b-47ea8bedc643
+		summarizeBy: none
+		sourceColumn: handling_revenue_usd
+
+		annotation SummarizationSetBy = User
+
+	column handling_cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5e1a23cd-1b3b-4328-9eeb-b3e3e2b91df5
+		summarizeBy: none
+		sourceColumn: handling_cost_usd
+
+		annotation SummarizationSetBy = User
+
+	column late_downlift_confirmations
+		dataType: int64
+		formatString: #,0
+		lineageTag: 22488e52-1d9c-4da8-a3ea-f58a5c3c23b8
+		summarizeBy: none
+		sourceColumn: late_downlift_confirmations
+
+		annotation SummarizationSetBy = User
+
+	column deliveries_total
+		dataType: int64
+		formatString: #,0
+		lineageTag: cf42d2fa-3408-43ea-a8c0-7d9de0c100c7
+		summarizeBy: none
+		sourceColumn: deliveries_total
+
+		annotation SummarizationSetBy = User
+
+	column deliveries_on_time
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5fc61bd5-aceb-40c2-a880-09cb7abc944e
+		summarizeBy: none
+		sourceColumn: deliveries_on_time
+
+		annotation SummarizationSetBy = User
+
+	column total_revenue_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8b98b9b5-5ce6-4096-b527-87cbe0f6773e
+		summarizeBy: none
+		sourceColumn: total_revenue_usd
+
+		annotation SummarizationSetBy = User
+
+	column contribution_margin_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 87d3a0a4-aca3-4158-bfc4-710f45fbdde0
+		summarizeBy: none
+		sourceColumn: contribution_margin_usd
+
+		annotation SummarizationSetBy = User
+
+	column cost_per_meal_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 25062d9a-f954-42a3-8575-be3b7f6c2686
+		summarizeBy: none
+		sourceColumn: cost_per_meal_usd
+
+		annotation SummarizationSetBy = User
+
+	column cost_per_flight_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6f9a271c-646a-4528-8333-757defcbbd45
+		summarizeBy: none
+		sourceColumn: cost_per_flight_usd
+
+		annotation SummarizationSetBy = User
+
+	partition AGG_MONTHLY_AIRLINE_PNL = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "AGG", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "AGG_MONTHLY_AIRLINE_PNL"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table

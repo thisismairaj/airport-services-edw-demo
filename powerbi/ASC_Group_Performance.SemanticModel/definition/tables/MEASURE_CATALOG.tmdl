@@ -1,0 +1,163 @@
+table MEASURE_CATALOG
+	lineageTag: 93d33a03-14b2-479a-95e0-31e125ec81a0
+
+	column measure_id
+		dataType: string
+		lineageTag: 4b620d19-f91a-459f-acd3-f997f3e276ff
+		summarizeBy: none
+		sourceColumn: measure_id
+
+		annotation SummarizationSetBy = User
+
+	column measure_name
+		dataType: string
+		lineageTag: a1def610-2c26-4130-b574-5f65970ba528
+		summarizeBy: none
+		sourceColumn: measure_name
+
+		annotation SummarizationSetBy = User
+
+	column kpi_family
+		dataType: string
+		lineageTag: 1bd78cf4-8d41-4544-958d-522c843bd550
+		summarizeBy: none
+		sourceColumn: kpi_family
+
+		annotation SummarizationSetBy = User
+
+	column definition
+		dataType: string
+		lineageTag: 9b7132ed-5ad5-4e0b-9f15-a6db3efbd00e
+		summarizeBy: none
+		sourceColumn: definition
+
+		annotation SummarizationSetBy = User
+
+	column formula
+		dataType: string
+		lineageTag: 21761b45-05a7-4ed7-af3a-6acb233d72e0
+		summarizeBy: none
+		sourceColumn: formula
+
+		annotation SummarizationSetBy = User
+
+	column unit
+		dataType: string
+		lineageTag: 87790051-af28-4e51-821c-38e08b448946
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = User
+
+	column grain
+		dataType: string
+		lineageTag: 5bdcdd38-5079-4a30-9f34-da667a4de0b3
+		summarizeBy: none
+		sourceColumn: grain
+
+		annotation SummarizationSetBy = User
+
+	column owner
+		dataType: string
+		lineageTag: 39d26113-aaef-486b-a942-cee6072b1571
+		summarizeBy: none
+		sourceColumn: owner
+
+		annotation SummarizationSetBy = User
+
+	column steward
+		dataType: string
+		lineageTag: ae2f6d2b-7b98-4e3f-96b5-2a531c7ed568
+		summarizeBy: none
+		sourceColumn: steward
+
+		annotation SummarizationSetBy = User
+
+	column sensitivity
+		dataType: string
+		lineageTag: 467ce7b0-bac1-428f-ace6-3cbad2b354bb
+		summarizeBy: none
+		sourceColumn: sensitivity
+
+		annotation SummarizationSetBy = User
+
+	column refresh_cadence
+		dataType: string
+		lineageTag: 25e27794-9686-4a34-90ac-b93cbb4e0f76
+		summarizeBy: none
+		sourceColumn: refresh_cadence
+
+		annotation SummarizationSetBy = User
+
+	column source_systems
+		dataType: string
+		lineageTag: 1c176d3e-5f24-44a9-8e90-5cba7630db0d
+		summarizeBy: none
+		sourceColumn: source_systems
+
+		annotation SummarizationSetBy = User
+
+	column lineage
+		dataType: string
+		lineageTag: f9b9afe5-b8b4-429e-bcd2-7ccf9ef7378e
+		summarizeBy: none
+		sourceColumn: lineage
+
+		annotation SummarizationSetBy = User
+
+	column semantic_object
+		dataType: string
+		lineageTag: 54811cf1-b162-45fa-abc2-ca60e58aed28
+		summarizeBy: none
+		sourceColumn: semantic_object
+
+		annotation SummarizationSetBy = User
+
+	column dax_measure
+		dataType: string
+		lineageTag: 41eef994-c438-43f5-bdcc-6a987b3c4142
+		summarizeBy: none
+		sourceColumn: dax_measure
+
+		annotation SummarizationSetBy = User
+
+	column certified
+		dataType: boolean
+		lineageTag: 8ac7c074-68d1-439b-b5ec-c9f9f0185a02
+		summarizeBy: none
+		sourceColumn: certified
+
+		annotation SummarizationSetBy = User
+
+	column certified_on
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		lineageTag: bd25c98e-8313-454e-a79a-878f214195c6
+		summarizeBy: none
+		sourceColumn: certified_on
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column version
+		dataType: string
+		lineageTag: f1a58761-dab0-4379-b3ce-6bcad0828ed5
+		summarizeBy: none
+		sourceColumn: version
+
+		annotation SummarizationSetBy = User
+
+	partition MEASURE_CATALOG = m
+		mode: import
+		source =
+			let
+				Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role = SnowflakeRole, Implementation = "2.0"]),
+				Gold = Source{[Name = "EDW_GOLD", Kind = "Database"]}[Data],
+				Schema = Gold{[Name = "CONTROL", Kind = "Schema"]}[Data],
+				Object = Schema{[Name = "MEASURE_CATALOG"]}[Data],
+				LowerCase = Table.TransformColumnNames(Object, Text.Lower)
+			in
+				LowerCase
+
+	annotation PBI_ResultType = Table
