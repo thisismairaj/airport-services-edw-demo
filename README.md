@@ -16,8 +16,8 @@ airport-services-edw-demo/
   generate_data.py            generator (python3 -I generate_data.py; ~15 s; rewrites data/)
   verify_pack.py              CSV<->DDL alignment, FK integrity, story checks, YAML parse, SQL sanity
   data/
-    bronze/  (20 CSV)         raw extracts per source object, audit cols src_system/extracted_at/batch_id/row_hash
-    gold/    (20 CSV)         DIM_* / FACT_* / AGG_* exactly matching sql/04 DDL (fast-path seeds)
+    bronze/  (28 CSV)         raw extracts per source object, audit cols src_system/extracted_at/batch_id/row_hash
+    gold/    (20 CSV)         DIM_* / FACT_* / AGG_* exactly matching sql/04 DDL (expected results for checks; never loaded)
     bad_files/                contractor_feed_2026-09-28_malformed.csv  (quarantine demo)
                               contractor_feed_2026-09-28_clean.csv      (corrected re-drop)
     control_totals.json       headline numbers the demo should show
@@ -31,7 +31,6 @@ airport-services-edw-demo/
     07_semantic_measures.sql  SEMANTIC views, V_KPI_MONTHLY, MEASURE_CATALOG (32 measures), lineage edges
     08_cortex_analyst_semantic_model.yaml   Cortex Analyst model over the SEMANTIC views, 8 verified queries
     08b_semantic_view.sql                   creates the semantic view GROUP_PERFORMANCE from 08 (Snowflake's current format)
-    09_gold_seed_fast_path.sql              load Gold straight from the CSV seeds (rehearsal / Power BI authoring)
     10_live_pipeline.sql                    live SITA feed: stream + task graph Bronze -> Silver -> Gold LIVE_FLIGHT_BOARD
   powerbi/
     measures.dax              ~70 DAX measures for the certified KPIs (catalog ids in comments)
@@ -63,6 +62,12 @@ storage account names are global, so pick your own if it is taken.
 | Oracle airline portals | PORTAL_ORDERS_DAILY, PORTAL_SLA_EVENTS, PORTAL_SPECIAL_MEALS_MONTHLY | daily x airline; 3,000 SLA events |
 | SITA RMS | SITA_MESSAGES | MVT + CAT messages, 16-30 Sep 2026 (3,825 rows) |
 | Contractor feeds | CONTRACTOR_FEED_INVOICE_LINES (Jan-25..Aug-26), CONTRACTOR_FEED_DAILY (loaded live from bad_files/) | 400 contractors, monthly invoice lines |
+| MDM hub | MDM_ENTITIES, MDM_AIRLINES, MDM_STATIONS | reference masters (4 entities, 21 airlines with contracts, 3 stations) |
+| SAP master data | SAP_COST_CENTERS, SAP_GL_ACCOUNTS | 58 cost centres, 40 GL accounts with KPI mapping |
+| AODB | AODB_FLIGHT_SCHEDULE, AODB_DAILY_MOVEMENTS | 154 scheduled flights; daily movements Jan-25..Sep-26 |
+| IBM Maximo (archive) | MAXIMO_ASSET_HISTORY | asset change log, 51 asset versions (initial SCD2 history) |
+
+**Only Bronze is loaded from files.** Silver and Gold are always built from Bronze by SQL; the `data/gold` CSVs are expected results used by `verify_pack.py`, never loaded.
 
 ## Built-in stories (all computable from Gold)
 
@@ -84,11 +89,9 @@ storage account names are global, so pick your own if it is taken.
    ```
    PUT file://<pack>/data/bronze/*.csv    @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/    AUTO_COMPRESS=FALSE;
    PUT file://<pack>/data/bad_files/*.csv @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bad_files/ AUTO_COMPRESS=FALSE;
-   PUT file://<pack>/data/gold/*.csv      @EDW_GOLD.STAR.STG_GOLD_SEED/                  AUTO_COMPRESS=FALSE;
    ```
 3. **Full path (the live demo):** `04` DDL section first (tables must exist for `03` reference masters) -> `02` -> `03` -> `04` loads -> `05` -> `06` -> `07`.
    Simplest: run `04_gold_model.sql` once up to the line `-- LOADS FROM SILVER`, then run `02`, `03`, `04` (whole), `05`, `06`, `07`.
-   **Fast path (rehearsal / Power BI authoring):** `01` -> `04` DDL section -> `09` -> `06` -> `07`.
 4. Cortex Analyst: run `sql/08b_semantic_view.sql`. It creates the semantic view `EDW_GOLD.SEMANTIC.GROUP_PERFORMANCE` from the YAML in `08` (Snowflake now recommends semantic views over YAML model files). In Snowsight: AI & ML > Cortex Analyst > Semantic views > GROUP_PERFORMANCE.
 5. Power BI: open `powerbi/ASC_Group_Performance.pbip` (model and measures documented in `powerbi/model_notes.md` and `powerbi/measures.dax`), set the `SnowflakeServer` parameter to your account, sign in, Refresh.
 6. Live feed (optional): run `sql/10_live_pipeline.sql`. New rows in `EDW_BRONZE.RAW.SITA_MESSAGES` with `BATCH_ID = 'SITA_LIVE'` then flow to `EDW_GOLD.AGG.LIVE_FLIGHT_BOARD` within about a minute; each run is logged in `EDW_GOLD.CONTROL.PIPELINE_RUN_LOG`. In Snowsight: EDW_BRONZE > LANDING > Tasks > T_SITA_SILVER > Graph.
@@ -103,9 +106,9 @@ any script), and a file that lands in `landing/bronze/` is loaded into its Bronz
 1. `bash azure/01_setup_adls.sh`: resource group, storage account `edwdemolanding` (hierarchical namespace on), container `landing`, storage queue, Event Grid subscription for new files under `bronze/`.
 2. `sql/01b_adls_integration.sql`: the storage integration `INT_EDW_ADLS` and the notification integration `NINT_EDW_LANDING`. It prints two consent links: open each and click Accept once.
 3. `bash azure/02_grant_snowflake.sh <storage app name> <queue app name>` (the `AZURE_MULTI_TENANT_APP_NAME` of each integration): gives the two apps their least-privilege roles.
-4. `bash azure/03_upload.sh`: uploads `data/` to the container (`bronze/`, `bad_files/`, `gold_seed/`), except the files in `HOLD_BACK`, then clears the event queue.
+4. `bash azure/03_upload.sh`: uploads `data/` to the container (`bronze/`, `bad_files/`), except the files in `HOLD_BACK`, then clears the event queue.
 
-**Each build** (`LANDING=adls bash edw_rebuild.sh`, or by hand): `01`, then `01c_adls_stages.sql` (replaces `STG_SOURCE_DROP` and `STG_GOLD_SEED` with ADLS stages of the same names, so every `COPY INTO` in `02`, `03`, `04` and `09` is unchanged; `STG_QUARANTINE` stays internal), then the normal load order. After the initial load, run `sql/02b_snowpipe.sql`: 20 pipes, one per feed.
+**Each build** (`LANDING=adls bash edw_rebuild.sh`, or by hand): `01`, then `01c_adls_stages.sql` (replaces `STG_SOURCE_DROP` with an ADLS stage of the same name, so every `COPY INTO` in `02` is unchanged; `STG_QUARANTINE` stays internal), then the normal load order. After the initial load, run `sql/02b_snowpipe.sql`: 28 pipes, one per feed.
 
 **The live moment:** hold a few files back (`HOLD_BACK`, default `portal_sla_events.csv` and `sita_messages.csv`), build, then `bash azure/04_drop_held_back.sh <file>` and watch the file arrive in Bronze (`SELECT SYSTEM$PIPE_STATUS('EDW_BRONZE.LANDING.PIPE_<TABLE>')`, `COPY_HISTORY`). `--reset <file>` removes it again.
 
@@ -134,13 +137,13 @@ Each step names the exact SQL to run on screen (role `ROLE_ELT_ADMIN`, warehouse
 Pre-stage everything through step 2 of the load order before the session; the demo itself takes 20-25 minutes.
 
 ### Step 1 - Ingest (Bronze)  [~4 min]
-Run the COPY block of `sql/02_bronze_load.sql` (20 strict loads), then the inventory query at the end of the file.
+Run the COPY block of `sql/02_bronze_load.sql` (28 strict loads), then the inventory query at the end of the file.
 ```sql
 SELECT 'CMS_UPLIFT_FLIGHT_CLASS' AS object, COUNT(*) AS rows_landed, MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM EDW_BRONZE.RAW.CMS_UPLIFT_FLIGHT_CLASS
 UNION ALL SELECT 'SAP_GL_ACTUALS_MONTHLY', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM EDW_BRONZE.RAW.SAP_GL_ACTUALS_MONTHLY
 UNION ALL SELECT 'SF_EMPLOYEE_MASTER', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM EDW_BRONZE.RAW.SF_EMPLOYEE_MASTER;
 ```
-*See:* 20 source objects landed with `src_system / extracted_at / batch_id / row_hash` on every row; 21 monthly batches for SAP; raw defects still present (lower-case `ek`, duplicate `UPLIFT_ID`s):
+*See:* 28 source objects landed with `src_system / extracted_at / batch_id / row_hash` on every row; 21 monthly batches for SAP; raw defects still present (lower-case `ek`, duplicate `UPLIFT_ID`s):
 ```sql
 SELECT CARRIER, COUNT(*) FROM EDW_BRONZE.RAW.CMS_UPLIFT_FLIGHT_CLASS GROUP BY 1 ORDER BY 1;          -- 'ek', 'fz', 'gf' appear next to 'EK', 'FZ', 'GC'
 SELECT UPLIFT_ID, COUNT(*) FROM EDW_BRONZE.RAW.CMS_UPLIFT_FLIGHT_CLASS GROUP BY 1 HAVING COUNT(*) > 1; -- 26 duplicates
@@ -222,7 +225,7 @@ SELECT * FROM EDW_GOLD.SEMANTIC.V_KPI_MONTHLY_GROUP ORDER BY fiscal_period DESC 
 ## Caveats (say them before someone asks)
 
 - **Synthetic.** Volumes, prices and salaries are plausible for a Bayport ground-handling/catering group but invented. Revenue USD ~84M/yr, 1,200 staff + 400 contractors, 40 GSE assets, ~146 turnarounds/day.
-- **Size trade-offs (pack < 15 MB).** Bronze CMS is flight x class only for Sep-2026 (live window); earlier months ship as a daily backfill extract (`CMS_UPLIFT_DAILY_HISTORY`). SF time entries ship for 2026 only (2025 labour in Gold comes from the seed, so the SQL path's `FACT_LABOUR_COST` has permanents for 2026 and contractors for the full period). SITA messages cover 16-30 Sep 2026; `AGG_DAILY_FLIGHTS` history is a seed (`09`) that `04` refreshes from SITA. The Gold CSVs therefore contain slightly more history than a pure 02->04 rebuild; the recon checks are scoped to periods present in Bronze.
+- **Size trade-offs (pack about 16 MB).** Bronze CMS is flight x class only for Sep-2026 (live window); earlier months ship as a daily backfill extract (`CMS_UPLIFT_DAILY_HISTORY`). SF time entries ship for 2026 only, so `FACT_LABOUR_COST` has permanents for 2026 and contractors for the full period (the expected-results CSV also has 2025 permanents). SITA messages cover 16-30 Sep 2026; earlier flight history comes from the AODB daily movements in Bronze, and `04` refreshes the SITA days. The recon checks are scoped to periods present in Bronze.
 - **Catering labour in the fact is an allocated standard cost** (per-meal rate x produced meals, night premium), not the SuccessFactors payroll; the GL carries actual payroll. Both are stated in the measure catalog (M-008 vs M-030).
 - **Handling cost per airline** in `AGG_MONTHLY_AIRLINE_PNL` uses a certified 82% cost ratio of handling revenue; `cost_per_flight_serviced` at entity level uses actual Ground Handling GL cost.
 - **Intercompany**: ASCWF bills ASC for contractors (GL 400500 revenue / 510700 cost). Group revenue/EBITDA exclude it via `DIM_GL_ACCOUNT.is_intercompany`; entity P&Ls include it.

@@ -1,9 +1,9 @@
 table AGG_MONTHLY_ASSET_RELIABILITY
-	lineageTag: 6712002e-b198-4eb1-a1c5-5da0dbf7dc87
+	lineageTag: 97c7a7d6-cfd3-488c-9272-9e3b216bd8c7
 
 	column fiscal_period
 		dataType: string
-		lineageTag: 7e47114b-571b-43a2-90ba-027affffd4a0
+		lineageTag: 2d6544f5-af7b-4e33-b923-bba6cb8a77d7
 		summarizeBy: none
 		sourceColumn: fiscal_period
 
@@ -11,7 +11,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 
 	column asset_id
 		dataType: string
-		lineageTag: 6d14c78a-eabc-4b62-b028-1922993b992e
+		lineageTag: 0d665484-b1ae-455e-bec8-e2bc9b61cc37
 		summarizeBy: none
 		sourceColumn: asset_id
 
@@ -21,7 +21,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: f7347b9f-201f-4736-93e6-6b5877b72169
+		lineageTag: 4c5e1af5-3ead-4e69-9aac-1e561a431947
 		summarizeBy: none
 		sourceColumn: asset_key
 
@@ -30,7 +30,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 	column operating_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 23f710c6-5cfd-4367-9c2f-eba8b4be0fc4
+		lineageTag: 851ea6f0-4a96-46c2-adb2-a495a0d00489
 		summarizeBy: none
 		sourceColumn: operating_hours
 
@@ -39,7 +39,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 	column failures
 		dataType: int64
 		formatString: #,0
-		lineageTag: 25533838-03a3-4cde-9e29-fa86f9cfeb8b
+		lineageTag: ba8553a0-17f4-46b5-86d5-06bfc123307a
 		summarizeBy: none
 		sourceColumn: failures
 
@@ -48,7 +48,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 	column hydraulic_faults
 		dataType: int64
 		formatString: #,0
-		lineageTag: 93aa8c9e-fd6f-432c-9bb9-89416ca9e579
+		lineageTag: 5e864149-ee29-40d4-96ce-e6ff857fdd37
 		summarizeBy: none
 		sourceColumn: hydraulic_faults
 
@@ -57,7 +57,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 	column repair_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: e7cb9bdc-a935-4333-bf30-524a86d20b57
+		lineageTag: 08799fa2-f1b0-4a1d-b274-58ce32ba8389
 		summarizeBy: none
 		sourceColumn: repair_hours
 
@@ -66,7 +66,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 	column downtime_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: d18c53d5-277c-406c-814a-c25cc54a09d2
+		lineageTag: 629ce118-a491-442d-bbc1-b46f080c78b9
 		summarizeBy: none
 		sourceColumn: downtime_hours
 
@@ -75,7 +75,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 	column downtime_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 2baf1c11-e98f-4627-999f-fe178818a68e
+		lineageTag: 3db11a5e-7c40-4548-8213-a0d3c8ec7117
 		summarizeBy: none
 		sourceColumn: downtime_cost_usd
 
@@ -84,7 +84,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 	column mtbf_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 7ff23dd2-b186-4077-a049-6d41ed869804
+		lineageTag: c6bc0957-e4fd-491e-85c2-c38663025843
 		summarizeBy: none
 		sourceColumn: mtbf_hours
 
@@ -93,7 +93,7 @@ table AGG_MONTHLY_ASSET_RELIABILITY
 	column mttr_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 2248eccf-cd13-40c8-9bec-afb2987bcf11
+		lineageTag: 81f96823-c200-4316-9b1f-6a1a09317af4
 		summarizeBy: none
 		sourceColumn: mttr_hours
 

@@ -1,14 +1,14 @@
 expression SnowflakeServer = "<SNOWFLAKE_ACCOUNT>.snowflakecomputing.com" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-	lineageTag: e8773f56-fe16-41fb-855f-2547e39afd2a
+	lineageTag: 61f55b2f-94dd-4081-bacf-1aed9fd04993
 
 	annotation PBI_ResultType = Text
 
 expression SnowflakeWarehouse = "WH_BI" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-	lineageTag: d15ea551-935a-45b9-a6dc-a2c5b348b9dd
+	lineageTag: 6b87cbf3-51ba-4fab-aef9-18120f0ba1de
 
 	annotation PBI_ResultType = Text
 
 expression SnowflakeRole = "ROLE_GROUP_EXEC" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-	lineageTag: 1ac5004b-98c3-4065-a5a8-2e825051a6bb
+	lineageTag: cc79c7ff-4ff1-4b0f-9c79-083bccf3bcb6
 
 	annotation PBI_ResultType = Text

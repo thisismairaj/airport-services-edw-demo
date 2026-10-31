@@ -1,11 +1,11 @@
 table DIM_ENTITY
-	lineageTag: 16522ddc-7b8c-4778-83ca-6f14822b4975
+	lineageTag: 92e7b8fc-5bb4-4b42-b7b8-79f93361ad9b
 
 	column entity_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: ca0f6faa-8758-490a-96eb-94dbcaf45f2b
+		lineageTag: f98746e7-ebfb-48bc-bde3-8f6facbe1e5d
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -13,7 +13,7 @@ table DIM_ENTITY
 
 	column entity_code
 		dataType: string
-		lineageTag: eded4514-5269-46b7-a651-0662594d8d7c
+		lineageTag: ace4fe87-2bee-4b0a-97a7-183bf6db3a27
 		summarizeBy: none
 		sourceColumn: entity_code
 
@@ -21,7 +21,7 @@ table DIM_ENTITY
 
 	column entity_name
 		dataType: string
-		lineageTag: 19b52c0c-8f36-4316-9678-50ad06c49479
+		lineageTag: 4fb34c00-ba2b-4442-bd79-798bf8a873e7
 		summarizeBy: none
 		sourceColumn: entity_name
 
@@ -29,7 +29,7 @@ table DIM_ENTITY
 
 	column legal_name
 		dataType: string
-		lineageTag: 6e493f49-b856-4dd3-9cdb-452617bce582
+		lineageTag: 75d2d7d6-c16e-4ad7-b8c5-d1ae0554a062
 		summarizeBy: none
 		sourceColumn: legal_name
 
@@ -37,7 +37,7 @@ table DIM_ENTITY
 
 	column country_code
 		dataType: string
-		lineageTag: 88cf81b5-2b83-48db-9124-5dab1c4317a3
+		lineageTag: 96de8726-1d22-4631-a283-079bffc431e4
 		summarizeBy: none
 		sourceColumn: country_code
 
@@ -45,7 +45,7 @@ table DIM_ENTITY
 
 	column local_currency
 		dataType: string
-		lineageTag: e53b7de7-203c-4dcf-b248-d1e0be96c0fe
+		lineageTag: a9f960ee-1a39-464f-affa-c5363a14b129
 		summarizeBy: none
 		sourceColumn: local_currency
 
@@ -53,7 +53,7 @@ table DIM_ENTITY
 
 	column sap_company_code
 		dataType: string
-		lineageTag: 44a164d4-7209-492a-a78b-b81b9e50aed7
+		lineageTag: d318a2fb-70c8-42e8-aeaa-4dd867a28dfe
 		summarizeBy: none
 		sourceColumn: sap_company_code
 
@@ -61,7 +61,7 @@ table DIM_ENTITY
 
 	column sf_legal_entity_name
 		dataType: string
-		lineageTag: ed4a2d71-4757-4f1f-ab62-4e7c7c5324d4
+		lineageTag: 70d13c45-ca5c-46f4-9cba-49a3a8efdf35
 		summarizeBy: none
 		sourceColumn: sf_legal_entity_name
 
@@ -69,7 +69,7 @@ table DIM_ENTITY
 
 	column home_station
 		dataType: string
-		lineageTag: 2dd60b2b-1779-417f-81b9-2d7ec84b2af5
+		lineageTag: 65e9ffee-69ae-43e1-832a-5d872a3425c8
 		summarizeBy: none
 		sourceColumn: home_station
 

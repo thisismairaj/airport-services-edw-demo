@@ -1,11 +1,11 @@
 table FACT_FINANCE_POSTING
-	lineageTag: 76f80a71-b6b1-4d36-b66e-47905951fcf8
+	lineageTag: d39a3f05-d1be-4e29-9fe8-96655c0075d2
 
 	column finance_posting_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: c05a439e-e19b-4efc-a15c-81a4e23a92fe
+		lineageTag: 35d8298e-4bb0-4a45-a522-74756d070b23
 		summarizeBy: none
 		sourceColumn: finance_posting_key
 
@@ -13,7 +13,7 @@ table FACT_FINANCE_POSTING
 
 	column fiscal_period
 		dataType: string
-		lineageTag: a88e4882-273e-4530-af17-b5ca59c04197
+		lineageTag: 3bd3e635-d9d7-4d23-b38a-d222157ba66b
 		summarizeBy: none
 		sourceColumn: fiscal_period
 
@@ -22,7 +22,7 @@ table FACT_FINANCE_POSTING
 	column fiscal_year
 		dataType: int64
 		formatString: 0
-		lineageTag: e4b22541-fad9-448f-8e34-0af061f8b0ad
+		lineageTag: 2c38bf3c-9b21-43f0-9232-98c9855599fc
 		summarizeBy: none
 		sourceColumn: fiscal_year
 
@@ -32,7 +32,7 @@ table FACT_FINANCE_POSTING
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: a314f5c9-bfe7-48b0-a4b8-c100e943d13c
+		lineageTag: e620c326-5032-4fe4-9c96-308326b6a67a
 		summarizeBy: none
 		sourceColumn: date_key
 
@@ -42,7 +42,7 @@ table FACT_FINANCE_POSTING
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 5f311900-95b9-4e9e-9024-004ebbe2b5bb
+		lineageTag: f0b07fbc-ecb8-4be1-98f9-ba5eb45fca31
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -52,7 +52,7 @@ table FACT_FINANCE_POSTING
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 3dbb2ba7-a89a-4d3f-8321-1c613d8f1e62
+		lineageTag: 0e5a8d56-7300-441a-bf37-2a64010ae2e1
 		summarizeBy: none
 		sourceColumn: cost_center_key
 
@@ -62,7 +62,7 @@ table FACT_FINANCE_POSTING
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 6d472353-0dff-4cea-88d4-42139c001504
+		lineageTag: 115376bd-be6d-40e8-954e-9dca02094b0c
 		summarizeBy: none
 		sourceColumn: gl_account_key
 
@@ -72,7 +72,7 @@ table FACT_FINANCE_POSTING
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: ec6f1ce0-a6fe-4bf3-9f77-0c530bca3e06
+		lineageTag: bfd88cd8-51c0-464e-8675-062410dec76d
 		summarizeBy: none
 		sourceColumn: airline_key
 
@@ -81,7 +81,7 @@ table FACT_FINANCE_POSTING
 	column amount_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 4f4bd722-41c1-40c9-855e-2102277bcee7
+		lineageTag: 064b3071-f971-4ca9-a5bb-15a2d3a4a960
 		summarizeBy: none
 		sourceColumn: amount_usd
 
@@ -90,7 +90,7 @@ table FACT_FINANCE_POSTING
 	column budget_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 881814bf-f66b-466f-ba86-7efe25361e08
+		lineageTag: fa4159e0-e22d-4345-9dfd-c8e424b40491
 		summarizeBy: none
 		sourceColumn: budget_usd
 
@@ -99,7 +99,7 @@ table FACT_FINANCE_POSTING
 	column variance_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 65a3b351-f7df-4a74-8a37-fb1eb9ea8a36
+		lineageTag: 850c4266-0347-4e7c-ac81-5da9fb196c39
 		summarizeBy: none
 		sourceColumn: variance_usd
 
@@ -108,7 +108,7 @@ table FACT_FINANCE_POSTING
 	column posting_count
 		dataType: int64
 		formatString: #,0
-		lineageTag: 9bf08e5f-3043-4a97-9b84-abbaf02b4b80
+		lineageTag: 0766cc88-a2c6-4ecd-986f-c9b0954167e7
 		summarizeBy: none
 		sourceColumn: posting_count
 
@@ -117,7 +117,7 @@ table FACT_FINANCE_POSTING
 	column src_batch_id
 		dataType: string
 		isHidden
-		lineageTag: 43204539-7a2c-4778-b429-32d5fa74a166
+		lineageTag: e163f8f9-ed39-4451-9204-fa7969dffe9a
 		summarizeBy: none
 		sourceColumn: src_batch_id
 

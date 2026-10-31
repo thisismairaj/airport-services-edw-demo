@@ -1,12 +1,12 @@
 table DIM_DATE
 	dataCategory: Time
-	lineageTag: c55798b9-128e-480a-99a5-f3195f7a5186
+	lineageTag: 6d0892ef-5956-4ab6-a0db-f6a14c56e897
 
 	column date_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: d2827263-a345-469a-8271-251b983cdbca
+		lineageTag: f4a46bf6-693a-4013-b8e1-39547f9bd0c1
 		summarizeBy: none
 		sourceColumn: date_key
 
@@ -16,7 +16,7 @@ table DIM_DATE
 		dataType: dateTime
 		formatString: dd mmm yyyy
 		isKey
-		lineageTag: cf18b844-60e9-4ce4-8659-83b85e805156
+		lineageTag: 869de8c3-8f97-42a3-a976-0a0f80381594
 		summarizeBy: none
 		sourceColumn: calendar_date
 
@@ -27,7 +27,7 @@ table DIM_DATE
 	column year
 		dataType: int64
 		formatString: 0
-		lineageTag: 2fbcc97e-820e-4446-8115-26c717809b70
+		lineageTag: 1e5cb70b-fd7e-4583-a9f1-a26329f34e1a
 		summarizeBy: none
 		sourceColumn: year
 
@@ -36,7 +36,7 @@ table DIM_DATE
 	column quarter
 		dataType: int64
 		formatString: 0
-		lineageTag: 238005db-761d-4e95-a69d-8c6f30d1ca8e
+		lineageTag: 6b0f75a2-9543-4da7-af46-caa7fa56bb54
 		summarizeBy: none
 		sourceColumn: quarter
 
@@ -45,7 +45,7 @@ table DIM_DATE
 	column month
 		dataType: int64
 		formatString: 0
-		lineageTag: 1980b895-31c4-4800-9ceb-adb0dc0936c4
+		lineageTag: d06f5b36-641d-424c-be57-598c173146c0
 		summarizeBy: none
 		sourceColumn: month
 
@@ -53,7 +53,7 @@ table DIM_DATE
 
 	column month_name
 		dataType: string
-		lineageTag: f199b32b-1e2a-4425-afff-bed897643a5b
+		lineageTag: 118ce3c4-b2c3-402f-812f-6cb3cae53a02
 		summarizeBy: none
 		sourceColumn: month_name
 		sortByColumn: month
@@ -63,7 +63,7 @@ table DIM_DATE
 	column fiscal_year
 		dataType: int64
 		formatString: 0
-		lineageTag: a5e4ad56-a08f-47c5-ba9d-5b6a60071d0c
+		lineageTag: e4826cad-b7b7-4f26-bf37-80dfe7159c81
 		summarizeBy: none
 		sourceColumn: fiscal_year
 
@@ -71,7 +71,7 @@ table DIM_DATE
 
 	column fiscal_quarter
 		dataType: string
-		lineageTag: 5a383ea0-1611-43cc-82d5-5fcf30b02ee9
+		lineageTag: 1dadffd5-0286-4ab2-9d56-2e177cae1cca
 		summarizeBy: none
 		sourceColumn: fiscal_quarter
 
@@ -79,7 +79,7 @@ table DIM_DATE
 
 	column fiscal_period
 		dataType: string
-		lineageTag: bdc6a8c0-7a74-4cac-b108-5efa3f76521a
+		lineageTag: 07d7a5a3-659a-4a36-8284-2f9d75f53c41
 		summarizeBy: none
 		sourceColumn: fiscal_period
 
@@ -88,7 +88,7 @@ table DIM_DATE
 	column day_of_week
 		dataType: int64
 		formatString: #,0
-		lineageTag: a84087d8-f5ba-4f16-a1f7-7d475acbf5ad
+		lineageTag: 431e6360-3279-47fc-be22-d99357e00d4e
 		summarizeBy: none
 		sourceColumn: day_of_week
 
@@ -96,7 +96,7 @@ table DIM_DATE
 
 	column day_name
 		dataType: string
-		lineageTag: b235e5b5-aea1-40fe-ba1a-eced4db72033
+		lineageTag: bc60a289-446b-48f6-a267-982e6caf32e7
 		summarizeBy: none
 		sourceColumn: day_name
 		sortByColumn: day_of_week
@@ -105,7 +105,7 @@ table DIM_DATE
 
 	column is_weekend
 		dataType: boolean
-		lineageTag: 99fe8efd-618a-4ec7-b30a-f76c8dfc1d72
+		lineageTag: 8ff821bf-da3b-4ffb-9469-d068c083ee50
 		summarizeBy: none
 		sourceColumn: is_weekend
 
@@ -114,7 +114,7 @@ table DIM_DATE
 	column week_of_year
 		dataType: int64
 		formatString: #,0
-		lineageTag: 04e94fa3-1ee0-40e5-8571-cd75be027309
+		lineageTag: 4d129c65-e774-46f9-bb84-039cc5abb129
 		summarizeBy: none
 		sourceColumn: week_of_year
 
@@ -122,7 +122,7 @@ table DIM_DATE
 
 	column is_ramadan
 		dataType: boolean
-		lineageTag: 6d7d6eab-91da-4ca5-bc7f-74c6b33cf1f3
+		lineageTag: c4e8a0c6-3bec-4ace-bffd-c55281cf4797
 		summarizeBy: none
 		sourceColumn: is_ramadan
 
@@ -130,7 +130,7 @@ table DIM_DATE
 
 	column is_peak_season
 		dataType: boolean
-		lineageTag: 2006d0cb-825e-4337-91ab-c2e566dfc824
+		lineageTag: df11d604-2e53-410f-9e09-4a7248ba70e8
 		summarizeBy: none
 		sourceColumn: is_peak_season
 

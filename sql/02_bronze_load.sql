@@ -137,6 +137,57 @@ CREATE OR REPLACE TABLE SITA_MESSAGES (
   src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
 ) COMMENT = 'MVT and CAT messages, 16-30 Sep 2026 window (STD/ATD kept as text - parsed in Silver)';
 
+-- ------------------------------------------------------------------ Reference masters and history archives (MDM hub, SAP, AODB, Maximo)
+CREATE OR REPLACE TABLE MDM_ENTITIES (
+  entity_key NUMBER(3), entity_code VARCHAR(10), entity_name VARCHAR(80), legal_name VARCHAR(120), country_code VARCHAR(2), local_currency VARCHAR(3),
+  sap_company_code VARCHAR(4), sf_legal_entity_name VARCHAR(80), home_station VARCHAR(3),
+  src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
+) COMMENT = 'MDM hub: legal entities';
+
+CREATE OR REPLACE TABLE MDM_AIRLINES (
+  airline_key NUMBER(4), airline_code VARCHAR(3), icao_code VARCHAR(3), airline_name VARCHAR(80), alliance VARCHAR(20), demo_alias VARCHAR(20), contract_type VARCHAR(40),
+  contract_margin_pct NUMBER(5,3), base_load_factor NUMBER(5,3), catering_customer BOOLEAN, handling_customer BOOLEAN, country_code VARCHAR(2), account_manager VARCHAR(40),
+  contract_id VARCHAR(20), contract_start DATE, contract_end DATE,
+  src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
+) COMMENT = 'MDM hub: airline customers and their contracts';
+
+CREATE OR REPLACE TABLE MDM_STATIONS (
+  station_key NUMBER(3), station_code VARCHAR(3), icao_code VARCHAR(4), station_name VARCHAR(80), city VARCHAR(40), country_code VARCHAR(2), operating_entity_code VARCHAR(10), timezone VARCHAR(30),
+  src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
+) COMMENT = 'MDM hub: stations';
+
+CREATE OR REPLACE TABLE SAP_COST_CENTERS (
+  cost_center_key NUMBER(4), cost_center_code VARCHAR(10), cost_center_name VARCHAR(80), entity_code VARCHAR(10), business_unit VARCHAR(40), station_code VARCHAR(3),
+  target_headcount NUMBER(5), entity_key NUMBER(3), station_key NUMBER(3), cc_owner VARCHAR(40), is_operational BOOLEAN,
+  src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
+) COMMENT = 'SAP CO cost centre master';
+
+CREATE OR REPLACE TABLE SAP_GL_ACCOUNTS (
+  gl_account_key NUMBER(4), gl_account VARCHAR(10), gl_description VARCHAR(80), account_class VARCHAR(20), kpi_group VARCHAR(30), is_ebitda BOOLEAN, is_intercompany BOOLEAN,
+  natural_sign NUMBER(2), statement_line VARCHAR(30),
+  src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
+) COMMENT = 'SAP FI chart of accounts with KPI mapping';
+
+CREATE OR REPLACE TABLE AODB_FLIGHT_SCHEDULE (
+  flight_key NUMBER(5), airline_code VARCHAR(3), flight_number VARCHAR(10), origin VARCHAR(3), destination VARCHAR(3), route_group VARCHAR(20), aircraft_type VARCHAR(6), days_of_week VARCHAR(7),
+  station_code VARCHAR(3), service_entity_code VARCHAR(10), catered_by_asc BOOLEAN, handled_by_asc BOOLEAN, sched_dep_local VARCHAR(5), is_night_departure BOOLEAN,
+  seats_f NUMBER(4), seats_j NUMBER(4), seats_y NUMBER(4), body_type VARCHAR(10), turnaround_fee_usd NUMBER(10,2), airline_key NUMBER(4), station_key NUMBER(3), entity_key NUMBER(3),
+  src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
+) COMMENT = 'AODB seasonal flight schedule';
+
+CREATE OR REPLACE TABLE MAXIMO_ASSET_HISTORY (
+  asset_key NUMBER(6), asset_id VARCHAR(12), asset_type VARCHAR(40), asset_class VARCHAR(5), make VARCHAR(40), model VARCHAR(40), year_of_manufacture NUMBER(4),
+  acquisition_cost_usd NUMBER(14,2), downtime_rate_usd_per_hr NUMBER(8,2), cost_center_code VARCHAR(10), station_code VARCHAR(3), entity_code VARCHAR(10), status VARCHAR(40), criticality VARCHAR(10),
+  effective_from DATE, effective_to DATE, is_current BOOLEAN, version_no NUMBER(3), entity_key NUMBER(3), station_key NUMBER(3), cost_center_key NUMBER(4),
+  src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
+) COMMENT = 'Maximo asset change log: one row per asset version (initial history for the SCD2 dimension)';
+
+CREATE OR REPLACE TABLE AODB_DAILY_MOVEMENTS (
+  date_key NUMBER(8), entity_key NUMBER(3), station_key NUMBER(3), airline_key NUMBER(4), route_group VARCHAR(20), flights_handled NUMBER(5), flights_catered NUMBER(5),
+  departures_on_time NUMBER(5), total_delay_min NUMBER(8), handling_revenue_usd NUMBER(14,2),
+  src_system VARCHAR(20), extracted_at TIMESTAMP_NTZ, batch_id VARCHAR(50), row_hash VARCHAR(32)
+) COMMENT = 'AODB daily flight movements Jan-2025..Sep-2026; the live SITA window refreshes the last days';
+
 -- ------------------------------------------------------------------ Contractor feeds (CSV from manpower agencies)
 CREATE OR REPLACE TABLE CONTRACTOR_FEED_INVOICE_LINES (
   INVOICE_NO VARCHAR(30), INVOICE_DATE DATE, VENDOR_ID VARCHAR(10), CONTRACTOR_ID VARCHAR(10), CONTRACTOR_NAME VARCHAR(80), POOL_CC VARCHAR(10), DEPLOYED_CC VARCHAR(10),
@@ -187,6 +238,14 @@ COPY INTO PORTAL_SLA_EVENTS             FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP
 COPY INTO PORTAL_SPECIAL_MEALS_MONTHLY  FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/portal_special_meals_monthly.csv  FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
 COPY INTO SITA_MESSAGES                 FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/sita_messages.csv                 FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
 COPY INTO CONTRACTOR_FEED_INVOICE_LINES FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/contractor_feed_invoice_lines.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO MDM_ENTITIES                  FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/mdm_entities.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO MDM_AIRLINES                  FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/mdm_airlines.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO MDM_STATIONS                  FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/mdm_stations.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO SAP_COST_CENTERS              FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/sap_cost_centers.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO SAP_GL_ACCOUNTS               FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/sap_gl_accounts.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO AODB_FLIGHT_SCHEDULE          FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/aodb_flight_schedule.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO MAXIMO_ASSET_HISTORY          FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/maximo_asset_history.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
+COPY INTO AODB_DAILY_MOVEMENTS          FROM @EDW_BRONZE.LANDING.STG_SOURCE_DROP/bronze/aodb_daily_movements.csv FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_STD') ON_ERROR = 'ABORT_STATEMENT';
 
 -- Record the strict loads in the file log (COPY_HISTORY is the system of record; this is the demo-visible copy)
 INSERT INTO EDW_BRONZE.LANDING.FILE_LOAD_LOG (src_system, file_name, target_table, status, rows_parsed, rows_loaded, error_count, batch_id)
@@ -212,6 +271,14 @@ FROM (
   UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.PORTAL_SPECIAL_MEALS_MONTHLY', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
   UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.SITA_MESSAGES', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
   UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.CONTRACTOR_FEED_INVOICE_LINES', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
+  UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.MDM_ENTITIES', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
+  UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.MDM_AIRLINES', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
+  UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.MDM_STATIONS', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
+  UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.SAP_COST_CENTERS', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
+  UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.SAP_GL_ACCOUNTS', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
+  UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.AODB_FLIGHT_SCHEDULE', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
+  UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.MAXIMO_ASSET_HISTORY', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
+  UNION ALL SELECT * FROM TABLE(EDW_BRONZE.INFORMATION_SCHEMA.COPY_HISTORY(TABLE_NAME => 'EDW_BRONZE.RAW.AODB_DAILY_MOVEMENTS', START_TIME => DATEADD(hour, -1, CURRENT_TIMESTAMP())))
 );
 
 -- =============================================================================
@@ -279,4 +346,12 @@ UNION ALL SELECT 'PORTAL_SPECIAL_MEALS_MONTHLY', COUNT(*), MIN(extracted_at), MA
 UNION ALL SELECT 'SITA_MESSAGES', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM SITA_MESSAGES
 UNION ALL SELECT 'CONTRACTOR_FEED_INVOICE_LINES', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM CONTRACTOR_FEED_INVOICE_LINES
 UNION ALL SELECT 'CONTRACTOR_FEED_DAILY', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM CONTRACTOR_FEED_DAILY
+UNION ALL SELECT 'MDM_ENTITIES', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM MDM_ENTITIES
+UNION ALL SELECT 'MDM_AIRLINES', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM MDM_AIRLINES
+UNION ALL SELECT 'MDM_STATIONS', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM MDM_STATIONS
+UNION ALL SELECT 'SAP_COST_CENTERS', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM SAP_COST_CENTERS
+UNION ALL SELECT 'SAP_GL_ACCOUNTS', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM SAP_GL_ACCOUNTS
+UNION ALL SELECT 'AODB_FLIGHT_SCHEDULE', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM AODB_FLIGHT_SCHEDULE
+UNION ALL SELECT 'MAXIMO_ASSET_HISTORY', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM MAXIMO_ASSET_HISTORY
+UNION ALL SELECT 'AODB_DAILY_MOVEMENTS', COUNT(*), MIN(extracted_at), MAX(extracted_at), COUNT(DISTINCT batch_id) FROM AODB_DAILY_MOVEMENTS
 ORDER BY 1;

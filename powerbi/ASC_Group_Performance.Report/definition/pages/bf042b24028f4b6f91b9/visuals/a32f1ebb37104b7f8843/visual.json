@@ -1,0 +1,129 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a32f1ebb37104b7f8843",
+  "position": {
+    "x": 650,
+    "y": 180,
+    "z": 6,
+    "height": 534,
+    "width": 610,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEASURE_CATALOG"
+                    }
+                  },
+                  "Property": "measure_id"
+                }
+              },
+              "queryRef": "MEASURE_CATALOG.measure_id",
+              "nativeQueryRef": "measure_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEASURE_CATALOG"
+                    }
+                  },
+                  "Property": "measure_name"
+                }
+              },
+              "queryRef": "MEASURE_CATALOG.measure_name",
+              "nativeQueryRef": "measure_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEASURE_CATALOG"
+                    }
+                  },
+                  "Property": "kpi_family"
+                }
+              },
+              "queryRef": "MEASURE_CATALOG.kpi_family",
+              "nativeQueryRef": "kpi_family"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEASURE_CATALOG"
+                    }
+                  },
+                  "Property": "owner"
+                }
+              },
+              "queryRef": "MEASURE_CATALOG.owner",
+              "nativeQueryRef": "owner"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEASURE_CATALOG"
+                    }
+                  },
+                  "Property": "certified"
+                }
+              },
+              "queryRef": "MEASURE_CATALOG.certified",
+              "nativeQueryRef": "certified"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Certified measure catalogue'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

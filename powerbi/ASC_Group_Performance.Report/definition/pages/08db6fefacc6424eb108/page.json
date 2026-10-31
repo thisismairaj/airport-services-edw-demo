@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "08db6fefacc6424eb108",
-  "displayName": "Data Governance",
-  "displayOption": "FitToPage",
-  "height": 720,
-  "width": 1280
-}

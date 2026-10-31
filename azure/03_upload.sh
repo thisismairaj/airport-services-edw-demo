@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Put the demo data in the ADLS landing container (landing/bronze, landing/bad_files, landing/gold_seed), except the
+# Put the demo data in the ADLS landing container (landing/bronze, landing/bad_files), except the
 # files in HOLD_BACK: those stay out so they can be dropped live (rehearsal or demo) with 04_drop_held_back.sh.
 #   bash azure/03_upload.sh
 #   HOLD_BACK="portal_sla_events.csv" bash azure/03_upload.sh      # choose other files to hold back
@@ -22,8 +22,7 @@ for f in "$DATA"/bronze/*.csv; do
 done
 echo "bronze: $n uploaded, $held held back"
 az storage blob upload-batch -d "$CONTAINER" --destination-path bad_files -s "$DATA/bad_files" --pattern "*.csv" --overwrite --auth-mode key -o none
-az storage blob upload-batch -d "$CONTAINER" --destination-path gold_seed -s "$DATA/gold" --pattern "*.csv" --overwrite --auth-mode key -o none
-echo "bad_files and gold_seed uploaded"
+echo "bad_files uploaded"
 sleep 20   # let Event Grid deliver the BlobCreated events, then drop them: only files that arrive later should be loaded by the pipes
 az storage message clear -q "$QUEUE" --auth-mode key -o none
 echo "queue $QUEUE cleared. Container now holds: $(az storage blob list -c "$CONTAINER" --auth-mode key --query 'length(@)' -o tsv) blobs"

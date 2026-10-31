@@ -1,11 +1,11 @@
 table DIM_AIRLINE
-	lineageTag: 06c60586-4f89-4b54-8f2f-5a603284893b
+	lineageTag: 6b328b1c-560d-4ae8-bbad-36208255a038
 
 	column airline_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 634c94e7-17e6-4ec0-9c5a-53a540d6ae8c
+		lineageTag: d279143a-9819-420d-9192-c9e9a4678d5e
 		summarizeBy: none
 		sourceColumn: airline_key
 
@@ -13,7 +13,7 @@ table DIM_AIRLINE
 
 	column airline_code
 		dataType: string
-		lineageTag: 96e46014-a0e2-4791-8ca9-eb4a6533889c
+		lineageTag: 9506a005-49c6-41b2-b7c5-d0be93b18a64
 		summarizeBy: none
 		sourceColumn: airline_code
 
@@ -21,7 +21,7 @@ table DIM_AIRLINE
 
 	column icao_code
 		dataType: string
-		lineageTag: 8868f933-7720-4e90-941b-f467334f3a62
+		lineageTag: 8264254d-c581-4660-a8d8-6fc8ec453e53
 		summarizeBy: none
 		sourceColumn: icao_code
 
@@ -29,7 +29,7 @@ table DIM_AIRLINE
 
 	column airline_name
 		dataType: string
-		lineageTag: 6c887eab-9fd7-43aa-9652-852d23bfc4c5
+		lineageTag: 398a9709-09d1-4e42-9b24-8763072ad028
 		summarizeBy: none
 		sourceColumn: airline_name
 
@@ -37,7 +37,7 @@ table DIM_AIRLINE
 
 	column alliance
 		dataType: string
-		lineageTag: a89a6efe-a941-475e-b690-4a883eb5056c
+		lineageTag: 2a6eaa20-894c-4d30-a4ac-1aa9af108ba4
 		summarizeBy: none
 		sourceColumn: alliance
 
@@ -45,7 +45,7 @@ table DIM_AIRLINE
 
 	column demo_alias
 		dataType: string
-		lineageTag: 41e1c664-8eb6-4a4a-a682-633a476dfb25
+		lineageTag: c897dd07-cf58-42e3-a287-6598d5d0fb39
 		summarizeBy: none
 		sourceColumn: demo_alias
 
@@ -53,7 +53,7 @@ table DIM_AIRLINE
 
 	column contract_type
 		dataType: string
-		lineageTag: a6b018d9-e185-4068-afbe-66273bd52aa3
+		lineageTag: dea50e0d-9bba-4525-9f98-83c82d7f0467
 		summarizeBy: none
 		sourceColumn: contract_type
 
@@ -62,7 +62,7 @@ table DIM_AIRLINE
 	column contract_margin_pct
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 4139c2f3-0f8c-4b82-885a-66430ce662b9
+		lineageTag: b301fde6-6f80-4efc-99f4-5167ba9affa6
 		summarizeBy: none
 		sourceColumn: contract_margin_pct
 
@@ -71,7 +71,7 @@ table DIM_AIRLINE
 	column base_load_factor
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 96d50fb5-473d-49be-b058-c7452d06624d
+		lineageTag: ff48b6c2-2431-406b-9633-638a2a9faa5b
 		summarizeBy: none
 		sourceColumn: base_load_factor
 
@@ -79,7 +79,7 @@ table DIM_AIRLINE
 
 	column catering_customer
 		dataType: boolean
-		lineageTag: 7e1e02f8-609d-4ed3-a572-a6faa11a2dc4
+		lineageTag: 9b065d49-b16d-42bc-b599-a268a6f756e7
 		summarizeBy: none
 		sourceColumn: catering_customer
 
@@ -87,7 +87,7 @@ table DIM_AIRLINE
 
 	column handling_customer
 		dataType: boolean
-		lineageTag: cc6570b3-b419-46bf-866c-e211f8743f50
+		lineageTag: ae3d3641-48d0-42b5-8d1d-0636d7e4dfa3
 		summarizeBy: none
 		sourceColumn: handling_customer
 
@@ -95,7 +95,7 @@ table DIM_AIRLINE
 
 	column country_code
 		dataType: string
-		lineageTag: ff93da0b-b979-497d-a855-a5833bd4594b
+		lineageTag: 53378565-ed95-4f12-bfc5-a7f1fc9e4086
 		summarizeBy: none
 		sourceColumn: country_code
 
@@ -103,7 +103,7 @@ table DIM_AIRLINE
 
 	column account_manager
 		dataType: string
-		lineageTag: 5b166233-8c60-4893-86f5-31c87642ad44
+		lineageTag: 255ed246-06c6-4e27-a2b1-ff7590ed8953
 		summarizeBy: none
 		sourceColumn: account_manager
 
@@ -111,7 +111,7 @@ table DIM_AIRLINE
 
 	column contract_id
 		dataType: string
-		lineageTag: cc8900e6-9df2-44c9-bb75-cd49d6238506
+		lineageTag: 24ad681c-234f-452c-ab58-7a762742ce98
 		summarizeBy: none
 		sourceColumn: contract_id
 
@@ -120,7 +120,7 @@ table DIM_AIRLINE
 	column contract_start
 		dataType: dateTime
 		formatString: dd mmm yyyy
-		lineageTag: 801a6cde-affd-40a9-936c-285df77acff7
+		lineageTag: 2897b1c5-8750-45b8-8857-2df21534b437
 		summarizeBy: none
 		sourceColumn: contract_start
 
@@ -131,7 +131,7 @@ table DIM_AIRLINE
 	column contract_end
 		dataType: dateTime
 		formatString: dd mmm yyyy
-		lineageTag: dca2775b-2215-4e5f-ac8f-93dbf81ce40f
+		lineageTag: 238bd275-4539-40eb-8e08-f7814cea3422
 		summarizeBy: none
 		sourceColumn: contract_end
 

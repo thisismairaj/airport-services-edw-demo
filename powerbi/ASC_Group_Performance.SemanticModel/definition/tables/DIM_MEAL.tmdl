@@ -1,11 +1,11 @@
 table DIM_MEAL
-	lineageTag: 0782733a-1cea-492a-b41b-d4c48629ec60
+	lineageTag: c9d29932-8674-4b33-9bef-57223008ee42
 
 	column meal_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: e2dfbe1e-5140-4bf1-9d88-63abf0237b74
+		lineageTag: d4cefac6-6b71-4cca-915b-cfab85642967
 		summarizeBy: none
 		sourceColumn: meal_key
 
@@ -13,7 +13,7 @@ table DIM_MEAL
 
 	column menu_spec_code
 		dataType: string
-		lineageTag: 6e653c19-d735-45a2-b4d8-d53bffd43292
+		lineageTag: 164513cf-3715-4e95-8587-561cb007eb95
 		summarizeBy: none
 		sourceColumn: menu_spec_code
 
@@ -21,7 +21,7 @@ table DIM_MEAL
 
 	column airline_code
 		dataType: string
-		lineageTag: f3f26a8a-5504-4cac-ba07-bc33495948e6
+		lineageTag: 4342599c-f697-481a-b1af-ce7ccf073280
 		summarizeBy: none
 		sourceColumn: airline_code
 
@@ -29,7 +29,7 @@ table DIM_MEAL
 
 	column meal_class
 		dataType: string
-		lineageTag: 03cb1957-1898-41d8-98a9-493d550a7a62
+		lineageTag: 4d5e3d0b-401a-45de-84ca-7b45bd83e2f8
 		summarizeBy: none
 		sourceColumn: meal_class
 
@@ -37,7 +37,7 @@ table DIM_MEAL
 
 	column meal_class_name
 		dataType: string
-		lineageTag: 5ea0f462-0413-4abb-83b7-bb9023e459c6
+		lineageTag: cd47b19f-5728-4f0c-8533-02ffa4b8d7e2
 		summarizeBy: none
 		sourceColumn: meal_class_name
 
@@ -45,7 +45,7 @@ table DIM_MEAL
 
 	column meal_type
 		dataType: string
-		lineageTag: 539303a5-4f63-4ee1-98b4-2123b3099ecf
+		lineageTag: cea4bc61-7d38-4915-8a11-9852d9163cbd
 		summarizeBy: none
 		sourceColumn: meal_type
 
@@ -54,7 +54,7 @@ table DIM_MEAL
 	column spec_version
 		dataType: int64
 		formatString: #,0
-		lineageTag: 8ecb037b-ccff-44d8-bc84-cbd28b7a5af1
+		lineageTag: 2ceaac8a-9ee5-40e6-85a0-9093d263b353
 		summarizeBy: none
 		sourceColumn: spec_version
 
@@ -63,7 +63,7 @@ table DIM_MEAL
 	column effective_from
 		dataType: dateTime
 		formatString: dd mmm yyyy
-		lineageTag: 7b00f4c7-5086-4d17-bd74-5763fbff1d67
+		lineageTag: b623effe-7694-4b9a-940c-2a7ee0932eae
 		summarizeBy: none
 		sourceColumn: effective_from
 
@@ -74,7 +74,7 @@ table DIM_MEAL
 	column effective_to
 		dataType: dateTime
 		formatString: dd mmm yyyy
-		lineageTag: df66ceab-9d92-4b9a-ba14-a653617f786a
+		lineageTag: f95290cc-9280-4669-88db-bfe20d2aa14e
 		summarizeBy: none
 		sourceColumn: effective_to
 
@@ -85,7 +85,7 @@ table DIM_MEAL
 	column std_food_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: bb802888-b8c8-4978-b1fe-4773a9e497bc
+		lineageTag: 270bb1c5-c675-45a0-be35-5642b06a78f0
 		summarizeBy: none
 		sourceColumn: std_food_cost_usd
 
@@ -94,7 +94,7 @@ table DIM_MEAL
 	column std_labour_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 7b301532-50d4-4fec-a43e-7b83b4bdbd92
+		lineageTag: 29a34b5a-b94c-49c3-9771-0b4eb7886b1a
 		summarizeBy: none
 		sourceColumn: std_labour_cost_usd
 
@@ -103,7 +103,7 @@ table DIM_MEAL
 	column std_overhead_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 57cfead7-6608-461e-96a2-3f97de61f297
+		lineageTag: 83f78034-4232-4f66-bea3-2d48d6f4ee79
 		summarizeBy: none
 		sourceColumn: std_overhead_cost_usd
 
@@ -111,7 +111,7 @@ table DIM_MEAL
 
 	column spec_change_reason
 		dataType: string
-		lineageTag: 87013d66-f58b-4bc4-99f9-2a12a26e63ef
+		lineageTag: 8dac7894-df02-46ce-973c-cf0bb3e17ebf
 		summarizeBy: none
 		sourceColumn: spec_change_reason
 

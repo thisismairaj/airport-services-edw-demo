@@ -940,6 +940,17 @@ DIM_FLIGHT = SCHED.drop(columns=['operate_prob']).copy()
 DIM_FLIGHT['airline_key'] = DIM_FLIGHT.airline_code.map(AL_KEY); DIM_FLIGHT['station_key'] = DIM_FLIGHT.station_code.map(ST_KEY); DIM_FLIGHT['entity_key'] = DIM_FLIGHT.service_entity_code.map(ENT_KEY)
 write(DIM_FLIGHT, GOLD, 'DIM_FLIGHT'); write(DIM_CC, GOLD, 'DIM_COST_CENTER'); write(DIM_GL, GOLD, 'DIM_GL_ACCOUNT'); write(DIM_MEAL, GOLD, 'DIM_MEAL')
 
+# Bronze source extracts for the reference masters, the asset change log and the flight-movement history.
+# Silver and Gold build these tables from Bronze; the Gold CSVs above are expected results only, never loaded.
+write(add_audit(ENTITIES, 'MDM', '2026-09'), BRONZE, 'mdm_entities')
+write(add_audit(AIRLINES, 'MDM', '2026-09'), BRONZE, 'mdm_airlines')
+write(add_audit(STATIONS, 'MDM', '2026-09'), BRONZE, 'mdm_stations')
+write(add_audit(DIM_CC, 'SAP', '2026-09'), BRONZE, 'sap_cost_centers')
+write(add_audit(DIM_GL, 'SAP', '2026-09'), BRONZE, 'sap_gl_accounts')
+write(add_audit(DIM_FLIGHT, 'AODB', '2026-09'), BRONZE, 'aodb_flight_schedule')
+write(add_audit(DIM_ASSET.drop(columns=['failure_rate_per_month', 'monthly_op_hours']), 'MAXIMO', '2026-09'), BRONZE, 'maximo_asset_history')
+write(add_audit(AGG_FL, 'AODB', pd.to_datetime(AGG_FL.date_key.astype(str)).dt.to_period('M').astype(str)), BRONZE, 'aodb_daily_movements')
+
 # --------------------------------------------------------------------------- headline numbers for the README / recon
 ebitda = FFP.merge(DIM_GL[['gl_account_key', 'is_ebitda', 'is_intercompany', 'account_class']], on='gl_account_key')
 ext = ebitda[~ebitda.is_intercompany]

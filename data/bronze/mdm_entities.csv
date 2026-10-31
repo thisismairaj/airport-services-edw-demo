@@ -1,0 +1,5 @@
+entity_key,entity_code,entity_name,legal_name,country_code,local_currency,sap_company_code,sf_legal_entity_name,home_station,src_system,extracted_at,batch_id,row_hash
+1,ASC,Airport Services Co.,Airport Services Co. P.J.S.C.,XB,USD,1000,Airport Services Co PJSC,BYP,MDM,2026-10-01 02:00:00,MDM_202609_001,866770c5de14
+2,ASCD,ASC Development L.L.C.,ASC Development L.L.C.,XB,USD,1100,ASC Dev LLC,BYP,MDM,2026-10-01 02:00:00,MDM_202609_001,5ef54dcf4108
+3,ASCWF,ASC Workforce Services L.L.C.,ASC Workforce Services L.L.C.,XB,USD,1200,ASC Workforce,BYP,MDM,2026-10-01 02:00:00,MDM_202609_001,93e1ac8d87d4
+4,ASCSA,ASC SAUDI ARABIA,ASC Saudi Arabia LLC,SA,SAR,2000,ASC Saudi Arabia,DMM,MDM,2026-10-01 02:00:00,MDM_202609_001,88b1c17251ce

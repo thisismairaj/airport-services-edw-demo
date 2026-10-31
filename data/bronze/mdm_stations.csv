@@ -1,0 +1,4 @@
+station_key,station_code,icao_code,station_name,city,country_code,operating_entity_code,timezone,src_system,extracted_at,batch_id,row_hash
+1,BYP,OXBP,Bayport International Airport,Bayport,XB,ASC,Etc/GMT-3,MDM,2026-10-01 02:00:00,MDM_202609_001,718a2eca0a61
+2,DMM,OEDF,King Fahd International Airport,Dammam,SA,ASCSA,Asia/Riyadh,MDM,2026-10-01 02:00:00,MDM_202609_001,eea5aa27bbfd
+3,RUH,OERK,King Khalid International Airport,Riyadh,SA,ASCSA,Asia/Riyadh,MDM,2026-10-01 02:00:00,MDM_202609_001,68054a81a24e

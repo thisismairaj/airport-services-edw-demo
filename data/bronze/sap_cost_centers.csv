@@ -1,0 +1,59 @@
+cost_center_key,cost_center_code,cost_center_name,entity_code,business_unit,station_code,target_headcount,entity_key,station_key,cc_owner,is_operational,src_system,extracted_at,batch_id,row_hash
+1,1101,GH Ramp Operations - Day,ASC,Ground Handling,BYP,170,1,1,M. Al Qahtani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,227cf22a24a4
+2,1102,GH Ramp Operations - Night,ASC,Ground Handling,BYP,95,1,1,F. Al Baqri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,22cf83f2a0ac
+3,1103,Passenger Services,ASC,Ground Handling,BYP,120,1,1,H. Al Juhani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,0e8a83082a75
+4,1104,Baggage Services,ASC,Ground Handling,BYP,70,1,1,F. Al Baqri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,96424fcae0a9
+5,1105,Load Control & Operations,ASC,Ground Handling,BYP,28,1,1,R. Menon,True,SAP,2026-10-01 02:00:00,SAP_202609_001,e6bbec3abb9a
+6,1106,Aircraft Interior Cleaning,ASC,Ground Handling,BYP,45,1,1,J. Santos,True,SAP,2026-10-01 02:00:00,SAP_202609_001,7ec85460b752
+7,1107,Charter & VIP Handling,ASC,Ground Handling,BYP,12,1,1,S. Nair,True,SAP,2026-10-01 02:00:00,SAP_202609_001,4e4ffcec8dd2
+8,1108,Water & Toilet Services,ASC,Ground Handling,BYP,14,1,1,H. Al Juhani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,7d3b2de4fa56
+9,1109,GH Equipment Pool,ASC,Ground Handling,BYP,10,1,1,R. Menon,True,SAP,2026-10-01 02:00:00,SAP_202609_001,4135d348d4ca
+10,1110,Premier Gold Lounge,ASC,Ground Handling,BYP,38,1,1,F. Al Baqri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,a758c12e668d
+11,1111,Common Use Lounge,ASC,Ground Handling,BYP,16,1,1,F. Al Baqri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,52c93b47ca76
+12,1112,Lost & Found,ASC,Ground Handling,BYP,8,1,1,M. Al Qahtani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,8d85eb68ddcc
+13,1113,Flight Operations Support,ASC,Ground Handling,BYP,14,1,1,K. Al Amri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,378666fc3c94
+14,1201,Catering Hot Kitchen,ASC,Flight Catering,BYP,75,1,1,J. Santos,True,SAP,2026-10-01 02:00:00,SAP_202609_001,df0f6f011263
+15,1202,Catering Cold Kitchen & Pastry,ASC,Flight Catering,BYP,48,1,1,F. Al Baqri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,98aacdb2e8e5
+16,1203,Bakery,ASC,Flight Catering,BYP,18,1,1,M. Al Qahtani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,937409bdf550
+17,1204,Catering Dispatch & Transport,ASC,Flight Catering,BYP,42,1,1,J. Santos,True,SAP,2026-10-01 02:00:00,SAP_202609_001,798966b07baf
+18,1205,Catering Night Shift,ASC,Flight Catering,BYP,40,1,1,S. Nair,True,SAP,2026-10-01 02:00:00,SAP_202609_001,c0ff93cc46ea
+19,1206,Bonded Stores & Duty Free,ASC,Flight Catering,BYP,14,1,1,A. Al Dossary,True,SAP,2026-10-01 02:00:00,SAP_202609_001,0e336ed263b2
+20,1207,Equipment Wash & Tray Set,ASC,Flight Catering,BYP,36,1,1,A. Al Dossary,True,SAP,2026-10-01 02:00:00,SAP_202609_001,ba7a0b642f66
+21,1208,Menu Development & QA,ASC,Flight Catering,BYP,8,1,1,R. Menon,True,SAP,2026-10-01 02:00:00,SAP_202609_001,c6746f845dc1
+22,1209,Catering Commercial & Billing,ASC,Flight Catering,BYP,7,1,1,K. Al Amri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,272db9901c83
+23,1210,Food Safety & Hygiene,ASC,Flight Catering,BYP,9,1,1,F. Al Baqri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,93726b28e2ef
+24,1211,Lounge Catering,ASC,Flight Catering,BYP,12,1,1,J. Santos,True,SAP,2026-10-01 02:00:00,SAP_202609_001,4c2e990fe266
+25,1301,Cargo Import,ASC,Cargo,BYP,40,1,1,M. Al Qahtani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,a31496e6c811
+26,1302,Cargo Export,ASC,Cargo,BYP,36,1,1,M. Al Qahtani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,d315091d2ffa
+27,1303,Cargo Warehouse & Cool Chain,ASC,Cargo,BYP,30,1,1,S. Nair,True,SAP,2026-10-01 02:00:00,SAP_202609_001,77bffa5624c8
+28,1304,Mail & Courier,ASC,Cargo,BYP,10,1,1,S. Nair,True,SAP,2026-10-01 02:00:00,SAP_202609_001,aef5ae0759b5
+29,1305,Cargo Sales,ASC,Cargo,BYP,6,1,1,H. Al Juhani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,a610656b166e
+30,1401,GSE Maintenance Workshop,ASC,Engineering,BYP,34,1,1,A. Al Dossary,True,SAP,2026-10-01 02:00:00,SAP_202609_001,1989fb7fc4c3
+31,1402,GSE Fleet Management,ASC,Engineering,BYP,8,1,1,F. Al Baqri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,751f0a66995d
+32,1403,Facilities Engineering,ASC,Engineering,BYP,14,1,1,R. Menon,True,SAP,2026-10-01 02:00:00,SAP_202609_001,e312060a86dc
+33,1501,Executive Office,ASC,Corporate,BYP,6,1,1,F. Al Baqri,False,SAP,2026-10-01 02:00:00,SAP_202609_001,a2d34aaf7a3c
+34,1502,Finance,ASC,Corporate,BYP,16,1,1,H. Al Juhani,False,SAP,2026-10-01 02:00:00,SAP_202609_001,ac5f6eb84f05
+35,1503,Human Resources,ASC,Corporate,BYP,12,1,1,F. Al Baqri,False,SAP,2026-10-01 02:00:00,SAP_202609_001,836496293f01
+36,1504,IT & Digital,ASC,Corporate,BYP,14,1,1,M. Al Qahtani,False,SAP,2026-10-01 02:00:00,SAP_202609_001,da929ca575e5
+37,1505,Procurement & Supply Chain,ASC,Corporate,BYP,9,1,1,K. Al Amri,False,SAP,2026-10-01 02:00:00,SAP_202609_001,dcee1175c73b
+38,1506,"Safety, Security & Quality",ASC,Corporate,BYP,11,1,1,J. Santos,False,SAP,2026-10-01 02:00:00,SAP_202609_001,09cbb76a92a1
+39,1507,Commercial & Customer,ASC,Corporate,BYP,8,1,1,R. Menon,False,SAP,2026-10-01 02:00:00,SAP_202609_001,65f4af1150e6
+40,1508,Legal & Governance,ASC,Corporate,BYP,3,1,1,K. Al Amri,False,SAP,2026-10-01 02:00:00,SAP_202609_001,1ad3b43b2af9
+41,1509,Facilities & Administration,ASC,Corporate,BYP,10,1,1,J. Santos,False,SAP,2026-10-01 02:00:00,SAP_202609_001,8a620a79fd43
+42,1510,Internal Audit,ASC,Corporate,BYP,4,1,1,K. Al Amri,False,SAP,2026-10-01 02:00:00,SAP_202609_001,89f5fec2e494
+43,2101,Aviation Training Academy,ASCD,Training & Development,BYP,18,2,1,S. Nair,False,SAP,2026-10-01 02:00:00,SAP_202609_001,4577132bd24d
+44,2102,Consulting & Projects,ASCD,Training & Development,BYP,9,2,1,H. Al Juhani,False,SAP,2026-10-01 02:00:00,SAP_202609_001,998a706f04bb
+45,2103,Technical Training,ASCD,Training & Development,BYP,8,2,1,M. Al Qahtani,False,SAP,2026-10-01 02:00:00,SAP_202609_001,0f27e989310f
+46,2104,ASCD Administration,ASCD,Training & Development,BYP,5,2,1,J. Santos,False,SAP,2026-10-01 02:00:00,SAP_202609_001,02cf8b0e2203
+47,3101,Manpower Pool - Ramp,ASCWF,Manpower,BYP,8,3,1,R. Menon,True,SAP,2026-10-01 02:00:00,SAP_202609_001,5fa5eb60a0f7
+48,3102,Manpower Pool - Catering,ASCWF,Manpower,BYP,6,3,1,A. Al Dossary,True,SAP,2026-10-01 02:00:00,SAP_202609_001,2058e4a5061f
+49,3103,Manpower Pool - Cargo,ASCWF,Manpower,BYP,4,3,1,K. Al Amri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,48216ca3922b
+50,3104,Manpower Pool - Cleaning,ASCWF,Manpower,BYP,3,3,1,M. Al Qahtani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,f7fca74987e6
+51,3105,Recruitment & Mobilisation,ASCWF,Manpower,BYP,14,3,1,S. Nair,True,SAP,2026-10-01 02:00:00,SAP_202609_001,83deec746639
+52,3106,Staff Housing & Transport,ASCWF,Manpower,BYP,16,3,1,H. Al Juhani,True,SAP,2026-10-01 02:00:00,SAP_202609_001,0f54d6e39ce8
+53,3107,ASCWF Administration,ASCWF,Manpower,BYP,9,3,1,R. Menon,True,SAP,2026-10-01 02:00:00,SAP_202609_001,e56f3da63dc4
+54,4101,DMM Ground Handling,ASCSA,Ground Handling,DMM,38,4,2,K. Al Amri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,7bbf5fd85539
+55,4102,DMM Catering Unit,ASCSA,Flight Catering,DMM,22,4,2,F. Al Baqri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,8bfb02eb0d3b
+56,4103,RUH Ground Handling,ASCSA,Ground Handling,RUH,26,4,3,A. Al Dossary,True,SAP,2026-10-01 02:00:00,SAP_202609_001,074e5d366de0
+57,4104,KSA Administration & Finance,ASCSA,Corporate,DMM,8,4,2,F. Al Baqri,False,SAP,2026-10-01 02:00:00,SAP_202609_001,10135704f13c
+58,4105,KSA GSE Maintenance,ASCSA,Engineering,DMM,6,4,2,K. Al Amri,True,SAP,2026-10-01 02:00:00,SAP_202609_001,37de4afa09c7

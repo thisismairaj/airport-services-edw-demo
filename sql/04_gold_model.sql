@@ -1,6 +1,6 @@
 -- =============================================================================
 -- 04_gold_model.sql  |  Gold: star schema DDL, loads from Silver, SCD2 DIM_ASSET, aggregates
--- Column order of every table equals the matching CSV in data/gold (fast path = 09_gold_seed_fast_path.sql).
+-- Column order of every table equals the matching CSV in data/gold (expected results only: Gold is always built from Bronze/Silver).
 -- =============================================================================
 USE ROLE ROLE_ELT_ADMIN;
 USE WAREHOUSE WH_ELT;
@@ -181,9 +181,9 @@ VALUES (ABS(HASH(s.employee_id)) % 1000000000, s.employee_id, s.full_name, s.FIR
   s.employment_status, s.monthly_salary_usd, s.housing_allowance_usd, s.hourly_rate_usd, s.manager_employee_id, s.entity_key, s.cost_center_key);
 
 -- ------------------------------------------------------------------ DIM_ASSET SCD Type 2
--- Step 0 (first load only): asset version history from the Maximo change-log archive (seed). Skipped when history exists.
-COPY INTO DIM_ASSET FROM @EDW_GOLD.STAR.STG_GOLD_SEED/DIM_ASSET.csv
-  FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_HEADER_MATCH') MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE ON_ERROR = 'ABORT_STATEMENT' FORCE = FALSE;
+-- Step 0 (first load only): asset version history from the Maximo change log in Bronze. Skipped when history exists.
+INSERT INTO DIM_ASSET SELECT * EXCLUDE (src_system, extracted_at, batch_id, row_hash) FROM EDW_BRONZE.RAW.MAXIMO_ASSET_HISTORY
+WHERE NOT EXISTS (SELECT 1 FROM DIM_ASSET);
 -- Step 1: expire current versions whose tracked attributes changed in the latest Maximo snapshot
 UPDATE DIM_ASSET t
 SET effective_to = s.source_change_date, is_current = FALSE
@@ -277,11 +277,10 @@ QUALIFY ROW_NUMBER() OVER (PARTITION BY p.EBELN, p.EBELP ORDER BY p.extracted_at
 
 -- ------------------------------------------------------------------ aggregates
 USE SCHEMA EDW_GOLD.AGG;
--- AGG_DAILY_FLIGHTS: flight-movement history (Jan-2025..Sep-2026) comes from the AODB/SITA archive seed;
+-- AGG_DAILY_FLIGHTS: flight-movement history (Jan-2025..Sep-2026) comes from the AODB daily movements in Bronze;
 -- the live SITA window in Bronze (16-30 Sep 2026) then refreshes/overwrites those days via MERGE.
 TRUNCATE TABLE IF EXISTS AGG_DAILY_FLIGHTS;
-COPY INTO AGG_DAILY_FLIGHTS FROM @EDW_GOLD.STAR.STG_GOLD_SEED/AGG_DAILY_FLIGHTS.csv
-  FILE_FORMAT = (FORMAT_NAME = 'EDW_BRONZE.LANDING.FF_CSV_HEADER_MATCH') MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE ON_ERROR = 'ABORT_STATEMENT';
+INSERT INTO AGG_DAILY_FLIGHTS SELECT * EXCLUDE (src_system, extracted_at, batch_id, row_hash) FROM EDW_BRONZE.RAW.AODB_DAILY_MOVEMENTS;
 MERGE INTO AGG_DAILY_FLIGHTS t
 USING (
   SELECT TO_NUMBER(TO_CHAR(s.flight_date, 'YYYYMMDD')) AS date_key, f.entity_key, f.station_key, f.airline_key, f.route_group,

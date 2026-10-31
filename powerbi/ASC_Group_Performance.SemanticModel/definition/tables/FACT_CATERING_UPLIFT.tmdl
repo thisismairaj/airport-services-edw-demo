@@ -1,11 +1,11 @@
 table FACT_CATERING_UPLIFT
-	lineageTag: 1ff5052e-2704-489e-8925-ffe71ecf93a0
+	lineageTag: ddf38b50-6740-4aea-8218-37c96973ed31
 
 	column catering_uplift_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 4b4e3ab0-f620-43fc-907b-0106bb038dd9
+		lineageTag: 64b0ea4d-9e67-4089-af5c-2eb550143d78
 		summarizeBy: none
 		sourceColumn: catering_uplift_key
 
@@ -15,7 +15,7 @@ table FACT_CATERING_UPLIFT
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 1cabe51c-2d14-4aea-b82d-4654fc47bf1b
+		lineageTag: b315dc83-5ec5-437c-8ce4-c84cd85ba886
 		summarizeBy: none
 		sourceColumn: date_key
 
@@ -25,7 +25,7 @@ table FACT_CATERING_UPLIFT
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 9f347de3-c46c-4aa2-8554-f2a56b4b3449
+		lineageTag: 284df9f7-6a0d-4c9b-89cb-1eaae64358d4
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -35,7 +35,7 @@ table FACT_CATERING_UPLIFT
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 2e33d89b-dace-4960-b027-84ccf575953b
+		lineageTag: 5a46c783-873c-47c1-8166-b69359f59447
 		summarizeBy: none
 		sourceColumn: station_key
 
@@ -45,7 +45,7 @@ table FACT_CATERING_UPLIFT
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 782affcb-f265-4df4-bec9-17a6863751f3
+		lineageTag: 6c568c05-86e8-4001-8e7f-c07f82bdff3b
 		summarizeBy: none
 		sourceColumn: airline_key
 
@@ -55,7 +55,7 @@ table FACT_CATERING_UPLIFT
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 9a9e8b5e-86eb-44df-b3d4-db4500909178
+		lineageTag: 74ef8770-7718-4bad-8e5f-956288b20198
 		summarizeBy: none
 		sourceColumn: meal_key
 
@@ -63,7 +63,7 @@ table FACT_CATERING_UPLIFT
 
 	column route_group
 		dataType: string
-		lineageTag: daa992b7-0a4c-427d-bc5e-622d0f054996
+		lineageTag: 4de03296-2751-44d2-87fe-735ea984918e
 		summarizeBy: none
 		sourceColumn: route_group
 
@@ -71,7 +71,7 @@ table FACT_CATERING_UPLIFT
 
 	column meal_class
 		dataType: string
-		lineageTag: bec8769e-5c64-4174-aa07-0681332b5a1d
+		lineageTag: 5e9d6d3b-935e-4e10-90f1-70da57929a77
 		summarizeBy: none
 		sourceColumn: meal_class
 
@@ -80,7 +80,7 @@ table FACT_CATERING_UPLIFT
 	column flights_catered
 		dataType: int64
 		formatString: #,0
-		lineageTag: 3dff98cc-411f-48ce-95fe-5a48803c5a29
+		lineageTag: d7315d6c-cfec-41c1-902f-5cc178676c31
 		summarizeBy: none
 		sourceColumn: flights_catered
 
@@ -89,7 +89,7 @@ table FACT_CATERING_UPLIFT
 	column meals_planned
 		dataType: int64
 		formatString: #,0
-		lineageTag: 6e13f996-11b7-4105-9638-2dc18d8c7c08
+		lineageTag: 599ceaa6-f971-452e-af5a-d060dbdad726
 		summarizeBy: none
 		sourceColumn: meals_planned
 
@@ -98,7 +98,7 @@ table FACT_CATERING_UPLIFT
 	column meals_uplifted
 		dataType: int64
 		formatString: #,0
-		lineageTag: 3fe9d4fb-63db-4a81-bbbd-4a443ce7627c
+		lineageTag: e6d5fb3c-91c5-40a5-b645-9cbae8ea3997
 		summarizeBy: none
 		sourceColumn: meals_uplifted
 
@@ -107,7 +107,7 @@ table FACT_CATERING_UPLIFT
 	column meals_downlifted
 		dataType: int64
 		formatString: #,0
-		lineageTag: ddf58164-ca42-4596-b0c7-160d38812690
+		lineageTag: b6ce137f-2582-448b-955d-99603da869e9
 		summarizeBy: none
 		sourceColumn: meals_downlifted
 
@@ -116,7 +116,7 @@ table FACT_CATERING_UPLIFT
 	column meals_wasted
 		dataType: int64
 		formatString: #,0
-		lineageTag: 41b8fe48-87f6-42bb-a829-d2daa99783b7
+		lineageTag: bd851bd4-43b4-44c7-ba05-e6b15d7465df
 		summarizeBy: none
 		sourceColumn: meals_wasted
 
@@ -125,7 +125,7 @@ table FACT_CATERING_UPLIFT
 	column late_downlift_confirmations
 		dataType: int64
 		formatString: #,0
-		lineageTag: 0c536f94-95f3-48ea-9b16-95e45bea0e99
+		lineageTag: 8d2bc2b5-5a28-46ad-9d28-b759f6685fdb
 		summarizeBy: none
 		sourceColumn: late_downlift_confirmations
 
@@ -134,7 +134,7 @@ table FACT_CATERING_UPLIFT
 	column deliveries_total
 		dataType: int64
 		formatString: #,0
-		lineageTag: 401f4fb3-0834-4939-8d97-d4daed10c2e6
+		lineageTag: 00d1d8de-2c33-4ede-bde5-6a8c47120493
 		summarizeBy: none
 		sourceColumn: deliveries_total
 
@@ -143,7 +143,7 @@ table FACT_CATERING_UPLIFT
 	column deliveries_on_time
 		dataType: int64
 		formatString: #,0
-		lineageTag: fe59bde1-8f0e-42f8-bd3c-d0a899a4091b
+		lineageTag: ffe96cca-ee13-4143-9e7b-746dd4879881
 		summarizeBy: none
 		sourceColumn: deliveries_on_time
 
@@ -152,7 +152,7 @@ table FACT_CATERING_UPLIFT
 	column food_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 42957d98-d6d0-447f-bd45-c226a0e5c69f
+		lineageTag: bff9c703-976d-45d6-859c-5cd36a197a86
 		summarizeBy: none
 		sourceColumn: food_cost_usd
 
@@ -161,7 +161,7 @@ table FACT_CATERING_UPLIFT
 	column labour_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 23292419-09db-40b7-a8b1-2e693d7f7566
+		lineageTag: c9a02c9e-b698-493d-88a2-41b8b6d0dfd1
 		summarizeBy: none
 		sourceColumn: labour_cost_usd
 
@@ -170,7 +170,7 @@ table FACT_CATERING_UPLIFT
 	column overhead_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 3dc596a8-aecf-43c3-8c21-1aa72ab71589
+		lineageTag: 9b1f36d7-c7a7-4951-97d4-3acaf6794477
 		summarizeBy: none
 		sourceColumn: overhead_cost_usd
 
@@ -179,7 +179,7 @@ table FACT_CATERING_UPLIFT
 	column total_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 00cc72f7-2fe3-4820-9a24-2ed90d218ca3
+		lineageTag: 0a9a10f2-6f81-45e0-8003-a72617c5b8d3
 		summarizeBy: none
 		sourceColumn: total_cost_usd
 
@@ -188,7 +188,7 @@ table FACT_CATERING_UPLIFT
 	column revenue_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: fdfc5129-4fd4-4931-9594-33c9ad8bfeb3
+		lineageTag: 1ed017e0-0b25-424c-8420-0078ba28d147
 		summarizeBy: none
 		sourceColumn: revenue_usd
 
@@ -197,7 +197,7 @@ table FACT_CATERING_UPLIFT
 	column src_batch_id
 		dataType: string
 		isHidden
-		lineageTag: 42955be9-35b4-446a-a754-d13e3e59e86c
+		lineageTag: e274c9ab-f98c-4fed-b453-11c9dc9b5290
 		summarizeBy: none
 		sourceColumn: src_batch_id
 

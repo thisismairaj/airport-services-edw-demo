@@ -47,7 +47,7 @@ CREATE OR REPLACE FILE FORMAT EDW_BRONZE.LANDING.FF_CSV_LENIENT
 
 CREATE OR REPLACE FILE FORMAT EDW_BRONZE.LANDING.FF_CSV_HEADER_MATCH
   TYPE = CSV PARSE_HEADER = TRUE FIELD_OPTIONALLY_ENCLOSED_BY = '"' EMPTY_FIELD_AS_NULL = TRUE
-  COMMENT = 'Used with MATCH_BY_COLUMN_NAME for Gold seed fast-path loads';
+  COMMENT = 'CSV with a header row, for loads that match columns by name';
 
 -- ---------------------------------------------------------------- stages (internal; swap for S3/Azure external stages in production)
 CREATE STAGE IF NOT EXISTS EDW_BRONZE.LANDING.STG_SOURCE_DROP
@@ -55,9 +55,6 @@ CREATE STAGE IF NOT EXISTS EDW_BRONZE.LANDING.STG_SOURCE_DROP
   COMMENT = 'Source extracts land here: /bronze/<object>.csv and /bad_files/<file>.csv';
 CREATE STAGE IF NOT EXISTS EDW_BRONZE.LANDING.STG_QUARANTINE
   DIRECTORY = (ENABLE = TRUE) COMMENT = 'Files that failed structural validation are copied here';
-CREATE STAGE IF NOT EXISTS EDW_GOLD.STAR.STG_GOLD_SEED
-  FILE_FORMAT = EDW_BRONZE.LANDING.FF_CSV_HEADER_MATCH DIRECTORY = (ENABLE = TRUE)
-  COMMENT = 'Gold CSV seeds for the fast-path load (09_gold_seed_fast_path.sql)';
 
 -- File-level load log (every COPY writes a row; the orchestrator reads it)
 CREATE TABLE IF NOT EXISTS EDW_BRONZE.LANDING.FILE_LOAD_LOG (

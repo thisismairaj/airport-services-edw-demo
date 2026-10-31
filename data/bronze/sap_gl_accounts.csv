@@ -1,0 +1,41 @@
+gl_account_key,gl_account,gl_description,account_class,kpi_group,is_ebitda,is_intercompany,natural_sign,statement_line,src_system,extracted_at,batch_id,row_hash
+1,400100,Ground Handling Revenue,Revenue,Revenue,True,False,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,3bd496598a15
+2,400200,Catering Revenue - Airline Contracts,Revenue,Revenue,True,False,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,3ba78f93508f
+3,400210,Catering Revenue - Charter & VIP,Revenue,Revenue,True,False,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,51b87dcb51d0
+4,400300,Cargo Handling Revenue,Revenue,Revenue,True,False,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,ce1a0c602f48
+5,400400,Engineering Services Revenue,Revenue,Revenue,True,False,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,9be7e491de3c
+6,400500,Manpower Services Revenue (Intercompany),Revenue,Revenue,True,True,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,bc628376d201
+7,400600,Training & Consulting Revenue,Revenue,Revenue,True,False,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,af6553504021
+8,400700,Lounge Revenue,Revenue,Revenue,True,False,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,d4bc198caf8b
+9,400900,Other Operating Income,Revenue,Revenue,True,False,-1,Revenue,SAP,2026-10-01 02:00:00,SAP_202609_001,926921747442
+10,500100,Food & Beverage Raw Materials,COGS,Food Cost,True,False,1,Cost of Sales,SAP,2026-10-01 02:00:00,SAP_202609_001,37d227da3d59
+11,500200,Packaging & Disposables,COGS,Food Cost,True,False,1,Cost of Sales,SAP,2026-10-01 02:00:00,SAP_202609_001,ba1a3b68fb9d
+12,500300,Bonded Stores,COGS,Food Cost,True,False,1,Cost of Sales,SAP,2026-10-01 02:00:00,SAP_202609_001,b0c61ae276e6
+13,510100,Salaries & Wages - Permanent,Opex,Direct Labour,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,eba968d939d8
+14,510200,Overtime - Permanent,Opex,Direct Labour,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,4a2f23e2ee3b
+15,510300,Contractor Labour - Regular,Opex,Contractor Cost,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,869d214ca817
+16,510400,Contractor Labour - Overtime,Opex,Contractor Cost,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,b761d97ba1c1
+17,510500,Employee Benefits & GOSI,Opex,Direct Labour,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,38c585d5c4f4
+18,510600,Training & Development,Opex,Admin,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,aae7522f55ad
+19,510700,Outsourced Manpower (Intercompany),Opex,Contractor Cost,True,True,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,56d4ed123df1
+20,520100,GSE Fuel & Lubricants,Opex,Fuel,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,706506afc870
+21,520200,GSE Maintenance - Parts,Opex,Maintenance,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,b12045139539
+22,520300,GSE Maintenance - External Services,Opex,Maintenance,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,92667fde846b
+23,520400,Vehicle Licensing & Insurance,Opex,Maintenance,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,c6e7ec966022
+24,530100,Utilities,Opex,Facilities,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,0263cd74f97e
+25,530200,Rent & Concession Fees,Opex,Facilities,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,d92acc57b5a9
+26,530300,IT & Telecom,Opex,Admin,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,6ee7e05dcf00
+27,530400,Consumables,Opex,Operations,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,681d8127f429
+28,530500,Uniforms & PPE,Opex,Operations,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,fb06eddc34b2
+29,530600,Professional Fees,Opex,Admin,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,3ea7a33a81e2
+30,530700,Insurance,Opex,Admin,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,10999e9ae3a4
+31,530800,Travel & Accommodation,Opex,Admin,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,486396821fc4
+32,530900,Marketing & Events,Opex,Admin,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,d42b73f3113f
+33,540100,Repairs & Maintenance - Buildings,Opex,Facilities,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,c2a82eec549c
+34,550100,Other Operating Expenses,Opex,Operations,True,False,1,Operating Expenses,SAP,2026-10-01 02:00:00,SAP_202609_001,91199d4ff5ce
+35,600100,Depreciation - GSE,Below EBITDA,Depreciation,False,False,1,Below EBITDA,SAP,2026-10-01 02:00:00,SAP_202609_001,ced47f495ac0
+36,600200,Depreciation - Buildings & Equipment,Below EBITDA,Depreciation,False,False,1,Below EBITDA,SAP,2026-10-01 02:00:00,SAP_202609_001,4d700484daac
+37,600300,Amortisation - Intangibles,Below EBITDA,Depreciation,False,False,1,Below EBITDA,SAP,2026-10-01 02:00:00,SAP_202609_001,d779b6aeeea3
+38,700100,Finance Costs,Below EBITDA,Finance,False,False,1,Below EBITDA,SAP,2026-10-01 02:00:00,SAP_202609_001,3194ffbd3745
+39,700200,FX Gain / Loss,Below EBITDA,Finance,False,False,1,Below EBITDA,SAP,2026-10-01 02:00:00,SAP_202609_001,c75b5649520f
+40,800100,Zakat & Taxes,Below EBITDA,Tax,False,False,1,Below EBITDA,SAP,2026-10-01 02:00:00,SAP_202609_001,07bd2cd594af

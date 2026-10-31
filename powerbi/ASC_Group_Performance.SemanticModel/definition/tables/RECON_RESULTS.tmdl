@@ -1,10 +1,10 @@
 table RECON_RESULTS
-	lineageTag: dda88545-de32-43b3-aff8-e1f97e2a8973
+	lineageTag: 780beb35-06cd-47cf-a34b-23fcb6417e86
 
 	column recon_id
 		dataType: int64
 		formatString: #,0
-		lineageTag: 9f903a4f-ef98-43fb-8c96-93c06bb4ad05
+		lineageTag: 7a2b6147-9112-4052-81f2-857efb746c89
 		summarizeBy: none
 		sourceColumn: recon_id
 
@@ -13,7 +13,7 @@ table RECON_RESULTS
 	column run_id
 		dataType: int64
 		formatString: #,0
-		lineageTag: e8f30ebe-79dd-4954-99d9-6ca95c7ef195
+		lineageTag: fead428b-737d-4b1f-aef3-4f87af9c9d01
 		summarizeBy: none
 		sourceColumn: run_id
 
@@ -22,7 +22,7 @@ table RECON_RESULTS
 	column run_ts
 		dataType: dateTime
 		formatString: dd mmm yyyy hh:nn
-		lineageTag: fa8894d1-b705-494d-824b-614ba4659464
+		lineageTag: d66d2f81-9f09-4fb7-8fad-56f0bba843b6
 		summarizeBy: none
 		sourceColumn: run_ts
 
@@ -30,7 +30,7 @@ table RECON_RESULTS
 
 	column check_name
 		dataType: string
-		lineageTag: a4cdfb7c-1f32-4385-b39b-9e6be28e6634
+		lineageTag: f7c374f5-af04-4d22-825f-91371832d2ba
 		summarizeBy: none
 		sourceColumn: check_name
 
@@ -38,7 +38,7 @@ table RECON_RESULTS
 
 	column check_type
 		dataType: string
-		lineageTag: f3efee6d-78c5-40eb-99da-46b5bc3590af
+		lineageTag: 77d91b0f-cf0d-4ac6-8a63-cff201e9e4c7
 		summarizeBy: none
 		sourceColumn: check_type
 
@@ -46,7 +46,7 @@ table RECON_RESULTS
 
 	column src_system
 		dataType: string
-		lineageTag: 1e9fd3d4-7254-45fa-ab0e-d36bd1ac55a3
+		lineageTag: 68528a73-01ec-4b75-862a-f3a44704f571
 		summarizeBy: none
 		sourceColumn: src_system
 
@@ -54,7 +54,7 @@ table RECON_RESULTS
 
 	column source_object
 		dataType: string
-		lineageTag: f83a58fa-491d-4a8d-a4a9-104714272281
+		lineageTag: 469128a6-f286-4213-9ff4-ec5b2d16b436
 		summarizeBy: none
 		sourceColumn: source_object
 
@@ -62,7 +62,7 @@ table RECON_RESULTS
 
 	column target_object
 		dataType: string
-		lineageTag: 764ac602-3954-47ed-8332-0f03dd2a89b6
+		lineageTag: 37397f85-bcd7-458a-a42b-afd6587669c5
 		summarizeBy: none
 		sourceColumn: target_object
 
@@ -70,7 +70,7 @@ table RECON_RESULTS
 
 	column grain
 		dataType: string
-		lineageTag: 24d04829-8f63-4e0e-abb4-5ac807587f92
+		lineageTag: ac1daf15-14a9-441e-86e8-653ed0f0ae57
 		summarizeBy: none
 		sourceColumn: grain
 
@@ -79,7 +79,7 @@ table RECON_RESULTS
 	column source_value
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 15792ec0-0803-4845-919b-f3fd4248f94b
+		lineageTag: a0a74034-4c0f-4a9b-a7c7-ba2d6791ac3e
 		summarizeBy: none
 		sourceColumn: source_value
 
@@ -88,7 +88,7 @@ table RECON_RESULTS
 	column target_value
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 20bb1b04-a976-44df-8c03-07c00cd1c5ac
+		lineageTag: e7982e50-ffd5-47d2-a8ac-306efdb0dc3d
 		summarizeBy: none
 		sourceColumn: target_value
 
@@ -97,7 +97,7 @@ table RECON_RESULTS
 	column variance
 		dataType: double
 		formatString: #,0.00
-		lineageTag: c2f33bad-bf48-4348-9859-e814aa37cd4e
+		lineageTag: 6d1f07b9-ab80-4a0f-b57a-072d157596c4
 		summarizeBy: none
 		sourceColumn: variance
 
@@ -106,7 +106,7 @@ table RECON_RESULTS
 	column variance_pct
 		dataType: double
 		formatString: #,0.00
-		lineageTag: cb2704e4-c249-4015-be51-1965bc5fbc7e
+		lineageTag: 7327c9d0-edb1-4358-88d8-0499abafbd19
 		summarizeBy: none
 		sourceColumn: variance_pct
 
@@ -115,7 +115,7 @@ table RECON_RESULTS
 	column tolerance_pct
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 0a68f98d-441e-42ec-ae6d-8d06abdb088f
+		lineageTag: 8e19c54f-2ba4-4caa-9d00-7ced5666702a
 		summarizeBy: none
 		sourceColumn: tolerance_pct
 
@@ -123,7 +123,7 @@ table RECON_RESULTS
 
 	column status
 		dataType: string
-		lineageTag: 9b094402-ef62-4959-964e-a1dd18379e82
+		lineageTag: 5f8b4712-21f3-4ee0-b82d-5163786d13db
 		summarizeBy: none
 		sourceColumn: status
 
@@ -131,7 +131,7 @@ table RECON_RESULTS
 
 	column note
 		dataType: string
-		lineageTag: a45f976b-2aad-49d7-9ccf-cda5b496f2d0
+		lineageTag: f15eebe3-ad01-4c8f-b3f0-8fa25870ce86
 		summarizeBy: none
 		sourceColumn: note
 

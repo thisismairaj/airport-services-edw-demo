@@ -1,11 +1,11 @@
 table AGG_DAILY_FLIGHTS
-	lineageTag: 3bd89790-4f96-4f01-b0e6-3a8537bd28f1
+	lineageTag: 9f707e20-736b-4b6a-a9a4-0e1479a0eaa8
 
 	column date_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 645d7da9-0eb7-4351-9d11-08e96856b101
+		lineageTag: 2e654f31-5535-4ebc-b615-fd96fd7b1198
 		summarizeBy: none
 		sourceColumn: date_key
 
@@ -15,7 +15,7 @@ table AGG_DAILY_FLIGHTS
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 71a7b22b-e62a-44f3-8244-c6a8cc8ec69c
+		lineageTag: 59d32f92-002d-45ab-9df8-8a2ec71eeec2
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -25,7 +25,7 @@ table AGG_DAILY_FLIGHTS
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 442f0025-df8d-46f3-be1c-2d68b35e8d73
+		lineageTag: b0787502-a7a1-441f-88e4-9ecf9ec011e2
 		summarizeBy: none
 		sourceColumn: station_key
 
@@ -35,7 +35,7 @@ table AGG_DAILY_FLIGHTS
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 54768b0e-e069-41aa-a582-512b5276e6f3
+		lineageTag: 476bf36e-7393-4b05-a3a9-308bd591d62e
 		summarizeBy: none
 		sourceColumn: airline_key
 
@@ -43,7 +43,7 @@ table AGG_DAILY_FLIGHTS
 
 	column route_group
 		dataType: string
-		lineageTag: bb57d204-d3f4-4bd0-9da2-c9b712851b96
+		lineageTag: 5d434649-1d3b-4de2-abd9-8cc1854522aa
 		summarizeBy: none
 		sourceColumn: route_group
 
@@ -52,7 +52,7 @@ table AGG_DAILY_FLIGHTS
 	column flights_handled
 		dataType: int64
 		formatString: #,0
-		lineageTag: 0bce3456-15c3-4a87-ab4f-9f1bdb16db74
+		lineageTag: 75a22cee-22a2-43c6-b807-e1b833d59796
 		summarizeBy: none
 		sourceColumn: flights_handled
 
@@ -61,7 +61,7 @@ table AGG_DAILY_FLIGHTS
 	column flights_catered
 		dataType: int64
 		formatString: #,0
-		lineageTag: 9003640c-c8db-45fd-98dd-8a4ef5c299fe
+		lineageTag: 2a4284ec-0b7e-4f2c-bec2-dd29d89d6ac8
 		summarizeBy: none
 		sourceColumn: flights_catered
 
@@ -70,7 +70,7 @@ table AGG_DAILY_FLIGHTS
 	column departures_on_time
 		dataType: int64
 		formatString: #,0
-		lineageTag: 529a5ba2-4959-4c09-b181-f31062f25ff1
+		lineageTag: 1a31a43e-8ff4-4cba-b38d-5d2a47b46195
 		summarizeBy: none
 		sourceColumn: departures_on_time
 
@@ -79,7 +79,7 @@ table AGG_DAILY_FLIGHTS
 	column total_delay_min
 		dataType: int64
 		formatString: #,0
-		lineageTag: c5d1c45c-69a0-45f3-859f-4d2f0c67c027
+		lineageTag: 6ebb3cae-b5aa-4d70-8c15-cbb17e3cfdc3
 		summarizeBy: none
 		sourceColumn: total_delay_min
 
@@ -88,7 +88,7 @@ table AGG_DAILY_FLIGHTS
 	column handling_revenue_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 5df3cc5f-55bb-4012-8a21-827de74fceee
+		lineageTag: f8e6f60d-db7d-48e3-8b66-80cf8f3eab96
 		summarizeBy: none
 		sourceColumn: handling_revenue_usd
 

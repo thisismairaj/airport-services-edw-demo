@@ -1,11 +1,11 @@
 table FACT_WORK_ORDER
-	lineageTag: a62120d6-3e3f-45f0-9cda-4a527f95b5fa
+	lineageTag: c17159c3-c19d-468b-91a2-0354da82813a
 
 	column work_order_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 47f85269-4015-421c-8c19-915170bd3dc0
+		lineageTag: 7c10a28b-cfd6-4796-bed2-e3e2e94c3b14
 		summarizeBy: none
 		sourceColumn: work_order_key
 
@@ -13,7 +13,7 @@ table FACT_WORK_ORDER
 
 	column wo_id
 		dataType: string
-		lineageTag: 8275551d-8a70-4997-bc5f-85c30ad88867
+		lineageTag: 9cd07b42-b6f5-4d01-821d-85a7e048d7da
 		summarizeBy: none
 		sourceColumn: wo_id
 
@@ -23,7 +23,7 @@ table FACT_WORK_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 8f6d8a9c-9b3e-43a5-b64b-18fd09588624
+		lineageTag: 278548e7-dc4f-4be0-b771-57054b65b587
 		summarizeBy: none
 		sourceColumn: asset_key
 
@@ -31,7 +31,7 @@ table FACT_WORK_ORDER
 
 	column asset_id
 		dataType: string
-		lineageTag: 5965e53f-43a0-496a-a35c-506b9f9b821f
+		lineageTag: 96c4945e-348e-4207-9c5a-9bd0013e6820
 		summarizeBy: none
 		sourceColumn: asset_id
 
@@ -41,7 +41,7 @@ table FACT_WORK_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 2820ca1f-f1b2-4563-ac4b-1c80846e5726
+		lineageTag: 77da4a27-6f09-483f-b099-12cc2057187f
 		summarizeBy: none
 		sourceColumn: date_key
 
@@ -51,7 +51,7 @@ table FACT_WORK_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 76d30ce3-4cc7-4d1d-9a3e-1ab5ce9218d3
+		lineageTag: 981a862b-1d9b-4331-aa3c-d1e2712bf94d
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -61,7 +61,7 @@ table FACT_WORK_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: d44658b1-5361-45da-9929-49b09fec0bb1
+		lineageTag: 0e05fd56-6a4f-4a0d-b933-414c978024e6
 		summarizeBy: none
 		sourceColumn: station_key
 
@@ -71,7 +71,7 @@ table FACT_WORK_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 9ffc2807-8247-4fdd-bfc9-40190c02351d
+		lineageTag: d6dac2c6-fee9-4cd8-af5a-26f531b15681
 		summarizeBy: none
 		sourceColumn: cost_center_key
 
@@ -79,7 +79,7 @@ table FACT_WORK_ORDER
 
 	column wo_type
 		dataType: string
-		lineageTag: faf91699-cead-44fe-9f8e-7f4eafb46de7
+		lineageTag: 3f6eeab6-7fb3-4aa9-81ef-363baa736601
 		summarizeBy: none
 		sourceColumn: wo_type
 
@@ -87,7 +87,7 @@ table FACT_WORK_ORDER
 
 	column fault_code
 		dataType: string
-		lineageTag: 1288a1a0-a9d5-4374-a807-fd8f4f0f6ef3
+		lineageTag: f11eed67-0773-4d75-8b84-62ca2d04998c
 		summarizeBy: none
 		sourceColumn: fault_code
 
@@ -95,7 +95,7 @@ table FACT_WORK_ORDER
 
 	column fault_description
 		dataType: string
-		lineageTag: d2088a82-72f9-4786-bf74-5772e4084d42
+		lineageTag: 665e65ce-42a5-4e64-82d3-1081b819398b
 		summarizeBy: none
 		sourceColumn: fault_description
 
@@ -104,7 +104,7 @@ table FACT_WORK_ORDER
 	column priority
 		dataType: int64
 		formatString: #,0
-		lineageTag: 89346f7b-1eef-4adb-aef0-46a666d791bc
+		lineageTag: 7471ff9f-0fde-4326-8146-115b9a5c22bb
 		summarizeBy: none
 		sourceColumn: priority
 
@@ -113,7 +113,7 @@ table FACT_WORK_ORDER
 	column reported_ts
 		dataType: dateTime
 		formatString: dd mmm yyyy hh:nn
-		lineageTag: 5fe7215d-f92b-48fd-944b-d2de2b9d50ae
+		lineageTag: e1faf91d-6d87-489f-a766-8c5b732d2154
 		summarizeBy: none
 		sourceColumn: reported_ts
 
@@ -122,7 +122,7 @@ table FACT_WORK_ORDER
 	column start_ts
 		dataType: dateTime
 		formatString: dd mmm yyyy hh:nn
-		lineageTag: a4c7ba32-872f-47b2-ac01-cb149de1d3c2
+		lineageTag: 0ad739d6-85df-46c9-b5e8-98ca252e20c1
 		summarizeBy: none
 		sourceColumn: start_ts
 
@@ -131,7 +131,7 @@ table FACT_WORK_ORDER
 	column finish_ts
 		dataType: dateTime
 		formatString: dd mmm yyyy hh:nn
-		lineageTag: 0e038add-4873-46ec-bc2b-8bc7f9728ff3
+		lineageTag: b6c8d84c-979b-4f6d-bcf6-888062ce14d9
 		summarizeBy: none
 		sourceColumn: finish_ts
 
@@ -140,7 +140,7 @@ table FACT_WORK_ORDER
 	column downtime_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: ad44a7e5-92cd-4f69-906f-cf150df03d34
+		lineageTag: 5df27d1f-c30a-49c5-a36d-b88fb15d07fd
 		summarizeBy: none
 		sourceColumn: downtime_hours
 
@@ -149,7 +149,7 @@ table FACT_WORK_ORDER
 	column repair_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 5b368cba-ff69-4486-839f-3ffdb892dfdc
+		lineageTag: 213dc057-15bf-48f4-af3b-246e7a0cbe1d
 		summarizeBy: none
 		sourceColumn: repair_hours
 
@@ -158,7 +158,7 @@ table FACT_WORK_ORDER
 	column labour_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 67493bef-bc64-4811-a928-643855f9b085
+		lineageTag: c59c8b4f-17d0-4431-a0c1-82be6d6297a9
 		summarizeBy: none
 		sourceColumn: labour_hours
 
@@ -167,7 +167,7 @@ table FACT_WORK_ORDER
 	column parts_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 884191c1-c0e4-4d83-8957-805b45ee953e
+		lineageTag: 3bd7030d-8321-4822-ac25-25a4151cb485
 		summarizeBy: none
 		sourceColumn: parts_cost_usd
 
@@ -176,7 +176,7 @@ table FACT_WORK_ORDER
 	column labour_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: de7f0ef5-2096-4d9d-abc2-0e27f4681d89
+		lineageTag: 7f15d708-edda-4b97-8378-1c5ea70c55eb
 		summarizeBy: none
 		sourceColumn: labour_cost_usd
 
@@ -185,7 +185,7 @@ table FACT_WORK_ORDER
 	column downtime_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 3f0d38d3-d7de-4b35-b706-3fc786eff379
+		lineageTag: b0b24711-e5e7-4d70-b45b-60f8815bad7d
 		summarizeBy: none
 		sourceColumn: downtime_cost_usd
 
@@ -193,7 +193,7 @@ table FACT_WORK_ORDER
 
 	column is_failure
 		dataType: boolean
-		lineageTag: 1bcc90cd-92eb-4637-91dd-340a37b8632c
+		lineageTag: 260fdd9a-f7d9-438a-8b0d-0640b061077a
 		summarizeBy: none
 		sourceColumn: is_failure
 
@@ -201,7 +201,7 @@ table FACT_WORK_ORDER
 
 	column status
 		dataType: string
-		lineageTag: d2bf5a47-93a1-4b9d-8931-78e9cddd5eb0
+		lineageTag: 52e95fb2-672e-46ba-aeee-ae6b821e99f0
 		summarizeBy: none
 		sourceColumn: status
 
@@ -209,7 +209,7 @@ table FACT_WORK_ORDER
 
 	column technician_id
 		dataType: string
-		lineageTag: af037849-d587-4bef-ac52-0333b45fdef7
+		lineageTag: d23d2143-e321-43a0-8377-fb9f676dfbb1
 		summarizeBy: none
 		sourceColumn: technician_id
 
@@ -218,7 +218,7 @@ table FACT_WORK_ORDER
 	column src_batch_id
 		dataType: string
 		isHidden
-		lineageTag: 2f45953b-22b0-47ec-bf34-a7a72236c94a
+		lineageTag: be283d88-fc47-4934-bed0-ea837981a4bf
 		summarizeBy: none
 		sourceColumn: src_batch_id
 

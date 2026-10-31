@@ -1,11 +1,11 @@
 table DIM_STATION
-	lineageTag: 26e60ea4-9623-44be-aeae-028dfde96e8e
+	lineageTag: 0bb414a6-f75a-4be5-8256-afb9547f324e
 
 	column station_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 6515a32b-128a-47e6-9e6e-e7dfdd93fee0
+		lineageTag: d0cccd79-1941-4d13-8f15-36345a81203c
 		summarizeBy: none
 		sourceColumn: station_key
 
@@ -13,7 +13,7 @@ table DIM_STATION
 
 	column station_code
 		dataType: string
-		lineageTag: bbc8fd32-3614-4a9c-b976-beb6e07621ac
+		lineageTag: 70fc5e87-b009-41cf-9dc2-499c42365edf
 		summarizeBy: none
 		sourceColumn: station_code
 
@@ -21,7 +21,7 @@ table DIM_STATION
 
 	column icao_code
 		dataType: string
-		lineageTag: 6acf1a08-0b77-44bd-9b3f-8f01301aade9
+		lineageTag: 87883fa5-9ee8-48e0-ab64-16e6aaf0582e
 		summarizeBy: none
 		sourceColumn: icao_code
 
@@ -29,7 +29,7 @@ table DIM_STATION
 
 	column station_name
 		dataType: string
-		lineageTag: 791a28d4-ee55-4ed8-8d68-2c3dbbf99f01
+		lineageTag: 64099e07-ac22-4772-b639-e2bc67a85d8b
 		summarizeBy: none
 		sourceColumn: station_name
 
@@ -37,7 +37,7 @@ table DIM_STATION
 
 	column city
 		dataType: string
-		lineageTag: 44c9e8fa-26d6-4758-b774-157e0e2c0954
+		lineageTag: 186a7fc7-40cb-4da7-9e1f-ab71b7d98bae
 		summarizeBy: none
 		sourceColumn: city
 
@@ -45,7 +45,7 @@ table DIM_STATION
 
 	column country_code
 		dataType: string
-		lineageTag: bc9a3d94-e194-44b1-8480-bb59476f52bf
+		lineageTag: 37aa0126-9eef-4cee-b8de-5cd52beec30d
 		summarizeBy: none
 		sourceColumn: country_code
 
@@ -53,7 +53,7 @@ table DIM_STATION
 
 	column operating_entity_code
 		dataType: string
-		lineageTag: b357c1b5-1946-4579-b700-f619b1931133
+		lineageTag: 2e81a226-c09d-4589-bb8c-232d30772a18
 		summarizeBy: none
 		sourceColumn: operating_entity_code
 
@@ -61,7 +61,7 @@ table DIM_STATION
 
 	column timezone
 		dataType: string
-		lineageTag: 25daf974-c809-493a-8729-9c751f901550
+		lineageTag: 38da0301-9589-4d60-a850-aa517a879f8b
 		summarizeBy: none
 		sourceColumn: timezone
 

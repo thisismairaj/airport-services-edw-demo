@@ -1,11 +1,11 @@
 table FACT_AIRLINE_ORDER
-	lineageTag: c75b51c8-db50-410c-b327-06611bdda46f
+	lineageTag: f418832b-f5ee-4b61-9cf3-7450d7c58ba1
 
 	column airline_order_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: a2aea50e-fa87-4a9d-bcb1-8a905f4e76cd
+		lineageTag: 462585c0-a9a9-4922-b27e-e5683e3d1fb6
 		summarizeBy: none
 		sourceColumn: airline_order_key
 
@@ -15,7 +15,7 @@ table FACT_AIRLINE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 97e0ab8a-9673-483d-a4ce-ed3f5f1ed617
+		lineageTag: 10b2fd82-1773-4e95-8b61-085e050ec9a8
 		summarizeBy: none
 		sourceColumn: date_key
 
@@ -25,7 +25,7 @@ table FACT_AIRLINE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: a8833dc8-2025-4b7b-b70e-8abea311c823
+		lineageTag: 77b29b26-f3ec-4f54-9cae-873767de67cc
 		summarizeBy: none
 		sourceColumn: airline_key
 
@@ -35,7 +35,7 @@ table FACT_AIRLINE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 0d01641a-a7d7-45c1-98d8-787a7b4b9944
+		lineageTag: 0dc411f8-31fb-428e-9677-c5f6a4cf6884
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -45,7 +45,7 @@ table FACT_AIRLINE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 7f01414d-87e9-437e-a1f5-d03ec2452313
+		lineageTag: 7b95f1bd-da29-4e5e-b99c-3fabfa49f907
 		summarizeBy: none
 		sourceColumn: station_key
 
@@ -54,7 +54,7 @@ table FACT_AIRLINE_ORDER
 	column orders_submitted
 		dataType: int64
 		formatString: #,0
-		lineageTag: 00d6a9ea-811f-4bd5-bdff-2db2368dc6c7
+		lineageTag: 1eb13f83-cd59-4f81-a44c-2547fbdaee9e
 		summarizeBy: none
 		sourceColumn: orders_submitted
 
@@ -63,7 +63,7 @@ table FACT_AIRLINE_ORDER
 	column orders_amended_after_cutoff
 		dataType: int64
 		formatString: #,0
-		lineageTag: a83b786d-ea25-4e32-9550-551de22544c7
+		lineageTag: 96e475fa-7f1c-4186-bf1a-183dda036fd8
 		summarizeBy: none
 		sourceColumn: orders_amended_after_cutoff
 
@@ -72,7 +72,7 @@ table FACT_AIRLINE_ORDER
 	column special_meal_orders
 		dataType: int64
 		formatString: #,0
-		lineageTag: 9c4aa53d-0a88-4f59-9afe-ff48dec35730
+		lineageTag: cc43e3c7-e960-4823-a253-cb868a465c2e
 		summarizeBy: none
 		sourceColumn: special_meal_orders
 
@@ -81,7 +81,7 @@ table FACT_AIRLINE_ORDER
 	column special_meals_unfulfilled
 		dataType: int64
 		formatString: #,0
-		lineageTag: ebbf6fc5-dd2e-4d2e-9681-8c0b9fe3fa4a
+		lineageTag: 30af577a-92fb-45de-b4b3-b99275401d96
 		summarizeBy: none
 		sourceColumn: special_meals_unfulfilled
 
@@ -90,7 +90,7 @@ table FACT_AIRLINE_ORDER
 	column sla_events
 		dataType: int64
 		formatString: #,0
-		lineageTag: f52bdba0-5e07-49e3-8ed5-46244fad6b1c
+		lineageTag: 5703ad11-b1c5-4935-8b65-474075c0df34
 		summarizeBy: none
 		sourceColumn: sla_events
 
@@ -99,7 +99,7 @@ table FACT_AIRLINE_ORDER
 	column sla_breaches
 		dataType: int64
 		formatString: #,0
-		lineageTag: 0e7bf262-eb86-4569-a3bb-2dccc7f3bccf
+		lineageTag: e6fab244-65a4-491f-a22d-e6090d5868ad
 		summarizeBy: none
 		sourceColumn: sla_breaches
 
@@ -108,7 +108,7 @@ table FACT_AIRLINE_ORDER
 	column avg_order_lead_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: f2aa3927-01c8-4f35-800a-c45e41778e50
+		lineageTag: 928a69f0-2bbf-434a-9d08-4535bc674324
 		summarizeBy: none
 		sourceColumn: avg_order_lead_hours
 
@@ -117,7 +117,7 @@ table FACT_AIRLINE_ORDER
 	column src_batch_id
 		dataType: string
 		isHidden
-		lineageTag: c30931e0-1569-4143-a849-f9ed7dc41a57
+		lineageTag: 40852a4e-5aa9-40de-84ea-6b99276d9da0
 		summarizeBy: none
 		sourceColumn: src_batch_id
 

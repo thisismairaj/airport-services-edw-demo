@@ -1,11 +1,11 @@
 table DIM_ASSET
-	lineageTag: 93f4fe07-97d1-4bc5-9d94-12d5f7c6909c
+	lineageTag: 49571bef-482f-44b1-9f07-4f8ebe17c3d7
 
 	column asset_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 67fa064b-ebdf-4c2c-af2f-446ba04b999a
+		lineageTag: 0da92264-a272-4401-9b2a-5c7188b50100
 		summarizeBy: none
 		sourceColumn: asset_key
 
@@ -13,7 +13,7 @@ table DIM_ASSET
 
 	column asset_id
 		dataType: string
-		lineageTag: baf28474-ac23-48a7-b262-415b57a38eec
+		lineageTag: bf205aee-6cf4-4ef2-813c-4afa4276e4d8
 		summarizeBy: none
 		sourceColumn: asset_id
 
@@ -21,7 +21,7 @@ table DIM_ASSET
 
 	column asset_type
 		dataType: string
-		lineageTag: c82d5dbc-07b6-417b-82a6-5de433d85ccc
+		lineageTag: 4f1a6b8d-b518-456a-ac02-bd716649c483
 		summarizeBy: none
 		sourceColumn: asset_type
 
@@ -29,7 +29,7 @@ table DIM_ASSET
 
 	column asset_class
 		dataType: string
-		lineageTag: 327ec38e-bf65-41a7-b09f-bb4ce4ee52e8
+		lineageTag: 808c534e-e40c-4732-a96e-a57acc6ee497
 		summarizeBy: none
 		sourceColumn: asset_class
 
@@ -37,7 +37,7 @@ table DIM_ASSET
 
 	column make
 		dataType: string
-		lineageTag: ba119b5b-ff9d-4f23-9b43-3e8377ffd4b0
+		lineageTag: f7ed5eb5-f7cf-48bf-b9e7-cff0d1f1cdc8
 		summarizeBy: none
 		sourceColumn: make
 
@@ -45,7 +45,7 @@ table DIM_ASSET
 
 	column model
 		dataType: string
-		lineageTag: eaf90d34-1890-4d3c-ba18-ba01f25b6129
+		lineageTag: cfb649c7-1089-4c51-b631-a9e28ecf33cb
 		summarizeBy: none
 		sourceColumn: model
 
@@ -54,7 +54,7 @@ table DIM_ASSET
 	column year_of_manufacture
 		dataType: int64
 		formatString: 0
-		lineageTag: 820990be-8ddd-4f0b-af3c-1557f2db5525
+		lineageTag: 4dd54927-4cb3-4261-af36-c43f081c2997
 		summarizeBy: none
 		sourceColumn: year_of_manufacture
 
@@ -63,7 +63,7 @@ table DIM_ASSET
 	column acquisition_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 351ea4b9-bbae-42be-9389-3f8ea4bb5d78
+		lineageTag: fe268a33-f71d-43ab-8d96-d4b28b1f4dc1
 		summarizeBy: none
 		sourceColumn: acquisition_cost_usd
 
@@ -72,7 +72,7 @@ table DIM_ASSET
 	column downtime_rate_usd_per_hr
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 62a7d59a-1ab9-4598-adfe-3dfc72c171d6
+		lineageTag: e473cc7c-15a2-4785-a5b8-2a672048e60e
 		summarizeBy: none
 		sourceColumn: downtime_rate_usd_per_hr
 
@@ -80,7 +80,7 @@ table DIM_ASSET
 
 	column cost_center_code
 		dataType: string
-		lineageTag: 2eb0c534-65ea-4489-bdfb-f81ac81a4df6
+		lineageTag: afbae4b6-2c3a-4411-bb91-6ca99d103ee3
 		summarizeBy: none
 		sourceColumn: cost_center_code
 
@@ -88,7 +88,7 @@ table DIM_ASSET
 
 	column station_code
 		dataType: string
-		lineageTag: 59e5e743-c9ea-4452-a22c-fad97d0fbee3
+		lineageTag: ae23f485-c1fa-404f-8260-5705dcae230d
 		summarizeBy: none
 		sourceColumn: station_code
 
@@ -96,7 +96,7 @@ table DIM_ASSET
 
 	column entity_code
 		dataType: string
-		lineageTag: 3dccc8f9-9ca1-4411-9bc2-55435eca39c4
+		lineageTag: c7e7cd8f-7caf-4498-952c-08f35084d19b
 		summarizeBy: none
 		sourceColumn: entity_code
 
@@ -104,7 +104,7 @@ table DIM_ASSET
 
 	column status
 		dataType: string
-		lineageTag: e60a8b18-7983-4c28-b4fd-c4e5ba7bf907
+		lineageTag: d9940122-e602-4bac-98b7-cf6d431dbfdb
 		summarizeBy: none
 		sourceColumn: status
 
@@ -112,7 +112,7 @@ table DIM_ASSET
 
 	column criticality
 		dataType: string
-		lineageTag: 38dc9949-b7e7-4908-9f2a-c95057d869d6
+		lineageTag: c1070051-5347-4815-8237-f94c779667c6
 		summarizeBy: none
 		sourceColumn: criticality
 
@@ -121,7 +121,7 @@ table DIM_ASSET
 	column effective_from
 		dataType: dateTime
 		formatString: dd mmm yyyy
-		lineageTag: 799778ed-7e29-4cbc-a72e-178c8910c998
+		lineageTag: e6435773-110d-44e6-9e5f-83842f15cfbd
 		summarizeBy: none
 		sourceColumn: effective_from
 
@@ -132,7 +132,7 @@ table DIM_ASSET
 	column effective_to
 		dataType: dateTime
 		formatString: dd mmm yyyy
-		lineageTag: 1215f302-d940-4379-8e21-cc430b70acdd
+		lineageTag: d586ed38-5f21-4b62-bbc9-eac9b27bcec9
 		summarizeBy: none
 		sourceColumn: effective_to
 
@@ -142,7 +142,7 @@ table DIM_ASSET
 
 	column is_current
 		dataType: boolean
-		lineageTag: 3ecf03d2-55ab-4928-892d-f20e886ba3f9
+		lineageTag: cda264db-e4af-4628-858b-6142654e239a
 		summarizeBy: none
 		sourceColumn: is_current
 
@@ -151,7 +151,7 @@ table DIM_ASSET
 	column version_no
 		dataType: int64
 		formatString: 0
-		lineageTag: 89ffe0ed-45fc-4a59-9bf3-9f20ee67d31c
+		lineageTag: a9a596ba-d651-4dac-a755-8adac20cbdd1
 		summarizeBy: none
 		sourceColumn: version_no
 
@@ -161,7 +161,7 @@ table DIM_ASSET
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: b1776308-d44d-492d-816a-34327bdc8b38
+		lineageTag: 42aff3a7-43ce-48aa-b968-47ba4f9614dc
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -171,7 +171,7 @@ table DIM_ASSET
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 85a0f731-7a00-4172-823c-f69561dff9a0
+		lineageTag: 1d86e1dd-a2c2-47a7-b48c-7b684a637374
 		summarizeBy: none
 		sourceColumn: station_key
 
@@ -181,7 +181,7 @@ table DIM_ASSET
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 5391ffa8-4749-43ab-853b-49e6d137dced
+		lineageTag: 9f909b96-18a1-4bcf-a718-522731366eb8
 		summarizeBy: none
 		sourceColumn: cost_center_key
 

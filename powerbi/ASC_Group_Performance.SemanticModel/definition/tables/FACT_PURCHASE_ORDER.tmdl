@@ -1,11 +1,11 @@
 table FACT_PURCHASE_ORDER
-	lineageTag: d506ebf6-262c-4929-8970-09155c5f0ae5
+	lineageTag: c1cbe5fa-9dc2-4731-9ba3-bab22913defb
 
 	column purchase_order_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: f64ccc3a-c54d-489b-b2db-ab3f63312cbf
+		lineageTag: 42c25097-7885-4b01-926c-ac122dc9e8bd
 		summarizeBy: none
 		sourceColumn: purchase_order_key
 
@@ -13,7 +13,7 @@ table FACT_PURCHASE_ORDER
 
 	column po_number
 		dataType: string
-		lineageTag: 084168b8-6af6-45be-8a22-dbe4c0fcab95
+		lineageTag: d5a742e0-8165-446f-8798-01d49dbaa583
 		summarizeBy: none
 		sourceColumn: po_number
 
@@ -21,7 +21,7 @@ table FACT_PURCHASE_ORDER
 
 	column po_line
 		dataType: string
-		lineageTag: 60fd48b9-f7d4-41cb-89eb-544f26e19a9e
+		lineageTag: 57b0cf79-54ee-4573-a258-5c8169e0b748
 		summarizeBy: none
 		sourceColumn: po_line
 
@@ -31,7 +31,7 @@ table FACT_PURCHASE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 5b820b5f-9008-4024-b003-a1ffe9f33d2f
+		lineageTag: 674c5c8a-3056-4502-8e5f-3cb1967500df
 		summarizeBy: none
 		sourceColumn: date_key
 
@@ -41,7 +41,7 @@ table FACT_PURCHASE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 8a434b6f-2168-4aa2-8434-4658e9bb7f94
+		lineageTag: bcceda5e-5b3e-47a3-8399-a8f9e2c74646
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -51,7 +51,7 @@ table FACT_PURCHASE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 66d7ce41-5c9b-4930-8506-77c3c7c5a6fe
+		lineageTag: c80ef42e-852a-47da-acbf-9a130b7cfa95
 		summarizeBy: none
 		sourceColumn: cost_center_key
 
@@ -61,7 +61,7 @@ table FACT_PURCHASE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 43dd51c6-b17e-4adb-b179-7983066a4e08
+		lineageTag: 6ce912c0-002e-4fe6-9cc5-531e7bb42eeb
 		summarizeBy: none
 		sourceColumn: gl_account_key
 
@@ -71,7 +71,7 @@ table FACT_PURCHASE_ORDER
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: b1464cf9-20c7-4410-bb50-f1c949816db2
+		lineageTag: 00c55ec4-b63f-4a3c-8316-48e3d1b6f322
 		summarizeBy: none
 		sourceColumn: vendor_key
 
@@ -79,7 +79,7 @@ table FACT_PURCHASE_ORDER
 
 	column source_vendor_id
 		dataType: string
-		lineageTag: bceba890-2330-4d88-98f9-2997fea1334e
+		lineageTag: d5fda54b-5121-4ea0-955e-5668612ff082
 		summarizeBy: none
 		sourceColumn: source_vendor_id
 
@@ -87,7 +87,7 @@ table FACT_PURCHASE_ORDER
 
 	column category
 		dataType: string
-		lineageTag: 1642dc7a-0d4c-4811-88c9-90d92296279e
+		lineageTag: 5bab8793-7b05-4f17-93a6-69bf41cc57c9
 		summarizeBy: none
 		sourceColumn: category
 
@@ -95,7 +95,7 @@ table FACT_PURCHASE_ORDER
 
 	column document_currency
 		dataType: string
-		lineageTag: 8eb6c4d4-3471-4547-8cc4-612cb5076054
+		lineageTag: 513618fe-63ab-44b1-8934-d521ad36265f
 		summarizeBy: none
 		sourceColumn: document_currency
 
@@ -104,7 +104,7 @@ table FACT_PURCHASE_ORDER
 	column amount_doc_currency
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 9fce47a5-9e56-47db-bd17-9ae163986bfb
+		lineageTag: 08d3e0c0-0a7d-4752-bf48-fc8b46c28bd4
 		summarizeBy: none
 		sourceColumn: amount_doc_currency
 
@@ -113,7 +113,7 @@ table FACT_PURCHASE_ORDER
 	column amount_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: dd7cf114-197e-4016-a74b-3c47c139b03c
+		lineageTag: ea35dcc8-0327-49c7-b864-400c83b80164
 		summarizeBy: none
 		sourceColumn: amount_usd
 
@@ -121,7 +121,7 @@ table FACT_PURCHASE_ORDER
 
 	column has_ariba_requisition
 		dataType: boolean
-		lineageTag: f09b39a2-19ba-4b4a-bf95-1191fb67ade7
+		lineageTag: e5a3c189-fad0-47e0-b30f-c19343723eeb
 		summarizeBy: none
 		sourceColumn: has_ariba_requisition
 
@@ -129,7 +129,7 @@ table FACT_PURCHASE_ORDER
 
 	column status
 		dataType: string
-		lineageTag: a36c5b67-0d99-4ab4-b1ad-9f3667f42d47
+		lineageTag: 5cdfbf0f-5b79-4c0a-ae8f-ee537a3394de
 		summarizeBy: none
 		sourceColumn: status
 
@@ -138,7 +138,7 @@ table FACT_PURCHASE_ORDER
 	column src_batch_id
 		dataType: string
 		isHidden
-		lineageTag: f6aaf8ce-722b-4841-a557-c20eded91820
+		lineageTag: 4adb4ec1-d6c4-4d09-bc60-4353b2b90e4e
 		summarizeBy: none
 		sourceColumn: src_batch_id
 

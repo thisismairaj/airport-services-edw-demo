@@ -1,11 +1,11 @@
 table FACT_LABOUR_COST
-	lineageTag: a324c92c-3507-43b8-90b3-4df12d31bed4
+	lineageTag: 4da63146-e2ed-4e0e-8c8a-e98695e7ac55
 
 	column labour_cost_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 5cb73ed0-6ad4-4f0a-952d-afaf40aa2d81
+		lineageTag: 684e05a4-8b1a-4829-9215-8c6d1318defb
 		summarizeBy: none
 		sourceColumn: labour_cost_key
 
@@ -13,7 +13,7 @@ table FACT_LABOUR_COST
 
 	column fiscal_period
 		dataType: string
-		lineageTag: 97f4dbec-dce2-497b-8bcc-a9a74cbe78aa
+		lineageTag: 45b00ecf-c8ac-4e01-aa9f-09b6fd2bf3cd
 		summarizeBy: none
 		sourceColumn: fiscal_period
 
@@ -23,7 +23,7 @@ table FACT_LABOUR_COST
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: b78290df-3bfe-4f6a-ae12-a6d71d2aa8ab
+		lineageTag: a3346aa9-3b7b-49cb-ab79-dbb5e4d4ff86
 		summarizeBy: none
 		sourceColumn: date_key
 
@@ -33,7 +33,7 @@ table FACT_LABOUR_COST
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: f9d3d869-db98-473f-941e-63302c3ebb5b
+		lineageTag: 93d479ac-be4d-49ff-8a83-fad17bbf01bb
 		summarizeBy: none
 		sourceColumn: entity_key
 
@@ -43,7 +43,7 @@ table FACT_LABOUR_COST
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 8327afbf-e858-4358-a0ee-a892cd326d51
+		lineageTag: 9f92a845-1b10-4472-ada6-b01a2a0e9710
 		summarizeBy: none
 		sourceColumn: cost_center_key
 
@@ -53,7 +53,7 @@ table FACT_LABOUR_COST
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 00831091-335f-441f-b9a5-fea8ecd288f5
+		lineageTag: bd9bd98b-2e87-4ffb-88e4-b38fb96b0d54
 		summarizeBy: none
 		sourceColumn: deployed_cost_center_key
 
@@ -61,7 +61,7 @@ table FACT_LABOUR_COST
 
 	column employment_type
 		dataType: string
-		lineageTag: 62f8c7d0-8a72-4ab9-97b5-2aaa24fc63da
+		lineageTag: b789d169-e4d0-4a7e-9155-849f5508adb9
 		summarizeBy: none
 		sourceColumn: employment_type
 
@@ -69,7 +69,7 @@ table FACT_LABOUR_COST
 
 	column shift_pattern
 		dataType: string
-		lineageTag: 76d81508-7d5c-4834-9054-f49785d768c5
+		lineageTag: 8f885a13-208c-48d4-b0da-4472de9c1381
 		summarizeBy: none
 		sourceColumn: shift_pattern
 
@@ -78,7 +78,7 @@ table FACT_LABOUR_COST
 	column headcount
 		dataType: int64
 		formatString: #,0
-		lineageTag: b8b24f5d-e512-4c79-a2a2-3a774f12791f
+		lineageTag: db620818-cf7a-4bcf-945a-00a54507fbf5
 		summarizeBy: none
 		sourceColumn: headcount
 
@@ -87,7 +87,7 @@ table FACT_LABOUR_COST
 	column regular_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: c64ea53c-fa7e-4ece-bbd2-cdf6e2af9c5b
+		lineageTag: bc2b54c9-84b0-4a2f-ae28-9ef523095071
 		summarizeBy: none
 		sourceColumn: regular_hours
 
@@ -96,7 +96,7 @@ table FACT_LABOUR_COST
 	column overtime_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 327033cd-4949-40c4-bc4c-23b763e3d19b
+		lineageTag: 273c3fd9-2558-43c7-84bb-d985dfec9060
 		summarizeBy: none
 		sourceColumn: overtime_hours
 
@@ -105,7 +105,7 @@ table FACT_LABOUR_COST
 	column night_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 4b4f35f1-24d5-461c-bfe6-62492432c3f8
+		lineageTag: 199b9df3-955b-43d2-af55-a28224442c9e
 		summarizeBy: none
 		sourceColumn: night_hours
 
@@ -114,7 +114,7 @@ table FACT_LABOUR_COST
 	column leave_hours
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 0bc84b86-d926-4485-a103-04d271bb91cc
+		lineageTag: fa5af71f-356d-45ff-bc13-875c74e11b2a
 		summarizeBy: none
 		sourceColumn: leave_hours
 
@@ -123,7 +123,7 @@ table FACT_LABOUR_COST
 	column regular_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: ce6ea603-3a1c-45b0-901e-066b521eb575
+		lineageTag: 5b18e67d-d519-42ca-9d3f-1b20e543195e
 		summarizeBy: none
 		sourceColumn: regular_cost_usd
 
@@ -132,7 +132,7 @@ table FACT_LABOUR_COST
 	column overtime_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 62b96817-241e-4077-bb18-5ececb6c8f0b
+		lineageTag: 15f82665-b71f-4780-8016-49be809a6e0a
 		summarizeBy: none
 		sourceColumn: overtime_cost_usd
 
@@ -141,7 +141,7 @@ table FACT_LABOUR_COST
 	column benefits_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 9c2bde0a-f4db-496d-a5e9-edef44a256a9
+		lineageTag: ecf72825-7671-417d-a513-8a000baf149f
 		summarizeBy: none
 		sourceColumn: benefits_cost_usd
 
@@ -150,7 +150,7 @@ table FACT_LABOUR_COST
 	column total_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 1f8b96d9-b683-4ca4-9692-b0cd868aa9d8
+		lineageTag: fa193edb-c4f2-47fb-869a-b9c42702e493
 		summarizeBy: none
 		sourceColumn: total_cost_usd
 
@@ -159,7 +159,7 @@ table FACT_LABOUR_COST
 	column src_batch_id
 		dataType: string
 		isHidden
-		lineageTag: 6189264e-ee25-4c59-9da8-f73cc6b08ff4
+		lineageTag: ccfd154c-d9ff-47f4-9d89-a09f291ea838
 		summarizeBy: none
 		sourceColumn: src_batch_id
 

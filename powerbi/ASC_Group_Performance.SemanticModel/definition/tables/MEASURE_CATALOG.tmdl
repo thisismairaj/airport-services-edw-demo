@@ -1,9 +1,9 @@
 table MEASURE_CATALOG
-	lineageTag: 93d33a03-14b2-479a-95e0-31e125ec81a0
+	lineageTag: 434ec66b-ec80-4530-aabb-6bf5cb3c7b94
 
 	column measure_id
 		dataType: string
-		lineageTag: 4b620d19-f91a-459f-acd3-f997f3e276ff
+		lineageTag: 34072e62-9e7e-4b6a-af79-1443cbcb7d82
 		summarizeBy: none
 		sourceColumn: measure_id
 
@@ -11,7 +11,7 @@ table MEASURE_CATALOG
 
 	column measure_name
 		dataType: string
-		lineageTag: a1def610-2c26-4130-b574-5f65970ba528
+		lineageTag: cf62d68f-9011-4798-8340-5144c63c4824
 		summarizeBy: none
 		sourceColumn: measure_name
 
@@ -19,7 +19,7 @@ table MEASURE_CATALOG
 
 	column kpi_family
 		dataType: string
-		lineageTag: 1bd78cf4-8d41-4544-958d-522c843bd550
+		lineageTag: 279689b2-8f31-41db-ad68-7c369ed5c2dc
 		summarizeBy: none
 		sourceColumn: kpi_family
 
@@ -27,7 +27,7 @@ table MEASURE_CATALOG
 
 	column definition
 		dataType: string
-		lineageTag: 9b7132ed-5ad5-4e0b-9f15-a6db3efbd00e
+		lineageTag: 555d9947-7eaa-4993-84f9-d15a2c60712a
 		summarizeBy: none
 		sourceColumn: definition
 
@@ -35,7 +35,7 @@ table MEASURE_CATALOG
 
 	column formula
 		dataType: string
-		lineageTag: 21761b45-05a7-4ed7-af3a-6acb233d72e0
+		lineageTag: 92860164-5b80-4f74-a784-fafe51c48a2f
 		summarizeBy: none
 		sourceColumn: formula
 
@@ -43,7 +43,7 @@ table MEASURE_CATALOG
 
 	column unit
 		dataType: string
-		lineageTag: 87790051-af28-4e51-821c-38e08b448946
+		lineageTag: b1090ea9-84c8-4c98-bf5e-53e6b3b307ce
 		summarizeBy: none
 		sourceColumn: unit
 
@@ -51,7 +51,7 @@ table MEASURE_CATALOG
 
 	column grain
 		dataType: string
-		lineageTag: 5bdcdd38-5079-4a30-9f34-da667a4de0b3
+		lineageTag: 24785dbc-01b9-4aca-9ce9-3f2477cb0e7c
 		summarizeBy: none
 		sourceColumn: grain
 
@@ -59,7 +59,7 @@ table MEASURE_CATALOG
 
 	column owner
 		dataType: string
-		lineageTag: 39d26113-aaef-486b-a942-cee6072b1571
+		lineageTag: 05608210-12ee-4b12-b323-c7858189559d
 		summarizeBy: none
 		sourceColumn: owner
 
@@ -67,7 +67,7 @@ table MEASURE_CATALOG
 
 	column steward
 		dataType: string
-		lineageTag: ae2f6d2b-7b98-4e3f-96b5-2a531c7ed568
+		lineageTag: eb96fb6c-b198-4d8d-ac50-a0bee2b138bf
 		summarizeBy: none
 		sourceColumn: steward
 
@@ -75,7 +75,7 @@ table MEASURE_CATALOG
 
 	column sensitivity
 		dataType: string
-		lineageTag: 467ce7b0-bac1-428f-ace6-3cbad2b354bb
+		lineageTag: c799b2f1-4273-4a1c-88ba-f1b78c481419
 		summarizeBy: none
 		sourceColumn: sensitivity
 
@@ -83,7 +83,7 @@ table MEASURE_CATALOG
 
 	column refresh_cadence
 		dataType: string
-		lineageTag: 25e27794-9686-4a34-90ac-b93cbb4e0f76
+		lineageTag: e6f1a2e7-f7d6-4694-a9db-31b84b07b3dd
 		summarizeBy: none
 		sourceColumn: refresh_cadence
 
@@ -91,7 +91,7 @@ table MEASURE_CATALOG
 
 	column source_systems
 		dataType: string
-		lineageTag: 1c176d3e-5f24-44a9-8e90-5cba7630db0d
+		lineageTag: f663761b-fbe6-4bfb-8460-b4bb62d09189
 		summarizeBy: none
 		sourceColumn: source_systems
 
@@ -99,7 +99,7 @@ table MEASURE_CATALOG
 
 	column lineage
 		dataType: string
-		lineageTag: f9b9afe5-b8b4-429e-bcd2-7ccf9ef7378e
+		lineageTag: ba92404a-cf2e-4e63-9617-8f54f87c4cff
 		summarizeBy: none
 		sourceColumn: lineage
 
@@ -107,7 +107,7 @@ table MEASURE_CATALOG
 
 	column semantic_object
 		dataType: string
-		lineageTag: 54811cf1-b162-45fa-abc2-ca60e58aed28
+		lineageTag: 81cf4bd3-b876-45b8-bb87-d0c5d16c20ca
 		summarizeBy: none
 		sourceColumn: semantic_object
 
@@ -115,7 +115,7 @@ table MEASURE_CATALOG
 
 	column dax_measure
 		dataType: string
-		lineageTag: 41eef994-c438-43f5-bdcc-6a987b3c4142
+		lineageTag: 8b9d2bc9-a9a6-40c8-850e-e922a436b2ce
 		summarizeBy: none
 		sourceColumn: dax_measure
 
@@ -123,7 +123,7 @@ table MEASURE_CATALOG
 
 	column certified
 		dataType: boolean
-		lineageTag: 8ac7c074-68d1-439b-b5ec-c9f9f0185a02
+		lineageTag: d2b19207-5b99-4365-87f6-030089f99ef0
 		summarizeBy: none
 		sourceColumn: certified
 
@@ -132,7 +132,7 @@ table MEASURE_CATALOG
 	column certified_on
 		dataType: dateTime
 		formatString: dd mmm yyyy
-		lineageTag: bd25c98e-8313-454e-a79a-878f214195c6
+		lineageTag: b63c28f0-e123-4081-a225-89803403ebfd
 		summarizeBy: none
 		sourceColumn: certified_on
 
@@ -142,7 +142,7 @@ table MEASURE_CATALOG
 
 	column version
 		dataType: string
-		lineageTag: f1a58761-dab0-4379-b3ce-6bcad0828ed5
+		lineageTag: 60300a84-f6f0-485f-b003-82311b47d7c8
 		summarizeBy: none
 		sourceColumn: version
 

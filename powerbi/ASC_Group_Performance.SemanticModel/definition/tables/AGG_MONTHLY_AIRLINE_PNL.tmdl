@@ -1,9 +1,9 @@
 table AGG_MONTHLY_AIRLINE_PNL
-	lineageTag: fc3a273e-d834-46db-a076-b74a3d9ce3ff
+	lineageTag: 2781de9a-f75b-435b-bc6a-0de576275375
 
 	column fiscal_period
 		dataType: string
-		lineageTag: be0b6b39-93cf-4ee2-acea-38d06916e147
+		lineageTag: 4da2a84a-d221-4e29-997a-fd37a9fee48c
 		summarizeBy: none
 		sourceColumn: fiscal_period
 
@@ -13,7 +13,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 8f5163c7-fae5-4737-a820-ca26a381d2c0
+		lineageTag: 2ec44003-13b5-47eb-8f8a-14fc98d97904
 		summarizeBy: none
 		sourceColumn: airline_key
 
@@ -22,7 +22,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column flights_handled
 		dataType: int64
 		formatString: #,0
-		lineageTag: ddf35679-b587-4d82-b3f0-0e89ab5cd6f4
+		lineageTag: 73a56159-173d-454c-bbd2-dd18abca58e0
 		summarizeBy: none
 		sourceColumn: flights_handled
 
@@ -31,7 +31,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column meals_uplifted
 		dataType: int64
 		formatString: #,0
-		lineageTag: f733b63a-3430-4703-bce4-ed511ee86534
+		lineageTag: 717df06b-fd11-44d1-91b5-f3cdfab9b23b
 		summarizeBy: none
 		sourceColumn: meals_uplifted
 
@@ -40,7 +40,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column meals_wasted
 		dataType: int64
 		formatString: #,0
-		lineageTag: 780bfb04-4215-4640-acc0-f1ba0f65f3f5
+		lineageTag: bbdf7c9a-db55-438a-84d3-d53ad96d6784
 		summarizeBy: none
 		sourceColumn: meals_wasted
 
@@ -49,7 +49,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column catering_revenue_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 8b38424a-b772-403c-85eb-8621375b16f3
+		lineageTag: bd4eac16-b3b8-4cbf-9205-da463a77eb2c
 		summarizeBy: none
 		sourceColumn: catering_revenue_usd
 
@@ -58,7 +58,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column catering_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 4a3ab231-7093-4e0f-ad0f-41f8c12685d4
+		lineageTag: 6ccab4a4-516f-4dd6-8f91-b6757705e43c
 		summarizeBy: none
 		sourceColumn: catering_cost_usd
 
@@ -67,7 +67,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column catering_food_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: e4759e01-c0a2-40cb-8ecc-54715eef414a
+		lineageTag: 5c7fc3f5-90b3-42a6-b6e9-dcc6e4a0bb58
 		summarizeBy: none
 		sourceColumn: catering_food_cost_usd
 
@@ -76,7 +76,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column catering_labour_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 1fd4694b-e9e3-4aad-81ae-b242e526b249
+		lineageTag: afedab20-6b4a-4aab-b331-fff01d5e349a
 		summarizeBy: none
 		sourceColumn: catering_labour_cost_usd
 
@@ -85,7 +85,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column handling_revenue_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 72b00ebd-7e1e-4c19-979b-47ea8bedc643
+		lineageTag: e206e65b-c501-46d0-a483-d5f657785cbe
 		summarizeBy: none
 		sourceColumn: handling_revenue_usd
 
@@ -94,7 +94,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column handling_cost_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 5e1a23cd-1b3b-4328-9eeb-b3e3e2b91df5
+		lineageTag: 513cf867-14e1-463e-adb2-02b798ea6569
 		summarizeBy: none
 		sourceColumn: handling_cost_usd
 
@@ -103,7 +103,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column late_downlift_confirmations
 		dataType: int64
 		formatString: #,0
-		lineageTag: 22488e52-1d9c-4da8-a3ea-f58a5c3c23b8
+		lineageTag: a74ab0b4-ad82-43e0-a498-787018f36d86
 		summarizeBy: none
 		sourceColumn: late_downlift_confirmations
 
@@ -112,7 +112,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column deliveries_total
 		dataType: int64
 		formatString: #,0
-		lineageTag: cf42d2fa-3408-43ea-a8c0-7d9de0c100c7
+		lineageTag: 1b9d3c82-6717-43ec-b439-3b7c2f1b7c41
 		summarizeBy: none
 		sourceColumn: deliveries_total
 
@@ -121,7 +121,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column deliveries_on_time
 		dataType: int64
 		formatString: #,0
-		lineageTag: 5fc61bd5-aceb-40c2-a880-09cb7abc944e
+		lineageTag: 36b5f780-2ced-4c48-9b16-407629f54c15
 		summarizeBy: none
 		sourceColumn: deliveries_on_time
 
@@ -130,7 +130,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column total_revenue_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 8b98b9b5-5ce6-4096-b527-87cbe0f6773e
+		lineageTag: e930e77d-f450-48a7-be08-4000df471d9d
 		summarizeBy: none
 		sourceColumn: total_revenue_usd
 
@@ -139,7 +139,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column contribution_margin_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 87d3a0a4-aca3-4158-bfc4-710f45fbdde0
+		lineageTag: 10a9e232-eaaa-417e-ab00-4c2e820c9f28
 		summarizeBy: none
 		sourceColumn: contribution_margin_usd
 
@@ -148,7 +148,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column cost_per_meal_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 25062d9a-f954-42a3-8575-be3b7f6c2686
+		lineageTag: fa611a43-71e9-45f9-9c13-64008fb72325
 		summarizeBy: none
 		sourceColumn: cost_per_meal_usd
 
@@ -157,7 +157,7 @@ table AGG_MONTHLY_AIRLINE_PNL
 	column cost_per_flight_usd
 		dataType: double
 		formatString: #,0.00
-		lineageTag: 6f9a271c-646a-4528-8333-757defcbbd45
+		lineageTag: 1e99875e-b7b1-4d79-9b43-2dd5e016f788
 		summarizeBy: none
 		sourceColumn: cost_per_flight_usd
 

@@ -1,10 +1,10 @@
 table CERTIFICATION_LOG
-	lineageTag: 1fff6d99-fdd2-4a98-a651-c288b4ec150b
+	lineageTag: bb9b4dd6-208e-4106-965f-496ccb5a8876
 
 	column certified_at
 		dataType: dateTime
 		formatString: dd mmm yyyy hh:nn
-		lineageTag: be14f0de-f8bc-4917-a306-1b3012121b9d
+		lineageTag: 8b8aa5ef-6e55-4265-9702-db48975a0ddc
 		summarizeBy: none
 		sourceColumn: certified_at
 
@@ -12,7 +12,7 @@ table CERTIFICATION_LOG
 
 	column object_name
 		dataType: string
-		lineageTag: a36abc16-34ce-48f6-b919-c10d106df626
+		lineageTag: dee9a473-c710-4667-a3b0-c9ae70ed76c2
 		summarizeBy: none
 		sourceColumn: object_name
 
@@ -21,7 +21,7 @@ table CERTIFICATION_LOG
 	column row_count
 		dataType: int64
 		formatString: #,0
-		lineageTag: b1fdd433-f0e1-440d-90b3-b7eadce0f745
+		lineageTag: de9b1839-ca33-448a-8eb8-d7bb50a3c097
 		summarizeBy: none
 		sourceColumn: row_count
 
@@ -29,7 +29,7 @@ table CERTIFICATION_LOG
 
 	column content_hash
 		dataType: string
-		lineageTag: 70f8b86c-094e-433e-a5f9-a9ae3fab40ec
+		lineageTag: 411e9320-6b87-4aab-aef3-8a17543e5a29
 		summarizeBy: none
 		sourceColumn: content_hash
 
@@ -37,7 +37,7 @@ table CERTIFICATION_LOG
 
 	column certified_by
 		dataType: string
-		lineageTag: 2c8f8c51-fcd7-4c3c-a72a-95d874dadef5
+		lineageTag: 5bf50352-086f-4386-91a0-79faada222aa
 		summarizeBy: none
 		sourceColumn: certified_by
 
@@ -46,7 +46,7 @@ table CERTIFICATION_LOG
 	column recon_run_id
 		dataType: int64
 		formatString: #,0
-		lineageTag: c7f4ce4c-e910-4759-b83d-9531798de2da
+		lineageTag: b1b91a67-7e7d-41c4-ad99-301f06ef1fdc
 		summarizeBy: none
 		sourceColumn: recon_run_id
 
@@ -54,7 +54,7 @@ table CERTIFICATION_LOG
 
 	column status
 		dataType: string
-		lineageTag: 18a396a3-8d05-4e57-b297-5cad674360f9
+		lineageTag: 9f0895d8-e422-46c7-afe9-04fe06f8ad51
 		summarizeBy: none
 		sourceColumn: status
 

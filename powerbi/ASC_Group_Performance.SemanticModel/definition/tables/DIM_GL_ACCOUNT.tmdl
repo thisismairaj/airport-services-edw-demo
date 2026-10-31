@@ -1,11 +1,11 @@
 table DIM_GL_ACCOUNT
-	lineageTag: e4748892-9718-4527-a1d9-49719c9b3c92
+	lineageTag: 48db5889-1fc2-441b-8af0-e07447494f7a
 
 	column gl_account_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 13efe1e5-e62d-49cc-a87c-5d3be5974ef5
+		lineageTag: ca79b75e-6ca0-43cd-a8e8-c1c343774127
 		summarizeBy: none
 		sourceColumn: gl_account_key
 
@@ -13,7 +13,7 @@ table DIM_GL_ACCOUNT
 
 	column gl_account
 		dataType: string
-		lineageTag: cae036c4-dad6-4b94-a863-f8a3e546db40
+		lineageTag: f332aabc-9b7d-4370-a36e-953783ccd686
 		summarizeBy: none
 		sourceColumn: gl_account
 
@@ -21,7 +21,7 @@ table DIM_GL_ACCOUNT
 
 	column gl_description
 		dataType: string
-		lineageTag: 6a3bd32e-fde6-4d35-863a-e5194d062161
+		lineageTag: 6f1cd864-f67a-4ba0-a35f-8785160aa6a9
 		summarizeBy: none
 		sourceColumn: gl_description
 
@@ -29,7 +29,7 @@ table DIM_GL_ACCOUNT
 
 	column account_class
 		dataType: string
-		lineageTag: 204bcfb5-a2a4-4491-a9d6-2740c0615935
+		lineageTag: 277daaee-3d31-4cee-8350-f822d7478ab1
 		summarizeBy: none
 		sourceColumn: account_class
 
@@ -37,7 +37,7 @@ table DIM_GL_ACCOUNT
 
 	column kpi_group
 		dataType: string
-		lineageTag: e4df01c2-1b86-4ece-9c0a-5259f0e2368c
+		lineageTag: 14dcadf7-4783-4465-aed7-ac3557fb01ff
 		summarizeBy: none
 		sourceColumn: kpi_group
 
@@ -45,7 +45,7 @@ table DIM_GL_ACCOUNT
 
 	column is_ebitda
 		dataType: boolean
-		lineageTag: 8d23f8ba-b7f0-4e94-8cf7-5d964ae4e62b
+		lineageTag: 0e86aebf-0317-4cca-b295-6c11016f23b9
 		summarizeBy: none
 		sourceColumn: is_ebitda
 
@@ -53,7 +53,7 @@ table DIM_GL_ACCOUNT
 
 	column is_intercompany
 		dataType: boolean
-		lineageTag: 7c268ed5-413c-4a9b-a352-3e9a42f3ccee
+		lineageTag: 3df15436-11b4-4ef1-bf48-a70072a301e1
 		summarizeBy: none
 		sourceColumn: is_intercompany
 
@@ -62,7 +62,7 @@ table DIM_GL_ACCOUNT
 	column natural_sign
 		dataType: int64
 		formatString: #,0
-		lineageTag: 03707a96-8cd3-48eb-a9fd-10aabdeb594b
+		lineageTag: 6dcfd92f-53a4-4548-95dd-a8022320bf4a
 		summarizeBy: none
 		sourceColumn: natural_sign
 
@@ -70,7 +70,7 @@ table DIM_GL_ACCOUNT
 
 	column statement_line
 		dataType: string
-		lineageTag: 65957028-1f8a-4594-ada6-86d8232f0769
+		lineageTag: db6fd920-945f-4b64-9055-54759d8256b5
 		summarizeBy: none
 		sourceColumn: statement_line
 

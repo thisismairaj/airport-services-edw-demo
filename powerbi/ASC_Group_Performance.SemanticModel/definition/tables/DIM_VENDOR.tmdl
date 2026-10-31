@@ -1,11 +1,11 @@
 table DIM_VENDOR
-	lineageTag: 7cafbd85-fc7b-456e-9a41-9583dd5c0207
+	lineageTag: 7ba0d906-ea74-4cbe-b1da-6660dead1334
 
 	column vendor_key
 		dataType: int64
 		formatString: 0
 		isHidden
-		lineageTag: 781afcdf-95ca-4b9c-b486-fd7f3c59bb90
+		lineageTag: aec88f3e-65e7-4f61-bf70-8194658e6d0b
 		summarizeBy: none
 		sourceColumn: vendor_key
 
@@ -13,7 +13,7 @@ table DIM_VENDOR
 
 	column golden_vendor_id
 		dataType: string
-		lineageTag: d1b1a420-c3d3-4d81-829e-5d7832469b60
+		lineageTag: 60541b7f-c1e5-4103-93d6-84889c71c279
 		summarizeBy: none
 		sourceColumn: golden_vendor_id
 
@@ -21,7 +21,7 @@ table DIM_VENDOR
 
 	column golden_vendor_name
 		dataType: string
-		lineageTag: c3d6814e-cd6f-4113-8d9a-0f95ba0906ea
+		lineageTag: c8c58d31-2c8e-4fd2-a75b-f277b48d50f3
 		summarizeBy: none
 		sourceColumn: golden_vendor_name
 
@@ -29,7 +29,7 @@ table DIM_VENDOR
 
 	column category
 		dataType: string
-		lineageTag: bbf4c97c-ab58-4a2c-8332-9370e911ebc8
+		lineageTag: 827ab3d6-d47b-4187-804e-aa2aa7245cba
 		summarizeBy: none
 		sourceColumn: category
 
@@ -37,7 +37,7 @@ table DIM_VENDOR
 
 	column default_gl
 		dataType: string
-		lineageTag: 7768c1a8-68c1-487c-bb98-5b44e7dbc055
+		lineageTag: 939df6f4-75ed-48fd-984c-767ab554b0d8
 		summarizeBy: none
 		sourceColumn: default_gl
 
@@ -45,7 +45,7 @@ table DIM_VENDOR
 
 	column cr_number
 		dataType: string
-		lineageTag: 2db275f1-b012-4395-a53e-eec3d0273013
+		lineageTag: 193cde58-4ad0-4efc-b3d3-48d65d8a78d5
 		summarizeBy: none
 		sourceColumn: cr_number
 
@@ -53,7 +53,7 @@ table DIM_VENDOR
 
 	column iban
 		dataType: string
-		lineageTag: 7da529e4-2f19-47dc-8c40-509cf8d152ae
+		lineageTag: 28ddc4a9-c9f1-4702-9246-b234dac23e6e
 		summarizeBy: none
 		sourceColumn: iban
 
@@ -61,7 +61,7 @@ table DIM_VENDOR
 
 	column country
 		dataType: string
-		lineageTag: 56aca5ce-3dd2-4ca4-a07b-4f77b9540945
+		lineageTag: 8c15dbe1-c0f3-431e-ae16-53b57e4e6169
 		summarizeBy: none
 		sourceColumn: country
 
@@ -69,7 +69,7 @@ table DIM_VENDOR
 
 	column payment_terms
 		dataType: string
-		lineageTag: b463e8e1-fcc3-4eb2-b029-ac170d737e66
+		lineageTag: 05192238-c1b1-464c-9e7e-84b6119b6ff1
 		summarizeBy: none
 		sourceColumn: payment_terms
 
@@ -77,7 +77,7 @@ table DIM_VENDOR
 
 	column duplicate_source_ids
 		dataType: string
-		lineageTag: 5c765c66-1854-40b2-b9bb-567a15c44506
+		lineageTag: 0911d70b-5237-4a54-9b93-c092b9135425
 		summarizeBy: none
 		sourceColumn: duplicate_source_ids
 
@@ -85,7 +85,7 @@ table DIM_VENDOR
 
 	column match_rule
 		dataType: string
-		lineageTag: bdb8de1b-8f74-4b94-a4d5-5dbb1bdc9cd9
+		lineageTag: 7dbdbdf1-c214-41c8-b264-43ce0f53bcde
 		summarizeBy: none
 		sourceColumn: match_rule
 
