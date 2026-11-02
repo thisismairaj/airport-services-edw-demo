@@ -6,7 +6,7 @@ a Streamlit app and Cortex Analyst, with reconciliation, data-quality quarantine
 
 All data is synthetic and generated (seed 42): the company, airport, airline (Gulfway Airways), people, vendors and numbers.
 
-![Architecture: ten source systems through Bronze, Silver and Gold to Power BI, Streamlit, Cortex Analyst and an email alert](docs/images/architecture.png)
+![Architecture: ten source systems through Azure Data Lake and Snowflake (Bronze, Silver, Gold, 144 checks) to Power BI, Streamlit, Cortex Analyst and an email alert](docs/images/lead.gif)
 
 ## Why this matters
 
