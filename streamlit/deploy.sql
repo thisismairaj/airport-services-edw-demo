@@ -1,4 +1,4 @@
--- Deploy the old-demo Streamlit app, 'Group executive cockpit - Finance, Operations, People & Governance' (Streamlit in Snowflake).
+-- Deploy the Streamlit app, 'Group executive cockpit - Finance, Operations, People & Governance' (Streamlit in Snowflake).
 -- The app runs as its owner, ROLE_GROUP_EXEC: everyone who opens it sees the group executive's view.
 --
 -- Step 1, once, as an admin: a schema for apps, and the rights the exec role needs to own an app there.
