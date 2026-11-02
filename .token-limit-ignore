@@ -15,3 +15,6 @@ README.md
 # Large Power BI project files:
 _Measures.tmdl
 BaseThemes/
+
+# Built single-page figures (the Colorfigures build inlines its engine); generated, not edited here:
+docs/figures/*.html
